@@ -1,0 +1,535 @@
+{
+	"applicationName": "",
+	"status": "",
+	"lastChangedDate": "",
+	"recommendation": "",
+	"selectedIconTab": "clientTechnology",
+	"audienceGroup": {
+		"selectionOptions": ["businessToCustomer", "businessToEmployee", "businessToBusiness"]
+	},
+	"iconTabs": {
+		"information": [],
+		"clientTechnology": ["web", "hybrid", "native"],
+		"dataSync": ["online", "liteOffline", "offline"],
+		"operationsCenter": ["onPremise", "cloud", "hybridCloud"],
+		"overview": []
+	},
+	"additionalInformation": {
+		"useCase": "",
+		"owner": "",
+		"users": "",
+		"userGeography": {
+			"selectionOptions": ["regional", "local", "global"]
+		},
+		"language": {
+			"selectionOptions": [""]
+		},
+		"devicePlatform": {
+			"selectionOptions": ["iOS", "Android", "Windows", "Blackberry", "Unknown"]
+		},
+		"deviceFormFactor": {
+			"selectionOptions": ["Smartphone", "Tablet", "Laptop"]
+		},
+		"plannedGoLive": "",
+		"plannedEndOfLife": ""
+	},
+	"clientTechnology": {
+		"mobileUsage": {
+			"selectionOptions": {
+				"key": "notSelected",
+				"resultInfluence": ["0", "0", "0"]
+			},
+			"importance": {
+				"key": "medium",
+				"weight": "2"
+			}
+		},
+		"performanceExpectation": {
+			"selectionOptions": {
+				"key": "notSelected",
+				"resultInfluence": ["0", "0", "0"]
+			},
+			"importance": {
+				"key": "medium",
+				"weight": "2"
+			}
+		},
+		"lookAndFeelExpectation": {
+			"selectionOptions": {
+				"key": "notSelected",
+				"resultInfluence": ["0", "0", "0"]
+			},
+			"importance": {
+				"key": "medium",
+				"weight": "2"
+			}
+		},
+		"devicePlatform": {
+			"selectionOptions": {
+				"key": "notSelected",
+				"resultInfluence": ["0", "0", "0"]
+			},
+			"importance": {
+				"key": "medium",
+				"weight": "2"
+			}
+		},
+		"useCaseImportance": {
+			"selectionOptions": {
+				"key": "notSelected",
+				"resultInfluence": ["0", "0", "0"]
+			},
+			"importance": {
+				"key": "medium",
+				"weight": "2"
+			}
+		},
+		"technicalCapabilities": {
+			"selectionOptions": {
+				"key": "notSelected",
+				"resultInfluence": ["0", "0", "0"]
+			},
+			"importance": {
+				"key": "medium",
+				"weight": "2"
+			}
+		},
+		"userProcesses": {
+			"selectionOptions": {
+				"key": "notSelected",
+				"resultInfluence": ["0", "0", "0"]
+			},
+			"importance": {
+				"key": "medium",
+				"weight": "2"
+			}
+		},
+		"processComplexity": {
+			"selectionOptions": {
+				"key": "notSelected",
+				"resultInfluence": ["0", "0", "0"]
+			},
+			"importance": {
+				"key": "medium",
+				"weight": "2"
+			}
+		},
+		"projectBudget": {
+			"selectionOptions": {
+				"key": "notSelected",
+				"resultInfluence": ["0", "0", "0"]
+			},
+			"importance": {
+				"key": "medium",
+				"weight": "2"
+			}
+		},
+		"longTermBudget": {
+			"selectionOptions": {
+				"key": "notSelected",
+				"resultInfluence": ["0", "0", "0"]
+			},
+			"importance": {
+				"key": "medium",
+				"weight": "2"
+			}
+		},
+		"applicationLifetime": {
+			"selectionOptions": {
+				"key": "notSelected",
+				"resultInfluence": ["0", "0", "0"]
+			},
+			"importance": {
+				"key": "medium",
+				"weight": "2"
+			}
+		},
+		"timeToMarket": {
+			"selectionOptions": {
+				"key": "notSelected",
+				"resultInfluence": ["0", "0", "0"]
+			},
+			"importance": {
+				"key": "medium",
+				"weight": "2"
+			}
+		},
+		"security": {
+			"selectionOptions": {
+				"key": "notSelected",
+				"resultInfluence": ["0", "0", "0"]
+			},
+			"importance": {
+				"key": "medium",
+				"weight": "2"
+			}
+		},
+		"appChangeFrequency": {
+			"selectionOptions": {
+				"key": "notSelected",
+				"resultInfluence": ["0", "0", "0"]
+			},
+			"importance": {
+				"key": "medium",
+				"weight": "2"
+			}
+		},
+		"numberOfUsers": {
+			"selectionOptions": {
+				"key": "notSelected",
+				"resultInfluence": ["0", "0", "0"]
+			},
+			"importance": {
+				"key": "medium",
+				"weight": "2"
+			}
+		},
+		"projectCost": {
+			"selectionOptions": {
+				"key": "notSelected",
+				"resultInfluence": ["0", "0", "0"]
+			},
+			"importance": {
+				"key": "medium",
+				"weight": "2"
+			}
+		},
+		"operationsCost": {
+			"selectionOptions": {
+				"key": "notSelected",
+				"resultInfluence": ["0", "0", "0"]
+			},
+			"importance": {
+				"key": "medium",
+				"weight": "2"
+			}
+		},
+		"maintenanceCost": {
+			"selectionOptions": {
+				"key": "notSelected",
+				"resultInfluence": ["0", "0", "0"]
+			},
+			"importance": {
+				"key": "medium",
+				"weight": "2"
+			}
+		},
+		"extendCost": {
+			"selectionOptions": {
+				"key": "notSelected",
+				"resultInfluence": ["0", "0", "0"]
+			},
+			"importance": {
+				"key": "medium",
+				"weight": "2"
+			}
+		}
+	},
+	"dataSync": {
+		"mobileUsage": {
+			"selectionOptions": {
+				"key": "notSelected",
+				"resultInfluence": ["0", "0", "0"]
+			},
+			"importance": {
+				"key": "medium",
+				"weight": "2"
+			}
+		},
+		"offlineDataVolume": {
+			"selectionOptions": {
+				"key": "notSelected",
+				"resultInfluence": ["0", "0", "0"]
+			},
+			"importance": {
+				"key": "medium",
+				"weight": "2"
+			}
+		},
+		"dataTraffic": {
+			"selectionOptions": {
+				"key": "notSelected",
+				"resultInfluence": ["0", "0", "0"]
+			},
+			"importance": {
+				"key": "medium",
+				"weight": "2"
+			}
+		},
+		"dataLifetime": {
+			"selectionOptions": {
+				"key": "notSelected",
+				"resultInfluence": ["0", "0", "0"]
+			},
+			"importance": {
+				"key": "medium",
+				"weight": "2"
+			}
+		},
+		"dataOperations": {
+			"selectionOptions": {
+				"key": "notSelected",
+				"resultInfluence": ["0", "0", "0"]
+			},
+			"importance": {
+				"key": "medium",
+				"weight": "2"
+			}
+		},
+		"numberOfUsers": {
+			"selectionOptions": {
+				"key": "notSelected",
+				"resultInfluence": ["0", "0", "0"]
+			},
+			"importance": {
+				"key": "medium",
+				"weight": "2"
+			}
+		},
+		"localDataSearch": {
+			"selectionOptions": {
+				"key": "notSelected",
+				"resultInfluence": ["0", "0", "0"]
+			},
+			"importance": {
+				"key": "medium",
+				"weight": "2"
+			}
+		},
+		"dataStructure": {
+			"selectionOptions": {
+				"key": "notSelected",
+				"resultInfluence": ["0", "0", "0"]
+			},
+			"importance": {
+				"key": "medium",
+				"weight": "2"
+			}
+		},
+		"security": {
+			"selectionOptions": {
+				"key": "notSelected",
+				"resultInfluence": ["0", "0", "0"]
+			},
+			"importance": {
+				"key": "medium",
+				"weight": "2"
+			}
+		},
+		"useCaseImportance": {
+			"selectionOptions": {
+				"key": "notSelected",
+				"resultInfluence": ["0", "0", "0"]
+			},
+			"importance": {
+				"key": "medium",
+				"weight": "2"
+			}
+		},
+		"userType": {
+			"selectionOptions": {
+				"key": "notSelected",
+				"resultInfluence": ["0", "0", "0"]
+			},
+			"importance": {
+				"key": "medium",
+				"weight": "2"
+			}
+		},
+			"projectCost": {
+			"selectionOptions": {
+				"key": "notSelected",
+				"resultInfluence": ["0", "0", "0"]
+			},
+			"importance": {
+				"key": "medium",
+				"weight": "2"
+			}
+		},
+		"operationsCost": {
+			"selectionOptions": {
+				"key": "notSelected",
+				"resultInfluence": ["0", "0", "0"]
+			},
+			"importance": {
+				"key": "medium",
+				"weight": "2"
+			}
+		},
+		"maintenanceCost": {
+			"selectionOptions": {
+				"key": "notSelected",
+				"resultInfluence": ["0", "0", "0"]
+			},
+			"importance": {
+				"key": "medium",
+				"weight": "2"
+			}
+		},
+		"extendCost": {
+			"selectionOptions": {
+				"key": "notSelected",
+				"resultInfluence": ["0", "0", "0"]
+			},
+			"importance": {
+				"key": "medium",
+				"weight": "2"
+			}
+		}
+	},
+	"operationsCenter": {
+		"existingBackendSystems": {
+			"selectionOptions": {
+				"key": "notSelected",
+				"resultInfluence": ["0", "0", "0"]
+			},
+			"importance": {
+				"key": "medium",
+				"weight": "2"
+			}
+		},
+		"existingMobileMiddleware": {
+			"selectionOptions": {
+				"key": "notSelected",
+				"resultInfluence": ["0", "0", "0"]
+			},
+			"importance": {
+				"key": "medium",
+				"weight": "2"
+			}
+		},
+		"thirdPartyIntegration": {
+			"selectionOptions": {
+				"key": "notSelected",
+				"resultInfluence": ["0", "0", "0"]
+			},
+			"importance": {
+				"key": "medium",
+				"weight": "2"
+			}
+		},
+		"operationsTeam": {
+			"selectionOptions": {
+				"key": "notSelected",
+				"resultInfluence": ["0", "0", "0"]
+			},
+			"importance": {
+				"key": "medium",
+				"weight": "2"
+			}
+		},
+		"appChangeFrequency": {
+			"selectionOptions": {
+				"key": "notSelected",
+				"resultInfluence": ["0", "0", "0"]
+			},
+			"importance": {
+				"key": "medium",
+				"weight": "2"
+			}
+		},
+		"systemAvailability": {
+			"selectionOptions": {
+				"key": "notSelected",
+				"resultInfluence": ["0", "0", "0"]
+			},
+			"importance": {
+				"key": "medium",
+				"weight": "2"
+			}
+		},
+		"possibleExpenditure": {
+			"selectionOptions": {
+				"key": "notSelected",
+				"resultInfluence": ["0", "0", "0"]
+			},
+			"importance": {
+				"key": "medium",
+				"weight": "2"
+			}
+		},
+		"applicationLifetime": {
+			"selectionOptions": {
+				"key": "notSelected",
+				"resultInfluence": ["0", "0", "0"]
+			},
+			"importance": {
+				"key": "medium",
+				"weight": "2"
+			}
+		},
+			"projectCost": {
+			"selectionOptions": {
+				"key": "notSelected",
+				"resultInfluence": ["0", "0", "0"]
+			},
+			"importance": {
+				"key": "medium",
+				"weight": "2"
+			}
+		},
+		"operationsCost": {
+			"selectionOptions": {
+				"key": "notSelected",
+				"resultInfluence": ["0", "0", "0"]
+			},
+			"importance": {
+				"key": "medium",
+				"weight": "2"
+			}
+		},
+		"maintenanceCost": {
+			"selectionOptions": {
+				"key": "notSelected",
+				"resultInfluence": ["0", "0", "0"]
+			},
+			"importance": {
+				"key": "medium",
+				"weight": "2"
+			}
+		},
+		"extendCost": {
+			"selectionOptions": {
+				"key": "notSelected",
+				"resultInfluence": ["0", "0", "0"]
+			},
+			"importance": {
+				"key": "medium",
+				"weight": "2"
+			}
+		}
+	},
+	"selectionProgress": {
+		"clientTechnology": {
+			"selectedFactors": 0,
+			"totalFactors": 0,
+			"status": "",
+			"recommendation": "",
+			"wholeRecommendation": ""
+		},
+		"dataSync": {
+			"selectedFactors": 0,
+			"totalFactors": 0,
+			"status": "",
+			"recommendation": "",
+			"wholeRecommendation": ""
+		},
+		"operationsCenter": {
+			"selectedFactors": 0,
+			"totalFactors": 0,
+			"status": "",
+			"recommendation": "",
+			"wholeRecommendation": ""
+		}
+	},
+	"decisionIndication": {
+		"clientTechnology": [0, 0, 0],
+		"dataSync": [0, 0, 0],
+		"operationsCenter": [0, 0, 0]
+	},
+	"decisionPercentage": {
+		"clientTechnology": [0, 0, 0],
+		"dataSync": [0, 0, 0],
+		"operationsCenter": [0, 0, 0]
+	}
+}

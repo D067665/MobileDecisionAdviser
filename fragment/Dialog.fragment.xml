@@ -1,0 +1,30 @@
+<core:FragmentDefinition
+	xmlns:core="sap.ui.core" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m" 
+	controllerName="M3A.controller.LoadProject"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<ViewSettingsDialog
+		confirm="_handleConfirm">
+		<sortItems>
+			<ViewSettingsItem text="Application Name" key="applicationName" selected="true" />
+			<ViewSettingsItem text="Status" key="status" />
+			<ViewSettingsItem text="Latest Changes" key="lastChangedDate" />
+		</sortItems>
+		<groupItems>
+			<ViewSettingsItem text="Status" key="status" />
+		</groupItems>
+		<filterItems>
+			<ViewSettingsFilterItem
+				text="Status"
+				key="status"
+				multiSelect="false">
+				<items>
+					<ViewSettingsItem text="finished" key="status__EQ__finished" />
+					<ViewSettingsItem text="in Progress" key="status__EQ__in Progress" />
+					<ViewSettingsItem text="not Started" key="status__EQ__not started" />
+				</items>
+			</ViewSettingsFilterItem>
+		</filterItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

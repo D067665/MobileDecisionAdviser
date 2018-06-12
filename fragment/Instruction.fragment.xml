@@ -1,0 +1,20 @@
+<core:FragmentDefinition
+	xmlns:core="sap.ui.core" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:c="sap.ui.commons"
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+	controllerName="M3A.controller.Landing"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Dialog title = "Information">
+    <l:Grid defaultSpan="L12 M12 S12" width="auto">
+    <l:content>
+    		<Text id="inputInstruction" text="Some text" wrapping="true" editable="false"/>	
+    </l:content>
+    </l:Grid>
+    <buttons>
+    <Button text = "CLOSE" press = "_onCloseLandingDialog" type = "Reject"/>
+    </buttons>
+    </Dialog>
+</core:FragmentDefinition>

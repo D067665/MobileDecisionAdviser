@@ -1,0 +1,32 @@
+<mvc:View controllerName="M3A.controller.Landing" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns="sap.m">
+	<App>
+		<pages>
+			<Page title="{i18n>appTitle}" showHeader="true">
+				<content>
+					<FlexBox alignItems="Center" justifyContent="Center">
+						<Title text="{i18n>welcomeText}" titleStyle="H1" class="sapUiLargeMarginTop"></Title>
+					</FlexBox>
+					<FlexBox alignItems="Center" justifyContent="Center">
+						<Title text="{i18n>welcomeHeader}" titleStyle="H2" class="sapUiSmallMargin"></Title>
+					</FlexBox>
+					<FlexBox alignItems="Center" justifyContent="Center">
+						<Text text="{i18n>landingTask}" textAlign="Left"></Text>
+					</FlexBox>
+					<FlexBox alignItems="Center" justifyContent="Center" class="sapUiSmallMargin">
+						<Image src="img/landingimg.jpg" width="60rem" height="35rem" class="sapUiSmallMargin"/>
+					</FlexBox>
+				</content>
+				<footer>
+					<Toolbar>
+						<Label text="{i18n>version}"></Label>
+						<Button text="" icon="sap-icon://hint" press="_onDialogInstructionPress"/>
+						<ToolbarSpacer/>
+						<Button id="buttonNavToLoadProject" text="{i18n>goToLoadProject}" press="_onNavToLoadProject"></Button>
+						<Button id="buttonNavToCreateProject" text="{i18n>createNewProject}" press="_onNavToCreateProject"></Button>
+					</Toolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

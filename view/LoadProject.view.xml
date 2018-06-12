@@ -1,0 +1,73 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="M3A.controller.LoadProject"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="{i18n>appTitle}" id="loadProjectPage" showFooter="true" showNavButton="true" navButtonPress="_onPageNavButtonPress">
+				<content>
+					<Table id="tableLoadProjects" models="savedProjects" growing="true" mode="Delete" delete="_handleDelete" growingThreshold="10"
+						itemPress="_onTableItemPress" items="{savedProjects>/}">
+						<headerToolbar>
+							<Toolbar id="toolbarTableLoadProjects">
+								<content>
+									<Text id="textTableTitle" text="Projects" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+									<ToolbarSpacer id="toolbarSpacer" width=""/>
+									<Button tooltip="View Settings" icon="sap-icon://drop-down-list" press="_handleViewSettingsDialogButtonPressed" />
+								</content>
+							</Toolbar>
+						</headerToolbar>
+						<infoToolbar>
+							<Toolbar
+								id="vsdFilterBar"
+								active="true"
+								visible="false"
+								press="[_handleViewSettingsDialogFilterBarPressed, views.control.tableViewSettingsDialog]">
+								<Label id="vsdFilterLabel" text="?" />
+							</Toolbar>
+						</infoToolbar>
+						<columns>
+							<Column id="columnAppName" width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+								mergeDuplicates="false">
+								<header>
+									<Text id="textColumnTitleAppName" text="{i18n>applicationName}" width="auto" maxLines="1" wrapping="false" textAlign="Begin"
+										textDirection="Inherit"/>
+								</header>
+								<footer/>
+							</Column>
+							<Column id="columnStatus" width="auto" hAlign="Center" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+								mergeDuplicates="false">
+								<header>
+									<Text id="textColumnTitleStatus" text="{i18n>status}" width="auto" maxLines="1" wrapping="false" textAlign="Center" textDirection="Inherit"/>
+								</header>
+								<footer/>
+							</Column>
+							<Column id="columnLastChangedDate" width="auto" hAlign="Center" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+								mergeDuplicates="false">
+								<header>
+									<Text id="textColumnTitleLastChangedDate" text="{i18n>lastChanged}" width="auto" maxLines="1" wrapping="false" textAlign="Center"
+										textDirection="Inherit"/>
+								</header>
+								<footer/>
+							</Column>
+						</columns>
+						<items>
+						<ColumnListItem type="Navigation">
+							<cells>
+								<ObjectIdentifier title="{savedProjects>applicationName}" text="{path:'savedProjects>recommendation'}" titleActive="false" visible="true"/>
+								<Text text="{path:'savedProjects>status', formatter: '.formatter.translate'}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+								<Text text="{path:'savedProjects>lastChangedDate', type: 'sap.ui.model.type.DateTime', formatOptions: { style: 'medium' } }"/>
+							</cells>
+						</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+				<footer>
+					<Toolbar>
+						<Label text="{i18n>version}"></Label>
+						<ToolbarSpacer/>
+						<Button id="buttonNavToCreateProject" text="{i18n>createNewProject}" press="_onNavToCreateProject"></Button>
+					</Toolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

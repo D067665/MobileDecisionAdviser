@@ -1,0 +1,103 @@
+{
+    "resources": [
+        {
+            "name": "view/App.view.xml"
+        },
+        {
+            "name": "view/LoadProject.view.xml"
+        },
+        {
+            "name": "view/Landing.view.xml"
+        },
+        {
+            "name": "view/CreateProject.view.xml"
+        },
+        {
+            "name": "i18n/i18n_en.properties",
+            "raw": "i18n/i18n.properties"
+        },
+        {
+            "name": "i18n/i18n_de.properties",
+            "raw": "i18n/i18n.properties"
+        },
+        {
+            "name": "i18n/i18n_en_US.properties",
+            "raw": "i18n/i18n.properties"
+        },
+        {
+            "name": "i18n/i18n.properties",
+            "raw": "i18n/i18n.properties"
+        },
+        {
+            "name": "model/models.js"
+        },
+        {
+            "name": "model/formatter.js"
+        },
+        {
+            "name": "model/newProject.json"
+        },
+        {
+            "name": "neo-app.json"
+        },
+        {
+            "name": ".project.json"
+        },
+        {
+            "name": "Component-preload.js",
+            "merged": true
+        },
+        {
+            "name": "manifest.json"
+        },
+        {
+            "name": "util/storage.js"
+        },
+        {
+            "name": "README.md"
+        },
+        {
+            "name": "index.html"
+        },
+        {
+            "name": "resources.json",
+            "merged": true
+        },
+        {
+            "name": "fragment/Dialog.fragment.xml"
+        },
+        {
+            "name": "Component.js"
+        },
+        {
+            "name": "extended_runnable_file.html"
+        },
+        {
+            "name": ".user.project.json"
+        },
+        {
+            "name": "img/landingimg.jpg"
+        },
+        {
+            "name": "controller/CreateProject.controller.js"
+        },
+        {
+            "name": "controller/BaseController.js"
+        },
+        {
+            "name": "controller/Landing.controller.js"
+        },
+        {
+            "name": "controller/App.controller.js"
+        },
+        {
+            "name": "controller/LoadProject.controller.js"
+        },
+        {
+            "name": "fragment/Information.fragment.xml"
+        },
+        {
+            "name": "fragment/Instruction.fragment.xml"
+        }
+    ]
+}
