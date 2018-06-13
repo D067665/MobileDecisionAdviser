@@ -130,6 +130,104 @@ sap.ui.define([
 									});
 								});
 								},
+			_onPressChangeMode: function(oEvent){
+				//var itemBindingPath = oEvent.getSource().getBindingContext("factorCatalog").getPath();
+			    //var factorCatalogModel = this._getFactorCatalogModel();
+			    //var factorPath = itemBindingPath.split("/", 3);
+			    //var category = factorPath[1];
+			    var oSource = oEvent.getSource();
+			    var oIcon = oSource.getIcon();
+			    var sId = oSource.getId();
+				//var oButton = this.getView().byId("changeModeButton");
+				if(oIcon ==="sap-icon://display"){
+					oSource.setIcon("sap-icon://edit");
+					
+					if(sId.indexOf("changeModeButtonCT") > -1){ 
+						this.getView().byId("tableClientTechnologyFactors").getItems().forEach(function(item) {
+							item.getCells().forEach(function(cell) {
+								if (cell.getId().indexOf("selectClientTechnology") > -1 ) {
+												cell.setEnabled(false);
+												}
+								if(cell.getId().indexOf("segmentedButtonClientTechnology") > -1) {
+									cell.setEnabled(false);
+								}
+										});
+								});
+						
+					
+				}else if(sId.indexOf("changeModeButtonDS") > -1){
+					this.getView().byId("tableClientDataSynchronization").getItems().forEach(function(item) {
+							item.getCells().forEach(function(cell) {
+								if (cell.getId().indexOf("selectDataSync") > -1 ) {
+												cell.setEnabled(false);
+												}
+								if(cell.getId().indexOf("segmentedButtonDataSync") > -1) {
+									cell.setEnabled(false);
+								}
+										});
+								});
+					
+				}else if(sId.indexOf("changeModeButtonOC") > -1){
+					
+						this.getView().byId("tableClientOperationsCenter").getItems().forEach(function(item) {
+							item.getCells().forEach(function(cell) {
+								if (cell.getId().indexOf("selectOperationsCenter") > -1 ) {
+												cell.setEnabled(false);
+												}
+								if(cell.getId().indexOf("segmentedButtonOperationsCenter") > -1) {
+									cell.setEnabled(false);
+								}
+										});
+								});
+				}
+				} 
+					
+				else {
+					oSource.setIcon("sap-icon://display");
+				  if(sId.indexOf("changeModeButtonCT") > -1){ 
+						this.getView().byId("tableClientTechnologyFactors").getItems().forEach(function(item) {
+							item.getCells().forEach(function(cell) {
+								if (cell.getId().indexOf("selectClientTechnology") > -1 ) {
+												cell.setEnabled(true);
+												}
+								if(cell.getId().indexOf("segmentedButtonClientTechnology") > -1) {
+									cell.setEnabled(true);
+								}
+										});
+								});
+						
+					
+			    	}else if(sId.indexOf("changeModeButtonDS") > -1){
+					this.getView().byId("tableClientDataSynchronization").getItems().forEach(function(item) {
+							item.getCells().forEach(function(cell) {
+								if (cell.getId().indexOf("selectDataSync") > -1 ) {
+												cell.setEnabled(true);
+												}
+								if(cell.getId().indexOf("segmentedButtonDataSync") > -1) {
+									cell.setEnabled(true);
+								}
+										});
+								});
+					
+				  }else if(sId.indexOf("changeModeButtonOC") > -1){
+					
+						this.getView().byId("tableClientOperationsCenter").getItems().forEach(function(item) {
+							item.getCells().forEach(function(cell) {
+								if (cell.getId().indexOf("selectOperationsCenter") > -1 ) {
+												cell.setEnabled(true);
+												}
+								if(cell.getId().indexOf("segmentedButtonOperationsCenter") > -1) {
+									cell.setEnabled(true);
+								}
+										});
+								});
+				}
+					
+				
+				
+				}	
+				
+			},
 		
 			_onFooterResetButtonPress: function(oEvent){
 		var aClientTechnology = [
