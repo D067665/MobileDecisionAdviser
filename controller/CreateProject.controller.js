@@ -89,6 +89,7 @@ sap.ui.define([
 			iconTabBar.setSelectedKey(items[items.indexOf(currentItem) + 2].getKey());
 		},
 			_onchangeBackgroundTechnologyFactors:function() {
+				//to change background color of select, even for the dependencies(not selected by user)
 					this.getView().byId("tableClientTechnologyFactors").getItems().forEach(function(item) {
 							item.getCells().forEach(function(cell) {
 							
@@ -96,7 +97,8 @@ sap.ui.define([
 												var sSelectedKey = cell.getSelectedKey();
 												if(sSelectedKey !== "notSelected"){
 											cell.addStyleClass("changeBackground");
-												}
+												}else{
+												cell.removeStyleClass("changeBackground");}
 										}
 
 									});
@@ -110,7 +112,8 @@ sap.ui.define([
 												var sSelectedKey = cell.getSelectedKey();
 												if(sSelectedKey !== "notSelected"){
 											cell.addStyleClass("changeBackground");
-												}
+												}else{
+												cell.removeStyleClass("changeBackground");}
 										}
 
 									});
@@ -124,7 +127,8 @@ sap.ui.define([
 												var sSelectedKey = cell.getSelectedKey();
 												if(sSelectedKey !== "notSelected"){
 											cell.addStyleClass("changeBackground");
-												}
+												}else{
+												cell.removeStyleClass("changeBackground");}
 										}
 
 									});
@@ -142,7 +146,22 @@ sap.ui.define([
 				if(oIcon ==="sap-icon://display"){
 					oSource.setIcon("sap-icon://edit");
 					
-					if(sId.indexOf("changeModeButtonCT") > -1){ 
+					if(sId.indexOf("changeModeButtonAI") > -1){
+						
+						var aElements = document.getElementsByTagName("input");
+						for(var i=0 ; i<aElements.length; i++){
+							jQuery(aElements).control()[i].setEditable(false);
+							
+						}
+						this.getView().byId("formAdditionalInformation");
+						this.getView().byId("form2");
+						this.getView().byId("audienceGroup").setEnabled(false);
+						//if(this.getView().byId().indexOf("audienceGroup") > -1){
+							
+						//}
+					}
+
+					 else if(sId.indexOf("changeModeButtonCT") > -1){ 
 						this.getView().byId("tableClientTechnologyFactors").getItems().forEach(function(item) {
 							item.getCells().forEach(function(cell) {
 								if (cell.getId().indexOf("selectClientTechnology") > -1 ) {
@@ -184,7 +203,18 @@ sap.ui.define([
 					
 				else {
 					oSource.setIcon("sap-icon://display");
-				  if(sId.indexOf("changeModeButtonCT") > -1){ 
+				if(sId.indexOf("changeModeButtonAI") > -1){
+						
+						var aElementsEdit = document.getElementsByTagName("input");
+						for(var j=0 ; j<aElementsEdit.length; j++){
+							jQuery(aElementsEdit).control()[j].setEditable();
+							
+						}
+						this.getView().byId("formAdditionalInformation");
+						this.getView().byId("form2");
+						this.getView().byId("audienceGroup").setEnabled(true);
+					}
+				  else if(sId.indexOf("changeModeButtonCT") > -1){ 
 						this.getView().byId("tableClientTechnologyFactors").getItems().forEach(function(item) {
 							item.getCells().forEach(function(cell) {
 								if (cell.getId().indexOf("selectClientTechnology") > -1 ) {
