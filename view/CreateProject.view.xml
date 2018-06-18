@@ -59,9 +59,9 @@
 											<Input value="{savedProjects>additionalInformation/plannedGoLive}" change="_onSelectionChange"/>
 											<Label text="{i18n>plannedEndOfLife}"/>
 											<Input value="{savedProjects>additionalInformation/plannedEndOfLife}" change="_onSelectionChange"/>
-										<form:customData>
-										    <core:CustomData key="w5g.dt.editable" value="false" id="__data39"/>
-										</form:customData>
+											<form:customData>
+												<core:CustomData key="w5g.dt.editable" value="false" id="__data39"/>
+											</form:customData>
 										</form:SimpleForm>
 									</ScrollContainer>
 								</content>
@@ -74,6 +74,7 @@
 											<Title id="titleClientTechnology" text="{i18n>clientTechnologyLong}" titleStyle="H1" class="sapUiSmallMargin"/>
 											<HBox alignItems="Center">
 												<Label text="({savedProjects>selectionProgress/clientTechnology/selectedFactors}/{savedProjects&gt;selectionProgress/clientTechnology/totalFactors})" class="sapUiSmallMargin" design="Bold" textAlign="Right"/>
+												<Button id="exportPDFButton" icon="sap-icon://download" press="_onDataExportPDF" ariaDescribedBy="defaultButtonDescription genericButtonDescription" class="addSpaceBetweenButtons"/>
 												<Button id="changeModeButtonCT" icon="sap-icon://display" press="_onPressChangeMode" ariaDescribedBy="defaultButtonDescription genericButtonDescription">
 													<layoutData>
 														<FlexItemData growFactor="1"/>
@@ -241,7 +242,15 @@
 							<IconTabFilter icon="sap-icon://pie-chart" iconColor="Default" design="Horizontal" text="{i18n>overview}" key="overview" class="sapUiSmallMargin">
 								<content>
 									<ScrollContainer height="100%" width="100%" horizontal="false" vertical="true">
-										<Title text="{i18n>overview}: {path: 'savedProjects>applicationName'}" titleStyle="H1" class="sapUiSmallMargin"/>
+										<HBox alignItems="Center">
+											<Title text="{i18n>overview}: {path: 'savedProjects>applicationName'}" titleStyle="H1" class="sapUiSmallMargin"/>
+												
+												<Button id="exportPDFButton2" icon="sap-icon://download" press="_onDataExportPDF"
+													ariaDescribedBy="defaultButtonDescription genericButtonDescription" class="addSpaceBetweenButtons"/>
+											
+												<!--progress indicator-->
+											</HBox>
+										
 										<layout:Grid defaultSpan="L3 M4 S6" class="sapUiSmallMarginTop">
 											<layout:content>
 												<StandardListItem type="Navigation" press="_onOverviewToClientTechnologyPress" title="{i18n>clientTechnology} ({savedProjects>selectionProgress/clientTechnology/selectedFactors}/{savedProjects&gt;selectionProgress/clientTechnology/totalFactors}) {path: 'savedProjects>selectionProgress/clientTechnology/wholeRecommendation', formatter: '.formatter.translate'} " icon="sap-icon://technical-object" class="sapThemeBrand-asBorderColor">
@@ -249,6 +258,7 @@
 														<layout:GridData span="L12 M12 S12"/>
 													</layoutData>
 												</StandardListItem>
+												<Table 	id="tableOverview"> 
 												<CustomListItem>
 													<FlexBox alignItems="Center" justifyContent="SpaceBetween" direction="Column">
 														<!--Chart + Label-->
@@ -349,6 +359,7 @@
 														<Label text="{path: 'savedProjects>iconTabs/operationsCenter/1', formatter: '.formatter.translate'}"/>
 													</FlexBox>
 												</CustomListItem>
+												</Table>
 											</layout:content>
 										</layout:Grid>
 									</ScrollContainer>
@@ -382,15 +393,15 @@
 								<layoutData>
 									<FlexItemData maxHeight="3.125rem"/>
 								</layoutData>
-								<micro:RadialMicroChart total="100" percentage="{path: 'savedProjects>decisionPercentage/dataSync/0'}" visible="{= ${savedProjects>decisionIndication/dataSync/} !== 0}"/>
+								<micro:RadialMicroChart id="RmsDs1" total="100" percentage="{path: 'savedProjects>decisionPercentage/dataSync/0'}" visible="{= ${savedProjects>decisionIndication/dataSync/} !== 0}"/>
 							</FlexBox>
 							<Title width="7rem" textAlign="Center" text="{path: 'savedProjects>iconTabs/dataSync/1', formatter: '.formatter.translate'} : " level="H1" visible="{= ${savedProjects>decisionIndication/dataSync/} !== 0}"/>
 							<FlexBox height="3.125rem" width="3.125rem">
-								<micro:RadialMicroChart total="100" percentage="{path: 'savedProjects>decisionPercentage/dataSync/1'}" visible="{= ${savedProjects>decisionIndication/dataSync/} !== 0}"/>
+								<micro:RadialMicroChart id="RmsDs2" total="100" percentage="{path: 'savedProjects>decisionPercentage/dataSync/1'}" visible="{= ${savedProjects>decisionIndication/dataSync/} !== 0}"/>
 							</FlexBox>
 							<Title width="7rem" textAlign="Center" text="{path: 'savedProjects>iconTabs/dataSync/2', formatter: '.formatter.translate'} : " level="H1" visible="{= ${savedProjects>decisionIndication/dataSync/} !== 0}"/>
 							<FlexBox height="3.125rem" width="3.125rem">
-								<micro:RadialMicroChart total="100" percentage="{path: 'savedProjects>decisionPercentage/dataSync/2'}" visible="{= ${savedProjects>decisionIndication/dataSync/} !== 0}"/>
+								<micro:RadialMicroChart id="RmsDs3" total="100" percentage="{path: 'savedProjects>decisionPercentage/dataSync/2'}" visible="{= ${savedProjects>decisionIndication/dataSync/} !== 0}"/>
 							</FlexBox>
 						</FlexBox>
 						<FlexBox visible="{= ${savedProjects>selectedIconTab} ==='operationsCenter'}" alignItems="Center">

@@ -9,3 +9,7 @@
 .removeBackground {
 	background-color: #FFFFFF;
 }
+
+.addSpaceBetweenButtons {
+	margin-right: 10px;
+}

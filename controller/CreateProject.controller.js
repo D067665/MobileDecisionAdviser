@@ -9,6 +9,7 @@ sap.ui.define([
 	"M3A/util/storage",
 	"M3A/model/models",
 	"sap/ui/core/Fragment"
+	
 ], function(MessageBox, MessageToast, Dialog, Button, Text, BaseController, formatter, storage, models) {
 	"use strict";
 	return BaseController.extend("M3A.controller.CreateProject", {
@@ -258,6 +259,90 @@ sap.ui.define([
 				}	
 				
 			},
+			_onDataExportPDF: function(oEvent){
+			   //var jsPDF = require('jsPDF.js');
+			  //var doc = new jsPDF("p","pt","a4", true);
+			  /*var doc = new jsPDF('p', 'pt');
+             var elem = document.getElementsByTagName("table");
+             var res = doc.autoTableHtmlToJson(elem);
+            doc.autoTable(res.columns, res.data);
+            doc.save("table.pdf");*/
+
+          var pdf = new jsPDF('p','pt','letter');
+           //source = $('#tableClientTechnologyFactors')[0];
+          
+         /*var source = $("table")[0];
+         var margins = {
+                top: 80,
+                bottom: 60,
+                left: 40,
+                width: 522
+            };
+        var specialElementHandlers = {
+        	'#hidediv': function(element,render){return true;}
+        };
+        pdf.fromHTML(
+        source,
+       20,20, {'width': 500,
+       	'elementHandlers' : specialElementHandlers
+       });
+       
+       
+          
+        //pdf.text(30, 30, 'Hello world!');
+        pdf.save('hello_world.pdf');*/
+        
+        
+        
+        //var fnSuccess = function(oData, oResponse) {  
+      
+         var columns = ["Factor","Selection","Importance"];
+         var oModel= this.getView().getModel("factorCatalog");
+         var savedProjectsModel = this._getSavedProjectsModel(); 
+         var aDecInd= oModel.getProperty("/decisionIndication");
+         
+
+         
+         var aPropertyCT = oModel.getProperty("/clientTechnology");
+         var aPropertyDS = oModel.getProperty("/dataSync");
+          var aPropertyOC = oModel.getProperty("/operationsCenter");
+         var aDataCT = [];
+         for(var i= 0; i < aPropertyCT.length ; i++){
+         	aDataCT[i] =[aPropertyCT[i].factor, aPropertyCT[i].currentSelection, aPropertyCT[i].currentWeight];
+              }
+        var aDataDS = [];
+        for(var j= 0; j < aPropertyDS.length; j++){
+        		aDataDS[j] =[aPropertyDS[j].factor, aPropertyDS[j].currentSelection, aPropertyDS[j].currentWeight];
+        	
+        }
+        var aDataOC = [];
+        for(var l= 0; l < aPropertyOC.length; l++){
+        		aDataOC[l] =[aPropertyOC[l].factor, aPropertyOC[l].currentSelection, aPropertyOC[l].currentWeight];
+        	
+        }
+        
+        
+
+         
+       var doc = new jsPDF('p', 'pt'); 
+       doc.text(20,20,'Client Technology');
+      doc.autoTable(columns, aDataCT); 
+      doc.addPage();
+       doc.text(20,20,'Data Synchronization');
+      doc.autoTable(columns, aDataDS);
+      doc.addPage();
+       doc.text(20,20,'Backend');
+      doc.autoTable(columns, aDataOC);
+            doc.save("DemoData.pdf");
+      
+           /* var fnFail = function() {  
+            };  
+            sap.ui.getCore().getModel().read('/DemoSet',  
+                null, null, true, fnSuccess, fnFail);  */
+      
+            
+        
+        },
 		
 			_onFooterResetButtonPress: function(oEvent){
 		var aClientTechnology = [
@@ -357,6 +442,8 @@ sap.ui.define([
 						} else if (sKey === "clientTechnology") {
 							oModel.setProperty("/clientTechnology", aClientTechnology);
 							this._updateSelectionProgress(sKey);
+							this._updateResults(sKey);
+							
 							
 			              this.getView().byId("tableClientTechnologyFactors").getItems().forEach(function(item){
 			              	item.getCells().forEach(function(cell){
@@ -372,6 +459,8 @@ sap.ui.define([
 						} else if (sKey === "dataSync") {
 							oModel.setProperty("/dataSync", aDataSync);
 							this._updateSelectionProgress(sKey);
+							this._updateResults(sKey);
+							
 							this.getView().byId("tableClientDataSynchronization").getItems().forEach(function(item){
 			              	item.getCells().forEach(function(cell){
 			              	if(cell.getId().indexOf("selectDataSync") >-1) {
@@ -379,9 +468,13 @@ sap.ui.define([
 			              	}
 			              	});
 			              } );
+			              this.getView().byId("RmsDs1").percentage = "0";
+			              this.getView().byId("RmsDs2").percentage = "0";
+			              this.getView().byId("RmsDs3").percentage = "0";
 						} else if (sKey === "operationsCenter") {
 							oModel.setProperty("/operationsCenter", aOperationsCenter);
 							this._updateSelectionProgress(sKey);
+							this._updateResults(sKey);
 							this.getView().byId("tableClientOperationsCenter").getItems().forEach(function(item){
 			              	item.getCells().forEach(function(cell){
 			              	if(cell.getId().indexOf("selectOperationsCenter") >-1) {

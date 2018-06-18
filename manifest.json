@@ -65,9 +65,18 @@
         "resources": {
             "css": [{
             	"uri": "css/style.css"
-            	
-            }]
+			}],
+			"js": [{
+				"uri": "js/jspdf.min.js"
+			},
+			{
+				"uri": "js/jspdf.plugin.autotable.min.js"
+				
+			}
+			 ]
+		
         },
+        
         "routing": {
             "config": {
                 "routerClass": "sap.m.routing.Router",
