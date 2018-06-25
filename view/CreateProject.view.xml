@@ -5,7 +5,7 @@
 				<content>
 					<IconTabBar expanded="true" id="idIconTabBar" selectedKey="{savedProjects>selectedIconTab}" select="handleIconTabBarSelect" stretchContentHeight="true" class="sapUiResponsiveContentPadding" expandable="false" width="auto">
 						<items>
-							<IconTabFilter icon="sap-icon://begin" width="auto" iconColor="Default" design="Horizontal" text="{i18n>application}" key="information">
+							<IconTabFilter id= "IconTabFilter1" icon="sap-icon://begin" width="auto" iconColor="Default" design="Horizontal" text="{i18n>application}" key="information">
 								<content>
 									<ScrollContainer id="formAdditionalInformation" height="100%" width="100%" horizontal="false" vertical="true">
 										<HBox width="auto" alignItems="Center" justifyContent="SpaceBetween">
@@ -66,15 +66,16 @@
 									</ScrollContainer>
 								</content>
 							</IconTabFilter>
+							
 							<IconTabSeparator icon="sap-icon://open-command-field"/>
 							<IconTabFilter icon="sap-icon://technical-object" iconColor="Default" design="Horizontal" key="clientTechnology" text="{i18n>clientTechnology}">
 								<content>
-									<ScrollContainer height="100%" width="auto" horizontal="false" vertical="true">
+									<ScrollContainer id="ScrollContainerCT" height="100%" width="auto" horizontal="false" vertical="true">
 										<HBox width="auto" alignItems="Center" justifyContent="SpaceBetween">
 											<Title id="titleClientTechnology" text="{i18n>clientTechnologyLong}" titleStyle="H1" class="sapUiSmallMargin"/>
 											<HBox alignItems="Center">
 												<Label text="({savedProjects>selectionProgress/clientTechnology/selectedFactors}/{savedProjects&gt;selectionProgress/clientTechnology/totalFactors})" class="sapUiSmallMargin" design="Bold" textAlign="Right"/>
-												<Button id="exportPDFButton" icon="sap-icon://download" press="_onDataExportPDF" ariaDescribedBy="defaultButtonDescription genericButtonDescription" class="addSpaceBetweenButtons"/>
+												
 												<Button id="changeModeButtonCT" icon="sap-icon://display" press="_onPressChangeMode" ariaDescribedBy="defaultButtonDescription genericButtonDescription">
 													<layoutData>
 														<FlexItemData growFactor="1"/>
@@ -83,6 +84,7 @@
 												<!--progress indicator-->
 											</HBox>
 										</HBox>
+									
 										<Table id="tableClientTechnologyFactors" items="{factorCatalog>/clientTechnology}" width="auto">
 											<columns>
 												<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
@@ -121,6 +123,7 @@
 												</cells>
 											</ColumnListItem>
 										</Table>
+										
 									</ScrollContainer>
 								</content>
 							</IconTabFilter>
@@ -245,7 +248,7 @@
 										<HBox alignItems="Center">
 											<Title text="{i18n>overview}: {path: 'savedProjects>applicationName'}" titleStyle="H1" class="sapUiSmallMargin"/>
 												
-												<Button id="exportPDFButton2" icon="sap-icon://download" press="_onDataExportPDF"
+												<Button id="exportPDFButton2" icon="sap-icon://download" press="_onPressNavPrint"
 													ariaDescribedBy="defaultButtonDescription genericButtonDescription" class="addSpaceBetweenButtons"/>
 											
 												<!--progress indicator-->
@@ -258,7 +261,6 @@
 														<layout:GridData span="L12 M12 S12"/>
 													</layoutData>
 												</StandardListItem>
-												<Table 	id="tableOverview"> 
 												<CustomListItem>
 													<FlexBox alignItems="Center" justifyContent="SpaceBetween" direction="Column">
 														<!--Chart + Label-->
@@ -359,7 +361,6 @@
 														<Label text="{path: 'savedProjects>iconTabs/operationsCenter/1', formatter: '.formatter.translate'}"/>
 													</FlexBox>
 												</CustomListItem>
-												</Table>
 											</layout:content>
 										</layout:Grid>
 									</ScrollContainer>

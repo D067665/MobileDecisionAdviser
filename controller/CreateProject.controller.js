@@ -89,6 +89,19 @@ sap.ui.define([
 
 			iconTabBar.setSelectedKey(items[items.indexOf(currentItem) + 2].getKey());
 		},
+		 _onPressNavPrint: function(oEvent){
+        	var path = this.getView().getBindingContext("savedProjects").getPath().slice(1);
+        
+        	//this._loadSavedValues();
+        	var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+        	
+        	oRouter.navTo("printProject",{ 
+        		index: path
+        	});
+        	
+        	
+        	//this._onPageNavButtonPress();
+		 },
 			_onchangeBackgroundTechnologyFactors:function() {
 				//to change background color of select, even for the dependencies(not selected by user)
 					this.getView().byId("tableClientTechnologyFactors").getItems().forEach(function(item) {
@@ -260,88 +273,20 @@ sap.ui.define([
 				
 			},
 			_onDataExportPDF: function(oEvent){
-			   //var jsPDF = require('jsPDF.js');
-			  //var doc = new jsPDF("p","pt","a4", true);
-			  /*var doc = new jsPDF('p', 'pt');
-             var elem = document.getElementsByTagName("table");
-             var res = doc.autoTableHtmlToJson(elem);
-            doc.autoTable(res.columns, res.data);
-            doc.save("table.pdf");*/
-
-          var pdf = new jsPDF('p','pt','letter');
-           //source = $('#tableClientTechnologyFactors')[0];
-          
-         /*var source = $("table")[0];
-         var margins = {
-                top: 80,
-                bottom: 60,
-                left: 40,
-                width: 522
-            };
-        var specialElementHandlers = {
-        	'#hidediv': function(element,render){return true;}
-        };
-        pdf.fromHTML(
-        source,
-       20,20, {'width': 500,
-       	'elementHandlers' : specialElementHandlers
-       });
+		
+       this._onPressNavPrint();
+       var element = document.getElementById("printProjectPage");
        
-       
-          
-        //pdf.text(30, 30, 'Hello world!');
-        pdf.save('hello_world.pdf');*/
-        
-        
-        
-        //var fnSuccess = function(oData, oResponse) {  
-      
-         var columns = ["Factor","Selection","Importance"];
-         var oModel= this.getView().getModel("factorCatalog");
-         var savedProjectsModel = this._getSavedProjectsModel(); 
-         var aDecInd= oModel.getProperty("/decisionIndication");
-         
 
-         
-         var aPropertyCT = oModel.getProperty("/clientTechnology");
-         var aPropertyDS = oModel.getProperty("/dataSync");
-          var aPropertyOC = oModel.getProperty("/operationsCenter");
-         var aDataCT = [];
-         for(var i= 0; i < aPropertyCT.length ; i++){
-         	aDataCT[i] =[aPropertyCT[i].factor, aPropertyCT[i].currentSelection, aPropertyCT[i].currentWeight];
-              }
-        var aDataDS = [];
-        for(var j= 0; j < aPropertyDS.length; j++){
-        		aDataDS[j] =[aPropertyDS[j].factor, aPropertyDS[j].currentSelection, aPropertyDS[j].currentWeight];
-        	
-        }
-        var aDataOC = [];
-        for(var l= 0; l < aPropertyOC.length; l++){
-        		aDataOC[l] =[aPropertyOC[l].factor, aPropertyOC[l].currentSelection, aPropertyOC[l].currentWeight];
-        	
-        }
-        
-        
 
-         
-       var doc = new jsPDF('p', 'pt'); 
-       doc.text(20,20,'Client Technology');
-      doc.autoTable(columns, aDataCT); 
-      doc.addPage();
-       doc.text(20,20,'Data Synchronization');
-      doc.autoTable(columns, aDataDS);
-      doc.addPage();
-       doc.text(20,20,'Backend');
-      doc.autoTable(columns, aDataOC);
-            doc.save("DemoData.pdf");
-      
-           /* var fnFail = function() {  
-            };  
-            sap.ui.getCore().getModel().read('/DemoSet',  
-                null, null, true, fnSuccess, fnFail);  */
-      
+       html2pdf(element);
             
         
+      
+       
+        
+        	
+        	
         },
 		
 			_onFooterResetButtonPress: function(oEvent){
@@ -604,7 +549,8 @@ sap.ui.define([
 			});
 			this._loadSavedValues("/" + oArgs.projectIndex);
 			this.getView().getModel("savedProjects").setProperty("/" + oArgs.projectIndex + "/selectedIconTab", "information");
-		},
+			
+			},
 		_onBindingChange: function(oEvent) {
 			// No data for the binding
 			if (!this.getView().getModel("savedProjects").getProperty(this.getView().getBindingContext("savedProjects").getPath())) {

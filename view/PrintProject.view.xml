@@ -1,0 +1,966 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:micro="sap.suite.ui.microchart"
+	xmlns:form="sap.ui.layout.form" xmlns:layout="sap.ui.layout" xmlns:html="http://www.w3.org/1999/xhtml"
+	controllerName="M3A.controller.PrintProject">
+	<App>
+		<pages>
+			<Page title="{i18n>appTitle}" id="printProjectPage" showHeader="true" showFooter="true" showNavButton="false" width="auto"
+				class="sapUiResponsiveContentPadding">
+				<content>
+					<HBox id="printTitle">
+						<Title text="{i18n>applicationName}: {savedProjects>applicationName}" titleStyle="H2" class="sapUiSmallMargin"/>
+					</HBox>
+					<HBox width="auto" alignItems="Center" justifyContent="SpaceBetween">
+						<!--Überschrift Client Technology-->
+						<Title id="titleClientTechnology" text="{i18n>clientTechnologyLong}" titleStyle="H1" class="sapUiSmallMargin"/>
+						<HBox alignItems="Center">
+							<Label
+								text="({savedProjects>selectionProgress/clientTechnology/selectedFactors}/{savedProjects&gt;selectionProgress/clientTechnology/totalFactors})"
+								class="sapUiSmallMargin" design="Bold" textAlign="Right"/>
+						</HBox>
+					</HBox>
+					<!--Tabelle für client technologies-->
+					<Table id="tableClientTechnologyFactors" width="auto" class="sapUiSmallMargin">
+						<columns>
+							<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+								<header>
+									<Text text="{i18n>factor}" width="auto" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+								</header>
+								<footer/>
+							</Column>
+							<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+								<header>
+									<Text text="{i18n>selection}" width="auto" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+								</header>
+								<footer/>
+							</Column>
+							<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+								<header>
+									<Text text="{i18n>importance}" width="auto" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+								</header>
+								<footer/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<HBox width="auto" justifyContent="SpaceBetween">
+										<ObjectIdentifier title="{path: 'factorCatalog>/clientTechnology/0/factor', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/clientTechnology/0/currentSelection', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/clientTechnology/0/currentWeight', formatter: '.formatter.translate'}"/>
+									</HBox>
+								</cells>
+							</ColumnListItem>
+							<ColumnListItem>
+								<cells>
+									<HBox width="auto" justifyContent="SpaceBetween">
+										<ObjectIdentifier title="{path: 'factorCatalog>/clientTechnology/1/factor', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/clientTechnology/1/currentSelection', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/clientTechnology/1/currentWeight', formatter: '.formatter.translate'}"/>
+									</HBox>
+								</cells>
+							</ColumnListItem>
+							<ColumnListItem>
+								<cells>
+									<HBox width="auto" justifyContent="SpaceBetween">
+										<ObjectIdentifier title="{path: 'factorCatalog>/clientTechnology/2/factor', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/clientTechnology/2/currentSelection', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/clientTechnology/2/currentWeight', formatter: '.formatter.translate'}"/>
+									</HBox>
+								</cells>
+							</ColumnListItem>
+							<ColumnListItem>
+								<cells>
+									<HBox width="auto" justifyContent="SpaceBetween">
+										<ObjectIdentifier title="{path: 'factorCatalog>/clientTechnology/3/factor', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/clientTechnology/3/currentSelection', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/clientTechnology/3/currentWeight', formatter: '.formatter.translate'}"/>
+									</HBox>
+								</cells>
+							</ColumnListItem>
+							<ColumnListItem>
+								<cells>
+									<HBox width="auto" justifyContent="SpaceBetween">
+										<ObjectIdentifier title="{path: 'factorCatalog>/clientTechnology/4/factor', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/clientTechnology/4/currentSelection', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/clientTechnology/4/currentWeight', formatter: '.formatter.translate'}"/>
+									</HBox>
+								</cells>
+							</ColumnListItem>
+							<ColumnListItem>
+								<cells>
+									<HBox width="auto" justifyContent="SpaceBetween">
+										<ObjectIdentifier title="{path: 'factorCatalog>/clientTechnology/5/factor', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/clientTechnology/5/currentSelection', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/clientTechnology/5/currentWeight', formatter: '.formatter.translate'}"/>
+									</HBox>
+								</cells>
+							</ColumnListItem>
+							<ColumnListItem>
+								<cells>
+									<HBox width="auto" justifyContent="SpaceBetween">
+										<ObjectIdentifier title="{path: 'factorCatalog>/clientTechnology/6/factor', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/clientTechnology/6/currentSelection', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/clientTechnology/6/currentWeight', formatter: '.formatter.translate'}"/>
+									</HBox>
+								</cells>
+							</ColumnListItem>
+							<ColumnListItem>
+									<cells>
+									<HBox width="auto" justifyContent="SpaceBetween">
+										<ObjectIdentifier title="{path: 'factorCatalog>/clientTechnology/7/factor', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/clientTechnology/7/currentSelection', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/clientTechnology/7/currentWeight', formatter: '.formatter.translate'}"/>
+									</HBox>
+								</cells>
+							</ColumnListItem>
+							<ColumnListItem>
+									<cells>
+									<HBox width="auto" justifyContent="SpaceBetween">
+										<ObjectIdentifier title="{path: 'factorCatalog>/clientTechnology/8/factor', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/clientTechnology/8/currentSelection', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/clientTechnology/8/currentWeight', formatter: '.formatter.translate'}"/>
+									</HBox>
+								</cells>
+							</ColumnListItem>
+							<ColumnListItem>
+									<cells>
+									<HBox width="auto" justifyContent="SpaceBetween">
+										<ObjectIdentifier title="{path: 'factorCatalog>/clientTechnology/9/factor', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/clientTechnology/9/currentSelection', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/clientTechnology/9/currentWeight', formatter: '.formatter.translate'}"/>
+									</HBox>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+					<!--PDF Seite2-->
+					<Table id="tableClientTechnologyFactorsPage2" width="auto" class="sapUiSmallMargin">
+						<columns>
+							<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+								<header>
+									<Text text="{i18n>factor}" width="auto" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+								</header>
+								<footer/>
+							</Column>
+							<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+								<header>
+									<Text text="{i18n>selection}" width="auto" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+								</header>
+								<footer/>
+							</Column>
+							<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+								<header>
+									<Text text="{i18n>importance}" width="auto" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+								</header>
+								<footer/>
+							</Column>
+						</columns>
+						<items>
+								<ColumnListItem>
+									<cells>
+									<HBox width="auto" justifyContent="SpaceBetween">
+										<ObjectIdentifier title="{path: 'factorCatalog>/clientTechnology/10/factor', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/clientTechnology/10/currentSelection', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/clientTechnology/10/currentWeight', formatter: '.formatter.translate'}"/>
+									</HBox>
+								</cells>
+							</ColumnListItem>
+							<ColumnListItem>
+									<cells>
+									<HBox width="auto" justifyContent="SpaceBetween">
+										<ObjectIdentifier title="{path: 'factorCatalog>/clientTechnology/11/factor', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/clientTechnology/11/currentSelection', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/clientTechnology/11/currentWeight', formatter: '.formatter.translate'}"/>
+									</HBox>
+								</cells>
+							</ColumnListItem>
+							<ColumnListItem>
+									<cells>
+									<HBox width="auto" justifyContent="SpaceBetween">
+										<ObjectIdentifier title="{path: 'factorCatalog>/clientTechnology/12/factor', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/clientTechnology/12/currentSelection', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/clientTechnology/12/currentWeight', formatter: '.formatter.translate'}"/>
+									</HBox>
+								</cells>
+							</ColumnListItem>
+							<ColumnListItem>
+									<cells>
+									<HBox width="auto" justifyContent="SpaceBetween">
+										<ObjectIdentifier title="{path: 'factorCatalog>/clientTechnology/13/factor', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/clientTechnology/13/currentSelection', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/clientTechnology/13/currentWeight', formatter: '.formatter.translate'}"/>
+									</HBox>
+								</cells>
+							</ColumnListItem>
+							<ColumnListItem>
+									<cells>
+									<HBox width="auto" justifyContent="SpaceBetween">
+										<ObjectIdentifier title="{path: 'factorCatalog>/clientTechnology/14/factor', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/clientTechnology/14/currentSelection', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/clientTechnology/14/currentWeight', formatter: '.formatter.translate'}"/>
+									</HBox>
+								</cells>
+							</ColumnListItem>
+							<ColumnListItem>
+									<cells>
+									<HBox width="auto" justifyContent="SpaceBetween">
+										<ObjectIdentifier title="{path: 'factorCatalog>/clientTechnology/15/factor', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/clientTechnology/15/currentSelection', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/clientTechnology/15/currentWeight', formatter: '.formatter.translate'}"/>
+									</HBox>
+								</cells>
+							</ColumnListItem>
+							<ColumnListItem>
+									<cells>
+									<HBox width="auto" justifyContent="SpaceBetween">
+										<ObjectIdentifier title="{path: 'factorCatalog>/clientTechnology/16/factor', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/clientTechnology/16/currentSelection', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/clientTechnology/16/currentWeight', formatter: '.formatter.translate'}"/>
+									</HBox>
+								</cells>
+							</ColumnListItem>
+							<ColumnListItem>
+									<cells>
+									<HBox width="auto" justifyContent="SpaceBetween">
+										<ObjectIdentifier title="{path: 'factorCatalog>/clientTechnology/17/factor', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/clientTechnology/17/currentSelection', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/clientTechnology/17/currentWeight', formatter: '.formatter.translate'}"/>
+									</HBox>
+								</cells>
+							</ColumnListItem>
+							<ColumnListItem>
+									<cells>
+									<HBox width="auto" justifyContent="SpaceBetween">
+										<ObjectIdentifier title="{path: 'factorCatalog>/clientTechnology/18/factor', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/clientTechnology/18/currentSelection', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/clientTechnology/18/currentWeight', formatter: '.formatter.translate'}"/>
+									</HBox>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+					<!--Notes-->
+					<StandardListItem title="Notes" icon="sap-icon://notes" class="sapUISmallMargin"></StandardListItem>
+					<TextArea value="" rows="8" height="120px" width="1200px"/>
+					<Text class="html2pdf__page-break"></Text>
+					<!--PDF Seite 3-->
+						<!-- Einführung für Data Sync-->
+					<HBox width="100%" alignItems="Center" justifyContent="SpaceBetween">
+						<Title id="titleDataSynchronization" text="{i18n>dataSyncLong}" titleStyle="H1" class="sapUiSmallMargin"/>
+						<HBox alignItems="Center">
+							<Label text="({savedProjects>selectionProgress/dataSync/selectedFactors}/{savedProjects&gt;selectionProgress/dataSync/totalFactors})"
+								class="sapUiSmallMargin" design="Bold" textAlign="Right"/>
+						</HBox>
+					</HBox>
+					<!--Tabelle für DataSynchronouzation-->
+					<Table id="tableClientDataSynchronization" width="auto" class="sapUiSmallMargin">
+						<columns>
+							<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+								<header>
+									<Text text="{i18n>factor}" width="auto" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+								</header>
+								<footer/>
+							</Column>
+							<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+								<header>
+									<Text text="{i18n>selection}" width="auto" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+								</header>
+								<footer/>
+							</Column>
+							<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+								<header>
+									<Text text="{i18n>importance}" width="auto" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+								</header>
+								<footer/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+									<cells>
+									<HBox width="auto" justifyContent="SpaceBetween">
+										<ObjectIdentifier title="{path: 'factorCatalog>/dataSync/0/factor', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/dataSync/0/currentSelection', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/dataSync/0/currentWeight', formatter: '.formatter.translate'}"/>
+									</HBox>
+								</cells>
+							</ColumnListItem>
+							<ColumnListItem>
+									<cells>
+									<HBox width="auto" justifyContent="SpaceBetween">
+										<ObjectIdentifier title="{path: 'factorCatalog>/dataSync/1/factor', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/dataSync/1/currentSelection', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/dataSync/1/currentWeight', formatter: '.formatter.translate'}"/>
+									</HBox>
+								</cells>
+								</ColumnListItem>
+								<ColumnListItem>
+								<cells>
+									<HBox width="auto" justifyContent="SpaceBetween">
+										<ObjectIdentifier title="{path: 'factorCatalog>/dataSync/2/factor', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/dataSync/2/currentSelection', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/dataSync/2/currentWeight', formatter: '.formatter.translate'}"/>
+									</HBox>
+								</cells>
+							</ColumnListItem>
+							<ColumnListItem>
+								<cells>
+									<HBox width="auto" justifyContent="SpaceBetween">
+										<ObjectIdentifier title="{path: 'factorCatalog>/dataSync/3/factor', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/dataSync/3/currentSelection', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/dataSync/3/currentWeight', formatter: '.formatter.translate'}"/>
+									</HBox>
+								</cells>
+							</ColumnListItem>
+							<ColumnListItem>
+								<cells>
+									<HBox width="auto" justifyContent="SpaceBetween">
+										<ObjectIdentifier title="{path: 'factorCatalog>/dataSync/4/factor', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/dataSync/4/currentSelection', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/dataSync/4/currentWeight', formatter: '.formatter.translate'}"/>
+									</HBox>
+								</cells>
+							</ColumnListItem>
+							<ColumnListItem>
+								<cells>
+									<HBox width="auto" justifyContent="SpaceBetween">
+										<ObjectIdentifier title="{path: 'factorCatalog>/dataSync/5/factor', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/dataSync/5/currentSelection', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/dataSync/5/currentWeight', formatter: '.formatter.translate'}"/>
+									</HBox>
+								</cells>
+							</ColumnListItem>
+							<ColumnListItem>
+								<cells>
+									<HBox width="auto" justifyContent="SpaceBetween">
+										<ObjectIdentifier title="{path: 'factorCatalog>/dataSync/6/factor', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/dataSync/6/currentSelection', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/dataSync/6/currentWeight', formatter: '.formatter.translate'}"/>
+									</HBox>
+								</cells>
+							</ColumnListItem>
+							<ColumnListItem>
+								<cells>
+									<HBox width="auto" justifyContent="SpaceBetween">
+										<ObjectIdentifier title="{path: 'factorCatalog>/dataSync/7/factor', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/dataSync/7/currentSelection', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/dataSync/7/currentWeight', formatter: '.formatter.translate'}"/>
+									</HBox>
+								</cells>
+							</ColumnListItem>
+							<ColumnListItem>
+								<cells>
+									<HBox width="auto" justifyContent="SpaceBetween">
+										<ObjectIdentifier title="{path: 'factorCatalog>/dataSync/8/factor', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/dataSync/8/currentSelection', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/dataSync/8/currentWeight', formatter: '.formatter.translate'}"/>
+									</HBox>
+								</cells>
+							</ColumnListItem>
+							<ColumnListItem>
+								<cells>
+									<HBox width="auto" justifyContent="SpaceBetween">
+										<ObjectIdentifier title="{path: 'factorCatalog>/dataSync/9/factor', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/dataSync/9/currentSelection', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/dataSync/9/currentWeight', formatter: '.formatter.translate'}"/>
+									</HBox>
+								</cells>
+							</ColumnListItem>
+							<ColumnListItem>
+								<cells>
+									<HBox width="auto" justifyContent="SpaceBetween">
+										<ObjectIdentifier title="{path: 'factorCatalog>/dataSync/10/factor', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/dataSync/10/currentSelection', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/dataSync/10/currentWeight', formatter: '.formatter.translate'}"/>
+									</HBox>
+								</cells>
+							</ColumnListItem>
+								<ColumnListItem>
+								<cells>
+									<HBox width="auto" justifyContent="SpaceBetween">
+										<ObjectIdentifier title="{path: 'factorCatalog>/dataSync/11/factor', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/dataSync/11/currentSelection', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/dataSync/11/currentWeight', formatter: '.formatter.translate'}"/>
+									</HBox>
+								</cells>
+							</ColumnListItem>
+							<!--Seite 4-->
+								<ColumnListItem>
+								<cells>
+									<HBox width="auto" justifyContent="SpaceBetween">
+										<ObjectIdentifier title="{path: 'factorCatalog>/dataSync/12/factor', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/dataSync/12/currentSelection', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/dataSync/12/currentWeight', formatter: '.formatter.translate'}"/>
+									</HBox>
+								</cells>
+							</ColumnListItem>
+								<ColumnListItem>
+								<cells>
+									<HBox width="auto" justifyContent="SpaceBetween">
+										<ObjectIdentifier title="{path: 'factorCatalog>/dataSync/13/factor', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/dataSync/13/currentSelection', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/dataSync/13/currentWeight', formatter: '.formatter.translate'}"/>
+									</HBox>
+								</cells>
+							</ColumnListItem>
+								<ColumnListItem>
+								<cells>
+									<HBox width="auto" justifyContent="SpaceBetween">
+										<ObjectIdentifier title="{path: 'factorCatalog>/dataSync/14/factor', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/dataSync/14/currentSelection', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/dataSync/14/currentWeight', formatter: '.formatter.translate'}"/>
+									</HBox>
+								</cells>
+							</ColumnListItem>
+							
+							</items>
+					</Table>
+					<StandardListItem title="Notes" icon="sap-icon://notes" class="sapUISmallMargin"></StandardListItem>
+					<TextArea value="" rows="8" height="200px" width="1200px"/>
+				
+					
+					<!--PDF seite5 -->
+				
+					<Label class="html2pdf__page-break"></Label>
+				
+					<!--Einführung für Backend -->
+					<HBox width="100%" alignItems="Center" justifyContent="SpaceBetween">
+						<Title id="titleOperationsCenter" text="{i18n>operationsCenterLong}" titleStyle="H1" class="sapUiSmallMargin"/>
+						<HBox alignItems="Center">
+							<Label
+								text="({savedProjects>selectionProgress/operationsCenter/selectedFactors}/{savedProjects&gt;selectionProgress/operationsCenter/totalFactors})"
+								class="sapUiSmallMargin" design="Bold" textAlign="Right"/>
+						</HBox>
+					</HBox>
+					<!-- tabelle für backend -->
+					
+						<Table id="tableClientOperationsCenter" width="auto" class="sapUiSmallMargin">
+						<columns>
+							<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+								<header>
+									<Text text="{i18n>factor}" width="auto" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+								</header>
+								<footer/>
+							</Column>
+							<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+								<header>
+									<Text text="{i18n>selection}" width="auto" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+								</header>
+								<footer/>
+							</Column>
+							<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+								<header>
+									<Text text="{i18n>importance}" width="auto" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+								</header>
+								<footer/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+									<cells>
+									<HBox width="auto" justifyContent="SpaceBetween">
+										<ObjectIdentifier title="{path: 'factorCatalog>/operationsCenter/0/factor', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/operationsCenter/0/currentSelection', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/operationsCenter/0/currentWeight', formatter: '.formatter.translate'}"/>
+									</HBox>
+								</cells>
+							</ColumnListItem>
+							<ColumnListItem>
+									<cells>
+									<HBox width="auto" justifyContent="SpaceBetween">
+										<ObjectIdentifier title="{path: 'factorCatalog>/operationsCenter/1/factor', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/operationsCenter/1/currentSelection', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/operationsCenter/1/currentWeight', formatter: '.formatter.translate'}"/>
+									</HBox>
+								</cells>
+							</ColumnListItem>
+							<ColumnListItem>
+									<cells>
+									<HBox width="auto" justifyContent="SpaceBetween">
+										<ObjectIdentifier title="{path: 'factorCatalog>/operationsCenter/2/factor', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/operationsCenter/2/currentSelection', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/operationsCenter/2/currentWeight', formatter: '.formatter.translate'}"/>
+									</HBox>
+								</cells>
+							</ColumnListItem>
+							<ColumnListItem>
+									<cells>
+									<HBox width="auto" justifyContent="SpaceBetween">
+										<ObjectIdentifier title="{path: 'factorCatalog>/operationsCenter/3/factor', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/operationsCenter/3/currentSelection', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/operationsCenter/3/currentWeight', formatter: '.formatter.translate'}"/>
+									</HBox>
+								</cells>
+							</ColumnListItem>
+							<ColumnListItem>
+									<cells>
+									<HBox width="auto" justifyContent="SpaceBetween">
+										<ObjectIdentifier title="{path: 'factorCatalog>/operationsCenter/4/factor', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/operationsCenter/4/currentSelection', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/operationsCenter/4/currentWeight', formatter: '.formatter.translate'}"/>
+									</HBox>
+								</cells>
+							</ColumnListItem>
+							<ColumnListItem>
+									<cells>
+									<HBox width="auto" justifyContent="SpaceBetween">
+										<ObjectIdentifier title="{path: 'factorCatalog>/operationsCenter/5/factor', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/operationsCenter/5/currentSelection', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/operationsCenter/5/currentWeight', formatter: '.formatter.translate'}"/>
+									</HBox>
+								</cells>
+							</ColumnListItem>
+							<ColumnListItem>
+									<cells>
+									<HBox width="auto" justifyContent="SpaceBetween">
+										<ObjectIdentifier title="{path: 'factorCatalog>/operationsCenter/6/factor', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/operationsCenter/6/currentSelection', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/operationsCenter/6/currentWeight', formatter: '.formatter.translate'}"/>
+									</HBox>
+								</cells>
+							</ColumnListItem>
+							<ColumnListItem>
+									<cells>
+									<HBox width="auto" justifyContent="SpaceBetween">
+										<ObjectIdentifier title="{path: 'factorCatalog>/operationsCenter/7/factor', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/operationsCenter/7/currentSelection', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/operationsCenter/7/currentWeight', formatter: '.formatter.translate'}"/>
+									</HBox>
+								</cells>
+							</ColumnListItem>
+							<ColumnListItem>
+									<cells>
+									<HBox width="auto" justifyContent="SpaceBetween">
+										<ObjectIdentifier title="{path: 'factorCatalog>/operationsCenter/8/factor', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/operationsCenter/8/currentSelection', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/operationsCenter/8/currentWeight', formatter: '.formatter.translate'}"/>
+									</HBox>
+								</cells>
+							</ColumnListItem>
+							<ColumnListItem>
+									<cells>
+									<HBox width="auto" justifyContent="SpaceBetween">
+										<ObjectIdentifier title="{path: 'factorCatalog>/operationsCenter/9/factor', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/operationsCenter/9/currentSelection', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/operationsCenter/9/currentWeight', formatter: '.formatter.translate'}"/>
+									</HBox>
+								</cells>
+							</ColumnListItem>
+							<ColumnListItem>
+									<cells>
+									<HBox width="auto" justifyContent="SpaceBetween">
+										<ObjectIdentifier title="{path: 'factorCatalog>/operationsCenter/10/factor', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/operationsCenter/10/currentSelection', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/operationsCenter/10/currentWeight', formatter: '.formatter.translate'}"/>
+									</HBox>
+								</cells>
+							</ColumnListItem>
+							<ColumnListItem>
+									<cells>
+									<HBox width="auto" justifyContent="SpaceBetween">
+										<ObjectIdentifier title="{path: 'factorCatalog>/operationsCenter/11/factor', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/operationsCenter/11/currentSelection', formatter: '.formatter.translate'}"/>
+									</HBox>
+									<HBox>
+										<Label text="{path: 'factorCatalog>/operationsCenter/11/currentWeight', formatter: '.formatter.translate'}"/>
+									</HBox>
+								</cells>
+							</ColumnListItem>
+							</items>
+							</Table>
+					
+					<!--Results-->
+					
+					<layout:Grid defaultSpan="L3 M4 S6" class="sapUiSmallMarginTop">
+		<layout:content>
+			<StandardListItem
+				title="{i18n>clientTechnology} ({savedProjects>selectionProgress/clientTechnology/selectedFactors}/{savedProjects&gt;selectionProgress/clientTechnology/totalFactors}) {path: 'savedProjects>selectionProgress/clientTechnology/wholeRecommendation', formatter: '.formatter.translate'} "
+				
+				infoState="Success"
+				icon="sap-icon://technical-object">
+				<layoutData>
+					<layout:GridData span="L12 M12 S12" />
+				</layoutData>
+			</StandardListItem>
+			<StandardListItem
+				title="{path: 'savedProjects>decisionPercentage/clientTechnology/0'}%"
+				description="{path: 'savedProjects>iconTabs/clientTechnology/0', formatter: '.formatter.translate'}" />
+			<StandardListItem
+				title="{path: 'savedProjects>decisionPercentage/clientTechnology/1'}%"
+				description="{path: 'savedProjects>iconTabs/clientTechnology/1', formatter: '.formatter.translate'}" />
+			<StandardListItem
+				title="{path: 'savedProjects>decisionPercentage/clientTechnology/2'}%"
+				description="{path: 'savedProjects>iconTabs/clientTechnology/2', formatter: '.formatter.translate'}" />
+			<StandardListItem
+				title="{i18n>dataSync} ({savedProjects>selectionProgress/dataSync/selectedFactors}/{savedProjects&gt;selectionProgress/dataSync/totalFactors}) {path: 'savedProjects>selectionProgress/dataSync/wholeRecommendation', formatter: '.formatter.translate'}"
+			
+				infoState="None"
+				icon="sap-icon://synchronize">
+				<layoutData>
+					<layout:GridData span="L12 M12 S12" linebreakL="true" linebreakM="true" linebreakS="true" />
+				</layoutData>
+			</StandardListItem>
+			<StandardListItem
+				title="{path: 'savedProjects>decisionPercentage/dataSync/0'}%"
+				description="{path: 'savedProjects>iconTabs/dataSync/0', formatter: '.formatter.translate'}" />
+			<StandardListItem
+				title="{path: 'savedProjects>decisionPercentage/dataSync/1'}%"
+				description="{path: 'savedProjects>iconTabs/dataSync/1', formatter: '.formatter.translate'}" />
+			<StandardListItem
+				title="{path: 'savedProjects>decisionPercentage/dataSync/2'}%"
+				description="{path: 'savedProjects>iconTabs/dataSync/2', formatter: '.formatter.translate'}" />
+		
+		
+			<StandardListItem
+				title="{i18n>operationsCenter} ({savedProjects>selectionProgress/operationsCenter/selectedFactors}/{savedProjects&gt;selectionProgress/operationsCenter/totalFactors}) {path: 'savedProjects>selectionProgress/operationsCenter/wholeRecommendation', formatter: '.formatter.translate'}"
+				
+				icon="sap-icon://cloud">
+				<layoutData>
+					<layout:GridData span="L12 M12 S12" linebreakL="true" linebreakM="true" linebreakS="true" />
+				</layoutData>
+			</StandardListItem>
+			<StandardListItem
+				title="{path: 'savedProjects>decisionPercentage/operationsCenter/0'}%"
+				description="{path: 'savedProjects>iconTabs/operationsCenter/0', formatter: '.formatter.translate'}" />
+				<StandardListItem
+				title="{path: 'savedProjects>decisionPercentage/operationsCenter/1'}%"
+				description="{path: 'savedProjects>iconTabs/operationsCenter/1', formatter: '.formatter.translate'}" />
+				<StandardListItem
+				title="{path: 'savedProjects>decisionPercentage/operationsCenter/2'}%"
+				description="{path: 'savedProjects>iconTabs/operationsCenter/2', formatter: '.formatter.translate'}" />
+		</layout:content>
+	</layout:Grid>
+					
+					
+					<!--<layout:VerticalLayout width="50%" alignItems="Center">
+						<layout:content>
+							<Panel>
+								
+								<headerToolbar>
+									<Toolbar>
+										<Title level="H3"
+											text="{i18n>clientTechnology} ({savedProjects>selectionProgress/clientTechnology/selectedFactors}/{savedProjects&gt;selectionProgress/clientTechnology/totalFactors}) {path: 'savedProjects>selectionProgress/clientTechnology/wholeRecommendation', formatter: '.formatter.translate'} "
+											icon="sap-icon://technical-object" class="sapThemeBrand-asBorderColor sapUISmallMargin"/>
+									</Toolbar>
+								</headerToolbar>
+								<FlexBox alignItems="Start" justifyContent="Center">
+									<items>
+										<Table noDataText="Drop column list items here and columns in the area above" id="__table0">
+											<items>
+												<ColumnListItem id="__item21">
+													<cells>
+														<Text text="{path: 'savedProjects>iconTabs/clientTechnology/0', formatter: '.formatter.translate'}"/>
+														<Text text="{path: 'savedProjects>decisionPercentage/clientTechnology/0'}" id="__text16"/>
+													</cells>
+												</ColumnListItem>
+												<ColumnListItem id="__item22">
+													<cells>
+														<Text text="{path: 'savedProjects>iconTabs/clientTechnology/1', formatter: '.formatter.translate'}"/>
+														<Text text="{path: 'savedProjects>decisionPercentage/clientTechnology/1'}"/>
+													</cells>
+												</ColumnListItem>
+												<ColumnListItem id="__item23">
+													<cells>
+														<Text text="{path: 'savedProjects>iconTabs/clientTechnology/2', formatter: '.formatter.translate'}"/>
+														<Text text="{path: 'savedProjects>decisionPercentage/clientTechnology/2'}"/>
+													</cells>
+												</ColumnListItem>
+											</items>
+											<columns>
+												<Column>
+													<header>
+														<Label text="Option"/>
+													</header>
+												</Column>
+												<Column >
+													<header>
+														<Label text="Percentage"/>
+													</header>
+												</Column>
+											</columns>
+										</Table>
+									</items>
+								</FlexBox>
+							</Panel>
+							<Panel>
+								<headerToolbar>
+									<Toolbar>
+										<Title level="H3"
+											text="{i18n>dataSync} ({savedProjects>selectionProgress/dataSync/selectedFactors}/{savedProjects&gt;selectionProgress/dataSync/totalFactors}) {path: 'savedProjects>selectionProgress/dataSync/wholeRecommendation', formatter: '.formatter.translate'}"
+											icon="sap-icon://synchronize" class="sapThemeBrand-asBorderColor"/>
+									</Toolbar>
+								</headerToolbar>
+								<FlexBox alignItems="Start" justifyContent="Center">
+									<items>
+										<Table noDataText="Drop column list items here and columns in the area above" id="__table1">
+											<items>
+												<ColumnListItem >
+													<cells>
+														<Text text="{path: 'savedProjects>iconTabs/dataSync/0', formatter: '.formatter.translate'}"/>
+														<Text text="{path: 'savedProjects>decisionPercentage/dataSync/0'}"/>
+													</cells>
+												</ColumnListItem>
+												<ColumnListItem >
+													<cells>
+														<Text text="{path: 'savedProjects>iconTabs/dataSync/1', formatter: '.formatter.translate'}"/>
+														<Text text="{path: 'savedProjects>decisionPercentage/dataSync/1'}"/>
+													</cells>
+												</ColumnListItem>
+												<ColumnListItem >
+													<cells>
+														<Text text="{path: 'savedProjects>iconTabs/dataSync/2', formatter: '.formatter.translate'}"/>
+														<Text text="{path: 'savedProjects>decisionPercentage/dataSync/2'}"/>
+													</cells>
+												</ColumnListItem>
+											</items>
+											<columns>
+												<Column>
+													<header>
+														<Label text="Option"/>
+													</header>
+												</Column>
+												<Column >
+													<header>
+														<Label text="Percentage"/>
+													</header>
+												</Column>
+											</columns>
+										</Table>
+									</items>
+								</FlexBox>
+							</Panel>
+							<Panel>
+								<headerToolbar>
+									<Toolbar>
+										<Title level="H3"
+											text="{i18n>operationsCenter} ({savedProjects>selectionProgress/operationsCenter/selectedFactors}/{savedProjects&gt;selectionProgress/operationsCenter/totalFactors}) {path: 'savedProjects>selectionProgress/operationsCenter/wholeRecommendation', formatter: '.formatter.translate'}"
+											icon="sap-icon://cloud" class="sapThemeBrand-asBorderColor"/>
+									</Toolbar>
+								</headerToolbar>
+								<FlexBox alignItems="Start" justifyContent="Center">
+									<items>
+										<Table noDataText="Drop column list items here and columns in the area above" id="__table2">
+											<items>
+												<ColumnListItem >
+													<cells>
+														<Text text="{path: 'savedProjects>iconTabs/operationsCenter/0', formatter: '.formatter.translate'}"/>
+														<Text text="{path: 'savedProjects>decisionPercentage/operationsCenter/0'}"/>
+													</cells>
+												</ColumnListItem>
+												<ColumnListItem >
+													<cells>
+														<Text text="{path: 'savedProjects>iconTabs/operationsCenter/1', formatter: '.formatter.translate'}"/>
+														<Text text="{path: 'savedProjects>decisionPercentage/operationsCenter/1'}"/>
+													</cells>
+												</ColumnListItem>
+												<ColumnListItem >
+													<cells>
+														<Text text="{path: 'savedProjects>iconTabs/operationsCenter/2', formatter: '.formatter.translate'}"/>
+														<Text text="{path: 'savedProjects>decisionPercentage/operationsCenter/2'}"/>
+													</cells>
+												</ColumnListItem>
+											</items>
+											<columns>
+												<Column>
+													<header>
+														<Label text="Option"/>
+													</header>
+												</Column>
+												<Column >
+													<header>
+														<Label text="Percentage"/>
+													</header>
+												</Column>
+											</columns>
+										</Table>
+									</items>
+								</FlexBox>
+							</Panel>
+						</layout:content>
+					</layout:VerticalLayout>-->
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
