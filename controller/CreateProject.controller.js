@@ -100,8 +100,42 @@ sap.ui.define([
         	});
         	
         	
-        	//this._onPageNavButtonPress();
+        	
 		 },
+		/* _onPressOpenPrintDialog: function(oEvent){
+		 	 var oView = this.getView();
+         var oDialog = oView.byId("printProjectPag");
+         // create dialog lazily
+         if (!oDialog) {
+            // create dialog via fragment factory
+            oDialog = sap.ui.xmlfragment(oView.getId(), "M3A.fragment.PrintPDF");
+            oView.addDependent(oDialog);
+         }
+
+
+         oDialog.open();
+         var element = this.getView().byId("printProjectPage").getDomRef().innerHTML;
+				
+				
+				var opt = {
+					margin: 0.5,
+					filename: 'MobileTechnologyDecisionAdvisor.pdf',
+					
+					html2canvas: {
+						scale: 2
+					},
+					jsPDF: {
+						unit: 'in',
+						format: 'letter',
+						orientation: 'landscape'
+						
+					}
+				};
+
+				html2pdf().from(element).set(opt).save();
+      
+		 	
+		 },*/
 			_onchangeBackgroundTechnologyFactors:function() {
 				//to change background color of select, even for the dependencies(not selected by user)
 					this.getView().byId("tableClientTechnologyFactors").getItems().forEach(function(item) {

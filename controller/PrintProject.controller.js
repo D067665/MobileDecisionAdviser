@@ -31,7 +31,8 @@ sap.ui.define([
 		},
 
 		onAfterRendering: function() {
-			debugger;
+		
+		var that = this;
 		
 			setTimeout(function() {
 
@@ -40,7 +41,7 @@ sap.ui.define([
 				
 				var opt = {
 					margin: 0.5,
-					filename: 'MobileTechnologyDecisionAdvisor.pdf',
+					filename: 'MobileTechnologyDecisionAdvisorDienstag.pdf',
 					
 					html2canvas: {
 						scale: 2
@@ -54,11 +55,14 @@ sap.ui.define([
 				};
 
 				html2pdf().from(element).set(opt).save();
-				this._navBackToOverview();
+				
+				
 				
 			
 
 			}.bind(this), 300);
+			that._navBackToOverview();
+			
 			
 		
 		
@@ -69,14 +73,17 @@ sap.ui.define([
   				this.getView().invalidate();
 		},
 		 _navBackToOverview: function(oEvent){
-        	var path = this.getView().getBindingContext("savedProjects").getPath().slice(1);
+		 	
+        	//var projectIndex = this.getView().getBindingContext("savedProjects").getPath().slice(1);
         
         	//this._loadSavedValues();
         	var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+        	//this.getRouter().navTo("loadProject");
+        	oRouter.navTo("loadProject");
         	
-        	oRouter.navTo("createProject",{ 
+        /*	oRouter.navTo("createProject",{ 
         		index: path
-        	});
+        	});*/
 		 }
         	
 
