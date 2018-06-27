@@ -1,17 +1,23 @@
-<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:micro="sap.suite.ui.microchart" xmlns:form="sap.ui.layout.form" xmlns:layout="sap.ui.layout" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="M3A.controller.CreateProject">
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:micro="sap.suite.ui.microchart"
+	xmlns:form="sap.ui.layout.form" xmlns:layout="sap.ui.layout" xmlns:html="http://www.w3.org/1999/xhtml"
+	controllerName="M3A.controller.CreateProject">
 	<App>
 		<pages>
-			<Page title="{i18n>appTitle}" id="createProjectPage" showHeader="true" showFooter="true" showNavButton="true" navButtonPress="_onNavBackPress" width="auto">
-				<content>
-					<IconTabBar expanded="true" id="idIconTabBar" selectedKey="{savedProjects>selectedIconTab}" select="handleIconTabBarSelect" stretchContentHeight="true" class="sapUiResponsiveContentPadding" expandable="false" width="auto">
+			<Page title="{i18n>appTitle}" id="createProjectPage" showHeader="true" showFooter="true" showNavButton="true"
+				navButtonPress="_onNavBackPress" width="auto">
+				<content id="createProjectContent">
+					<IconTabBar expanded="true" id="idIconTabBar" selectedKey="{savedProjects>selectedIconTab}" select="handleIconTabBarSelect"
+						stretchContentHeight="true" class="sapUiResponsiveContentPadding" expandable="false" width="auto">
 						<items>
-							<IconTabFilter id= "IconTabFilter1" icon="sap-icon://begin" width="auto" iconColor="Default" design="Horizontal" text="{i18n>application}" key="information">
+							<IconTabFilter id="IconTabFilter1" icon="sap-icon://begin" width="auto" iconColor="Default" design="Horizontal" text="{i18n>application}"
+								key="information">
 								<content>
 									<ScrollContainer id="formAdditionalInformation" height="100%" width="100%" horizontal="false" vertical="true">
 										<HBox width="auto" alignItems="Center" justifyContent="SpaceBetween">
 											<Label id="labelTaskInformation" text="{i18n>taskInformation}" design="Bold" class="sapUiSmallMargin"/>
 											<HBox alignItems="Left">
-												<Button id="changeModeButtonAI" icon="sap-icon://display" press="_onPressChangeMode" ariaDescribedBy="defaultButtonDescription genericButtonDescription">
+												<Button id="changeModeButtonAI" icon="sap-icon://display" press="_onPressChangeMode"
+													ariaDescribedBy="defaultButtonDescription genericButtonDescription">
 													<layoutData>
 														<FlexItemData growFactor="1"/>
 													</layoutData>
@@ -32,9 +38,12 @@
 											<Label text="{i18n>audienceGroup}"/>
 											<SegmentedButton id="audienceGroup" selectedKey="{savedProjects>audienceGroup}" width="50rem" select="_onSelectionChange">
 												<items>
-													<SegmentedButtonItem id="businessToCustomer" text="{i18n>businessToCustomer}" key="businessToCustomer" selectedKey="{savedProjects>audienceGroup/businessToCustomer}"/>
-													<SegmentedButtonItem id="businessToEmployee" text="{i18n>businessToEmployee}" key="businessToEmployee" selectedKey="{savedProjects>audienceGroup/businessToEmployee}"/>
-													<SegmentedButtonItem id="businessToBusiness" text="{i18n>businessToBusiness}" key="businessToBusiness" selectedKey="{savedProjects>audienceGroup/businessToBusiness}"/>
+													<SegmentedButtonItem id="businessToCustomer" text="{i18n>businessToCustomer}" key="businessToCustomer"
+														selectedKey="{savedProjects>audienceGroup/businessToCustomer}"/>
+													<SegmentedButtonItem id="businessToEmployee" text="{i18n>businessToEmployee}" key="businessToEmployee"
+														selectedKey="{savedProjects>audienceGroup/businessToEmployee}"/>
+													<SegmentedButtonItem id="businessToBusiness" text="{i18n>businessToBusiness}" key="businessToBusiness"
+														selectedKey="{savedProjects>audienceGroup/businessToBusiness}"/>
 												</items>
 											</SegmentedButton>
 											<Label text="{i18n>users}"/>
@@ -66,45 +75,54 @@
 									</ScrollContainer>
 								</content>
 							</IconTabFilter>
-							
 							<IconTabSeparator icon="sap-icon://open-command-field"/>
-							<IconTabFilter icon="sap-icon://technical-object" iconColor="Default" design="Horizontal" key="clientTechnology" text="{i18n>clientTechnology}">
+							<IconTabFilter icon="sap-icon://technical-object" iconColor="Default" design="Horizontal" key="clientTechnology"
+								text="{i18n>clientTechnology}">
 								<content>
-									<ScrollContainer id="ScrollContainerCT" height="100%" width="auto" horizontal="false" vertical="true">
-										<HBox width="auto" alignItems="Center" justifyContent="SpaceBetween">
-											<Title id="titleClientTechnology" text="{i18n>clientTechnologyLong}" titleStyle="H1" class="sapUiSmallMargin"/>
-											<HBox alignItems="Center">
-												<Label text="({savedProjects>selectionProgress/clientTechnology/selectedFactors}/{savedProjects&gt;selectionProgress/clientTechnology/totalFactors})" class="sapUiSmallMargin" design="Bold" textAlign="Right"/>
-												
-												<Button id="changeModeButtonCT" icon="sap-icon://display" press="_onPressChangeMode" ariaDescribedBy="defaultButtonDescription genericButtonDescription">
-													<layoutData>
-														<FlexItemData growFactor="1"/>
-													</layoutData>
-												</Button>
-												<!--progress indicator-->
-											</HBox>
+									<HBox width="auto" alignItems="Center" justifyContent="SpaceBetween">
+										<Title id="titleClientTechnology" text="{i18n>clientTechnologyLong}" titleStyle="H1" class="sapUiSmallMargin"/>
+										<HBox alignItems="Center">
+											<Label
+												text="({savedProjects>selectionProgress/clientTechnology/selectedFactors}/{savedProjects&gt;selectionProgress/clientTechnology/totalFactors})"
+												class="sapUiSmallMargin" design="Bold" textAlign="Right"/>
+											<Button id="changeModeButtonCT" icon="sap-icon://display" press="_onPressChangeMode"
+												ariaDescribedBy="defaultButtonDescription genericButtonDescription">
+												<layoutData>
+													<FlexItemData growFactor="1"/>
+												</layoutData>
+											</Button>
+											<!--progress indicator-->
 										</HBox>
-									
-										<Table id="tableClientTechnologyFactors" items="{factorCatalog>/clientTechnology}" width="auto">
+									</HBox>
+									<Table id="tableClientTechnologyFactorsHeader" showNoData='false' width="auto">
+										<columns>
+											<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+												<header>
+													<Text text="{i18n>factor}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												</header>
+												<footer/>
+											</Column>
+											<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+												<header>
+													<Text text="{i18n>selection}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												</header>
+												<footer/>
+											</Column>
+											<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+												<header>
+													<Text text="{i18n>importance}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												</header>
+												<footer/>
+											</Column>
+										</columns>
+									</Table>
+									<ScrollContainer height='50rem' vertical='true'>
+										<Table id="tableClientTechnologyFactors" class='tableHeaderUnvisible' items="{factorCatalog>/clientTechnology}" width="auto">
 											<columns>
-												<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
-													<header>
-														<Text text="{i18n>factor}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
-													</header>
-													<footer/>
-												</Column>
-												<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
-													<header>
-														<Text text="{i18n>selection}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
-													</header>
-													<footer/>
-												</Column>
-												<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
-													<header>
-														<Text text="{i18n>importance}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
-													</header>
-													<footer/>
-												</Column>
+												<!-- Dont need columns header, as upper table has already defined them. -->
+												<Column ></Column>
+												<Column ></Column>
+												<Column ></Column>
 											</columns>
 											<ColumnListItem>
 												<cells>
@@ -112,10 +130,12 @@
 														<ObjectIdentifier title="{path: 'factorCatalog>factor', formatter: '.formatter.translate'}"/>
 														<Button text="" icon="sap-icon://hint" press="_onDialogButtonPress"/>
 													</HBox>
-													<Select id="selectClientTechnology" change="_onSelectionChange" items="{path: 'factorCatalog>selectionOptions', templateShareable: 'true'}" enabled="{= ${factorCatalog>enabled} === 'True'}" selectedKey="{factorCatalog>currentSelection}" width="15rem">
+													<Select id="selectClientTechnology" change="_onSelectionChange" items="{path: 'factorCatalog>selectionOptions', templateShareable: 'true'}"
+														enabled="{= ${factorCatalog>enabled} === 'True'}" selectedKey="{factorCatalog>currentSelection}" width="15rem">
 														<core:Item text="{path: 'factorCatalog>key', formatter: '.formatter.translate'}" key="{factorCatalog>key}" class="selectClientTechnology"/>
 													</Select>
-													<SegmentedButton id="segmentedButtonClientTechnology" selectedKey="{factorCatalog>currentWeight}" select="_onSelectionChange" items="{path: 'factorCatalog>importance', templateShareable: 'true'}" width="17rem">
+													<SegmentedButton id="segmentedButtonClientTechnology" selectedKey="{factorCatalog>currentWeight}" select="_onSelectionChange"
+														items="{path: 'factorCatalog>importance', templateShareable: 'true'}" width="17rem">
 														<items>
 															<SegmentedButtonItem text="{path: 'factorCatalog>key', formatter: '.formatter.translate'}" key="{factorCatalog>key}"/>
 														</items>
@@ -123,7 +143,6 @@
 												</cells>
 											</ColumnListItem>
 										</Table>
-										
 									</ScrollContainer>
 								</content>
 							</IconTabFilter>
@@ -134,8 +153,10 @@
 										<HBox width="100%" alignItems="Center" justifyContent="SpaceBetween">
 											<Title id="titleDataSynchronization" text="{i18n>dataSyncLong}" titleStyle="H1" class="sapUiSmallMargin"/>
 											<HBox alignItems="Center">
-												<Label text="({savedProjects>selectionProgress/dataSync/selectedFactors}/{savedProjects&gt;selectionProgress/dataSync/totalFactors})" class="sapUiSmallMargin" design="Bold" textAlign="Right"/>
-												<Button id="changeModeButtonDS" icon="sap-icon://display" press="_onPressChangeMode" ariaDescribedBy="defaultButtonDescription genericButtonDescription">
+												<Label text="({savedProjects>selectionProgress/dataSync/selectedFactors}/{savedProjects&gt;selectionProgress/dataSync/totalFactors})"
+													class="sapUiSmallMargin" design="Bold" textAlign="Right"/>
+												<Button id="changeModeButtonDS" icon="sap-icon://display" press="_onPressChangeMode"
+													ariaDescribedBy="defaultButtonDescription genericButtonDescription">
 													<layoutData>
 														<FlexItemData growFactor="1"/>
 													</layoutData>
@@ -170,10 +191,13 @@
 														<ObjectIdentifier title="{path:'factorCatalog>factor', formatter: '.formatter.translate'}" hover="_onHover"/>
 														<Button text="" icon="sap-icon://hint" press="_onDialogButtonPress"/>
 													</HBox>
-													<Select id="selectDataSync" change="_onSelectionChange" items="{path: 'factorCatalog>selectionOptions', templateShareable: 'true'}" enabled="{= ${factorCatalog>enabled} === 'True'}" selectedKey="{factorCatalog>currentSelection}" width="15rem" style="background-color: blue">
+													<Select id="selectDataSync" change="_onSelectionChange" items="{path: 'factorCatalog>selectionOptions', templateShareable: 'true'}"
+														enabled="{= ${factorCatalog>enabled} === 'True'}" selectedKey="{factorCatalog>currentSelection}" width="15rem"
+														style="background-color: blue">
 														<core:Item text="{path: 'factorCatalog>key', formatter: '.formatter.translate'}" key="{factorCatalog>key}" class="selectDataSync"/>
 													</Select>
-													<SegmentedButton id="segmentedButtonDataSync" selectedKey="{factorCatalog>currentWeight}" select="_onSelectionChange" items="{path: 'factorCatalog>importance', templateShareable: 'true'}" width="17rem">
+													<SegmentedButton id="segmentedButtonDataSync" selectedKey="{factorCatalog>currentWeight}" select="_onSelectionChange"
+														items="{path: 'factorCatalog>importance', templateShareable: 'true'}" width="17rem">
 														<items>
 															<SegmentedButtonItem text="{path: 'factorCatalog>key', formatter: '.formatter.translate'}" key="{factorCatalog>key}"/>
 														</items>
@@ -185,15 +209,19 @@
 								</content>
 							</IconTabFilter>
 							<IconTabSeparator icon="sap-icon://open-command-field"/>
-							<IconTabFilter icon="sap-icon://cloud" iconColor="Default" design="Horizontal" key="operationsCenter" text="{i18n>operationsCenter}" class="sapUiSmallMargin">
+							<IconTabFilter icon="sap-icon://cloud" iconColor="Default" design="Horizontal" key="operationsCenter" text="{i18n>operationsCenter}"
+								class="sapUiSmallMargin">
 								<content>
 									<ScrollContainer height="100%" width="100%" horizontal="false" vertical="true">
 										<HBox width="100%" alignItems="Center" justifyContent="SpaceBetween">
 											<Title id="titleOperationsCenter" text="{i18n>operationsCenterLong}" titleStyle="H1" class="sapUiSmallMargin"/>
 											<HBox alignItems="Center">
-												<Label text="({savedProjects>selectionProgress/operationsCenter/selectedFactors}/{savedProjects&gt;selectionProgress/operationsCenter/totalFactors})" class="sapUiSmallMargin" design="Bold" textAlign="Right"/>
+												<Label
+													text="({savedProjects>selectionProgress/operationsCenter/selectedFactors}/{savedProjects&gt;selectionProgress/operationsCenter/totalFactors})"
+													class="sapUiSmallMargin" design="Bold" textAlign="Right"/>
 												<!--progress indicator-->
-												<Button id="changeModeButtonOC" icon="sap-icon://display" press="_onPressChangeMode" ariaDescribedBy="defaultButtonDescription genericButtonDescription">
+												<Button id="changeModeButtonOC" icon="sap-icon://display" press="_onPressChangeMode"
+													ariaDescribedBy="defaultButtonDescription genericButtonDescription">
 													<layoutData>
 														<FlexItemData growFactor="1"/>
 													</layoutData>
@@ -227,10 +255,12 @@
 														<ObjectIdentifier title="{path: 'factorCatalog>factor', formatter: '.formatter.translate'}"/>
 														<Button text="" icon="sap-icon://hint" press="_onDialogButtonPress"/>
 													</HBox>
-													<Select id="selectOperationsCenter" change="_onSelectionChange" items="{path: 'factorCatalog>selectionOptions', templateShareable: 'true'}" enabled="{= ${factorCatalog>enabled} === 'True'}" selectedKey="{factorCatalog>currentSelection}" width="15rem">
+													<Select id="selectOperationsCenter" change="_onSelectionChange" items="{path: 'factorCatalog>selectionOptions', templateShareable: 'true'}"
+														enabled="{= ${factorCatalog>enabled} === 'True'}" selectedKey="{factorCatalog>currentSelection}" width="15rem">
 														<core:Item text="{path: 'factorCatalog>key', formatter: '.formatter.translate'}" key="{factorCatalog>key}" class="selectOperationsCenter"/>
 													</Select>
-													<SegmentedButton id="segmentedButtonOperationsCenter" selectedKey="{factorCatalog>currentWeight}" select="_onSelectionChange" items="{path: 'factorCatalog>importance', templateShareable: 'true'}" width="17rem">
+													<SegmentedButton id="segmentedButtonOperationsCenter" selectedKey="{factorCatalog>currentWeight}" select="_onSelectionChange"
+														items="{path: 'factorCatalog>importance', templateShareable: 'true'}" width="17rem">
 														<items>
 															<SegmentedButtonItem text="{path: 'factorCatalog>key', formatter: '.formatter.translate'}" key="{factorCatalog>key}"/>
 														</items>
@@ -242,21 +272,23 @@
 								</content>
 							</IconTabFilter>
 							<IconTabSeparator icon="sap-icon://open-command-field"/>
-							<IconTabFilter icon="sap-icon://pie-chart" iconColor="Default" design="Horizontal" text="{i18n>overview}" key="overview" class="sapUiSmallMargin">
+							<IconTabFilter icon="sap-icon://pie-chart" iconColor="Default" design="Horizontal" text="{i18n>overview}" key="overview"
+								class="sapUiSmallMargin">
 								<content>
 									<ScrollContainer height="100%" width="100%" horizontal="false" vertical="true">
-										<HBox alignItems="Center">
+										<HBox alignItems="Center" justifyContent = "SpaceBetween">
 											<Title text="{i18n>overview}: {path: 'savedProjects>applicationName'}" titleStyle="H1" class="sapUiSmallMargin"/>
-												
+											<HBox alignItems="Right">
 												<Button id="exportPDFButton2" icon="sap-icon://download" press="_onPressNavPrint"
-													ariaDescribedBy="defaultButtonDescription genericButtonDescription" class="addSpaceBetweenButtons"/>
-											
-												<!--progress indicator-->
+													ariaDescribedBy="defaultButtonDescription genericButtonDescription" class="addSpaceBetweenButtons" />
 											</HBox>
-										
+											<!--progress indicator-->
+										</HBox>
 										<layout:Grid defaultSpan="L3 M4 S6" class="sapUiSmallMarginTop">
 											<layout:content>
-												<StandardListItem type="Navigation" press="_onOverviewToClientTechnologyPress" title="{i18n>clientTechnology} ({savedProjects>selectionProgress/clientTechnology/selectedFactors}/{savedProjects&gt;selectionProgress/clientTechnology/totalFactors}) {path: 'savedProjects>selectionProgress/clientTechnology/wholeRecommendation', formatter: '.formatter.translate'} " icon="sap-icon://technical-object" class="sapThemeBrand-asBorderColor">
+												<StandardListItem type="Navigation" press="_onOverviewToClientTechnologyPress"
+													title="{i18n>clientTechnology} ({savedProjects>selectionProgress/clientTechnology/selectedFactors}/{savedProjects&gt;selectionProgress/clientTechnology/totalFactors}) {path: 'savedProjects>selectionProgress/clientTechnology/wholeRecommendation', formatter: '.formatter.translate'} "
+													icon="sap-icon://technical-object" class="sapThemeBrand-asBorderColor">
 													<layoutData>
 														<layout:GridData span="L12 M12 S12"/>
 													</layoutData>
@@ -266,7 +298,8 @@
 														<!--Chart + Label-->
 														<FlexBox width="9rem" height="9rem">
 															<!--Chart-->
-															<micro:RadialMicroChart total="100" percentage="{path: 'savedProjects>decisionPercentage/clientTechnology/0'}" valueColor="{=Math.max.apply(null,${savedProjects>decisionIndication/clientTechnology})===${savedProjects>decisionIndication/clientTechnology/0} ? 'Good' : 'Neutral' }"/>
+															<micro:RadialMicroChart total="100" percentage="{path: 'savedProjects>decisionPercentage/clientTechnology/0'}"
+																valueColor="{=Math.max.apply(null,${savedProjects>decisionIndication/clientTechnology})===${savedProjects>decisionIndication/clientTechnology/0} ? 'Good' : 'Neutral' }"/>
 														</FlexBox>
 														<Label text="{path: 'savedProjects>iconTabs/clientTechnology/0', formatter: '.formatter.translate'}"/>
 													</FlexBox>
@@ -276,7 +309,8 @@
 														<!--Chart + Label-->
 														<FlexBox width="9rem" height="9rem">
 															<!--Chart-->
-															<micro:RadialMicroChart total="100" percentage="{path: 'savedProjects>decisionPercentage/clientTechnology/1'}" valueColor="{=Math.max.apply(null,${savedProjects>decisionIndication/clientTechnology})===${savedProjects>decisionIndication/clientTechnology/1} ? 'Good' : 'Neutral' }"/>
+															<micro:RadialMicroChart total="100" percentage="{path: 'savedProjects>decisionPercentage/clientTechnology/1'}"
+																valueColor="{=Math.max.apply(null,${savedProjects>decisionIndication/clientTechnology})===${savedProjects>decisionIndication/clientTechnology/1} ? 'Good' : 'Neutral' }"/>
 														</FlexBox>
 														<Label text="{path: 'savedProjects>iconTabs/clientTechnology/1', formatter: '.formatter.translate'}"/>
 													</FlexBox>
@@ -286,12 +320,15 @@
 														<!--Chart + Label-->
 														<FlexBox width="9rem" height="9rem">
 															<!--Chart-->
-															<micro:RadialMicroChart total="100" percentage="{path: 'savedProjects>decisionPercentage/clientTechnology/2'}" valueColor="{=Math.max.apply(null,${savedProjects>decisionIndication/clientTechnology})===${savedProjects>decisionIndication/clientTechnology/2} ? 'Good' : 'Neutral' }"/>
+															<micro:RadialMicroChart total="100" percentage="{path: 'savedProjects>decisionPercentage/clientTechnology/2'}"
+																valueColor="{=Math.max.apply(null,${savedProjects>decisionIndication/clientTechnology})===${savedProjects>decisionIndication/clientTechnology/2} ? 'Good' : 'Neutral' }"/>
 														</FlexBox>
 														<Label text="{path: 'savedProjects>iconTabs/clientTechnology/2', formatter: '.formatter.translate'}"/>
 													</FlexBox>
 												</CustomListItem>
-												<StandardListItem type="Navigation" press="_onOverviewToDataSyncPress" title="{i18n>dataSync} ({savedProjects>selectionProgress/dataSync/selectedFactors}/{savedProjects&gt;selectionProgress/dataSync/totalFactors}) {path: 'savedProjects>selectionProgress/dataSync/wholeRecommendation', formatter: '.formatter.translate'}" icon="sap-icon://synchronize" class="sapThemeBrand-asBorderColor">
+												<StandardListItem type="Navigation" press="_onOverviewToDataSyncPress"
+													title="{i18n>dataSync} ({savedProjects>selectionProgress/dataSync/selectedFactors}/{savedProjects&gt;selectionProgress/dataSync/totalFactors}) {path: 'savedProjects>selectionProgress/dataSync/wholeRecommendation', formatter: '.formatter.translate'}"
+													icon="sap-icon://synchronize" class="sapThemeBrand-asBorderColor">
 													<layoutData>
 														<layout:GridData span="L12 M12 S12"/>
 													</layoutData>
@@ -301,7 +338,8 @@
 														<!--Chart + Label-->
 														<FlexBox width="9rem" height="9rem">
 															<!--Chart-->
-															<micro:RadialMicroChart total="100" percentage="{path: 'savedProjects>decisionPercentage/dataSync/0'}" valueColor="{=Math.max.apply(null,${savedProjects>decisionIndication/dataSync})===${savedProjects>decisionIndication/dataSync/0} ? 'Good' : 'Neutral' }"/>
+															<micro:RadialMicroChart total="100" percentage="{path: 'savedProjects>decisionPercentage/dataSync/0'}"
+																valueColor="{=Math.max.apply(null,${savedProjects>decisionIndication/dataSync})===${savedProjects>decisionIndication/dataSync/0} ? 'Good' : 'Neutral' }"/>
 														</FlexBox>
 														<Label text="{path: 'savedProjects>iconTabs/dataSync/0', formatter: '.formatter.translate'}"/>
 													</FlexBox>
@@ -311,7 +349,8 @@
 														<!--Chart + Label-->
 														<FlexBox width="9rem" height="9rem">
 															<!--Chart-->
-															<micro:RadialMicroChart total="100" percentage="{path: 'savedProjects>decisionPercentage/dataSync/1'}" valueColor="{=Math.max.apply(null,${savedProjects>decisionIndication/dataSync})===${savedProjects>decisionIndication/dataSync/1} ? 'Good' : 'Neutral' }"/>
+															<micro:RadialMicroChart total="100" percentage="{path: 'savedProjects>decisionPercentage/dataSync/1'}"
+																valueColor="{=Math.max.apply(null,${savedProjects>decisionIndication/dataSync})===${savedProjects>decisionIndication/dataSync/1} ? 'Good' : 'Neutral' }"/>
 														</FlexBox>
 														<Label text="{path: 'savedProjects>iconTabs/dataSync/1', formatter: '.formatter.translate'}"/>
 													</FlexBox>
@@ -321,12 +360,15 @@
 														<!--Chart + Label-->
 														<FlexBox width="9rem" height="9rem">
 															<!--Chart-->
-															<micro:RadialMicroChart total="100" percentage="{path: 'savedProjects>decisionPercentage/dataSync/2'}" valueColor="{=Math.max.apply(null,${savedProjects>decisionIndication/dataSync})===${savedProjects>decisionIndication/dataSync/2} ? 'Good' : 'Neutral' }"/>
+															<micro:RadialMicroChart total="100" percentage="{path: 'savedProjects>decisionPercentage/dataSync/2'}"
+																valueColor="{=Math.max.apply(null,${savedProjects>decisionIndication/dataSync})===${savedProjects>decisionIndication/dataSync/2} ? 'Good' : 'Neutral' }"/>
 														</FlexBox>
 														<Label text="{path: 'savedProjects>iconTabs/dataSync/2', formatter: '.formatter.translate'}"/>
 													</FlexBox>
 												</CustomListItem>
-												<StandardListItem type="Navigation" press="_onOverviewToOperationsCenterPress" title="{i18n>operationsCenter} ({savedProjects>selectionProgress/operationsCenter/selectedFactors}/{savedProjects&gt;selectionProgress/operationsCenter/totalFactors}) {path: 'savedProjects>selectionProgress/operationsCenter/wholeRecommendation', formatter: '.formatter.translate'}" icon="sap-icon://cloud" class="sapThemeBrand-asBorderColor">
+												<StandardListItem type="Navigation" press="_onOverviewToOperationsCenterPress"
+													title="{i18n>operationsCenter} ({savedProjects>selectionProgress/operationsCenter/selectedFactors}/{savedProjects&gt;selectionProgress/operationsCenter/totalFactors}) {path: 'savedProjects>selectionProgress/operationsCenter/wholeRecommendation', formatter: '.formatter.translate'}"
+													icon="sap-icon://cloud" class="sapThemeBrand-asBorderColor">
 													<layoutData>
 														<layout:GridData span="L12 M12 S12"/>
 													</layoutData>
@@ -336,7 +378,8 @@
 														<!--Chart + Label-->
 														<FlexBox width="9rem" height="9rem">
 															<!--Chart-->
-															<micro:RadialMicroChart total="100" percentage="{path: 'savedProjects>decisionPercentage/operationsCenter/0'}" valueColor="{=Math.max.apply(null,${savedProjects>decisionIndication/operationsCenter})===${savedProjects>decisionIndication/operationsCenter/0} ? 'Good' : 'Neutral' }"/>
+															<micro:RadialMicroChart total="100" percentage="{path: 'savedProjects>decisionPercentage/operationsCenter/0'}"
+																valueColor="{=Math.max.apply(null,${savedProjects>decisionIndication/operationsCenter})===${savedProjects>decisionIndication/operationsCenter/0} ? 'Good' : 'Neutral' }"/>
 														</FlexBox>
 														<Label text="{path: 'savedProjects>iconTabs/operationsCenter/0', formatter: '.formatter.translate'}"/>
 													</FlexBox>
@@ -346,7 +389,8 @@
 														<!--Chart + Label-->
 														<FlexBox width="9rem" height="9rem">
 															<!--Chart-->
-															<micro:RadialMicroChart total="100" percentage="{path: 'savedProjects>decisionPercentage/operationsCenter/2'}" valueColor="{=Math.max.apply(null,${savedProjects>decisionIndication/operationsCenter})===${savedProjects>decisionIndication/operationsCenter/2} ? 'Good' : 'Neutral' }"/>
+															<micro:RadialMicroChart total="100" percentage="{path: 'savedProjects>decisionPercentage/operationsCenter/2'}"
+																valueColor="{=Math.max.apply(null,${savedProjects>decisionIndication/operationsCenter})===${savedProjects>decisionIndication/operationsCenter/2} ? 'Good' : 'Neutral' }"/>
 														</FlexBox>
 														<Label text="{path: 'savedProjects>iconTabs/operationsCenter/2', formatter: '.formatter.translate'}"/>
 													</FlexBox>
@@ -356,7 +400,8 @@
 														<!--Chart + Label-->
 														<FlexBox width="9rem" height="9rem">
 															<!--Chart-->
-															<micro:RadialMicroChart total="100" percentage="{path: 'savedProjects>decisionPercentage/operationsCenter/1'}" valueColor="{=Math.max.apply(null,${savedProjects>decisionIndication/operationsCenter})===${savedProjects>decisionIndication/operationsCenter/1} ? 'Good' : 'Neutral' }"/>
+															<micro:RadialMicroChart total="100" percentage="{path: 'savedProjects>decisionPercentage/operationsCenter/1'}"
+																valueColor="{=Math.max.apply(null,${savedProjects>decisionIndication/operationsCenter})===${savedProjects>decisionIndication/operationsCenter/1} ? 'Good' : 'Neutral' }"/>
 														</FlexBox>
 														<Label text="{path: 'savedProjects>iconTabs/operationsCenter/1', formatter: '.formatter.translate'}"/>
 													</FlexBox>
@@ -375,48 +420,66 @@
 						<Button text="{i18n>reset}" visible="{= ${savedProjects>selectedIconTab} !=='overview'}" press="_onFooterResetButtonPress"/>
 						<ToolbarSpacer/>
 						<FlexBox visible="{= ${savedProjects>selectedIconTab} ==='clientTechnology'}" alignItems="Center">
-							<Title width="7rem" textAlign="Center" text="{path: 'savedProjects>iconTabs/clientTechnology/0', formatter: '.formatter.translate'} : " level="H1" visible="{= ${savedProjects>decisionIndication/clientTechnology/} !== 0}"/>
+							<Title width="7rem" textAlign="Center" text="{path: 'savedProjects>iconTabs/clientTechnology/0', formatter: '.formatter.translate'} : "
+								level="H1" visible="{= ${savedProjects>decisionIndication/clientTechnology/} !== 0}"/>
 							<FlexBox width="3.125rem" height="3.125rem">
-								<micro:RadialMicroChart total="100" percentage="{path: 'savedProjects>decisionPercentage/clientTechnology/0'}" visible="{= ${savedProjects>decisionIndication/clientTechnology/} !== 0}"/>
+								<micro:RadialMicroChart total="100" percentage="{path: 'savedProjects>decisionPercentage/clientTechnology/0'}"
+									visible="{= ${savedProjects>decisionIndication/clientTechnology/} !== 0}"/>
 							</FlexBox>
-							<Title width="7rem" textAlign="Center" text="{path: 'savedProjects>iconTabs/clientTechnology/1', formatter: '.formatter.translate'} : " level="H1" visible="{= ${savedProjects>decisionIndication/clientTechnology/} !== 0}"/>
+							<Title width="7rem" textAlign="Center" text="{path: 'savedProjects>iconTabs/clientTechnology/1', formatter: '.formatter.translate'} : "
+								level="H1" visible="{= ${savedProjects>decisionIndication/clientTechnology/} !== 0}"/>
 							<FlexBox height="3.125rem" width="3.125rem">
-								<micro:RadialMicroChart total="100" percentage="{path: 'savedProjects>decisionPercentage/clientTechnology/1'}" visible="{= ${savedProjects>decisionIndication/clientTechnology/} !== 0}"/>
+								<micro:RadialMicroChart total="100" percentage="{path: 'savedProjects>decisionPercentage/clientTechnology/1'}"
+									visible="{= ${savedProjects>decisionIndication/clientTechnology/} !== 0}"/>
 							</FlexBox>
-							<Title width="7rem" textAlign="Center" text="{path: 'savedProjects>iconTabs/clientTechnology/2', formatter: '.formatter.translate'} : " level="H1" visible="{= ${savedProjects>decisionIndication/clientTechnology/} !== 0}"/>
+							<Title width="7rem" textAlign="Center" text="{path: 'savedProjects>iconTabs/clientTechnology/2', formatter: '.formatter.translate'} : "
+								level="H1" visible="{= ${savedProjects>decisionIndication/clientTechnology/} !== 0}"/>
 							<FlexBox height="3.125rem" width="3.125rem">
-								<micro:RadialMicroChart total="100" percentage="{path: 'savedProjects>decisionPercentage/clientTechnology/2'}" visible="{= ${savedProjects>decisionIndication/clientTechnology/} !== 0}"/>
+								<micro:RadialMicroChart total="100" percentage="{path: 'savedProjects>decisionPercentage/clientTechnology/2'}"
+									visible="{= ${savedProjects>decisionIndication/clientTechnology/} !== 0}"/>
 							</FlexBox>
 						</FlexBox>
 						<FlexBox visible="{= ${savedProjects>selectedIconTab} ==='dataSync'}" alignItems="Center">
-							<Title width="7rem" textAlign="Center" text="{path: 'savedProjects>iconTabs/dataSync/0', formatter: '.formatter.translate'} : " level="H1" visible="{= ${savedProjects>decisionIndication/dataSync/} !== 0}"/>
+							<Title width="7rem" textAlign="Center" text="{path: 'savedProjects>iconTabs/dataSync/0', formatter: '.formatter.translate'} : " level="H1"
+								visible="{= ${savedProjects>decisionIndication/dataSync/} !== 0}"/>
 							<FlexBox height="3.125rem" width="3.125rem">
 								<layoutData>
 									<FlexItemData maxHeight="3.125rem"/>
 								</layoutData>
-								<micro:RadialMicroChart id="RmsDs1" total="100" percentage="{path: 'savedProjects>decisionPercentage/dataSync/0'}" visible="{= ${savedProjects>decisionIndication/dataSync/} !== 0}"/>
+								<micro:RadialMicroChart id="RmsDs1" total="100" percentage="{path: 'savedProjects>decisionPercentage/dataSync/0'}"
+									visible="{= ${savedProjects>decisionIndication/dataSync/} !== 0}"/>
 							</FlexBox>
-							<Title width="7rem" textAlign="Center" text="{path: 'savedProjects>iconTabs/dataSync/1', formatter: '.formatter.translate'} : " level="H1" visible="{= ${savedProjects>decisionIndication/dataSync/} !== 0}"/>
+							<Title width="7rem" textAlign="Center" text="{path: 'savedProjects>iconTabs/dataSync/1', formatter: '.formatter.translate'} : " level="H1"
+								visible="{= ${savedProjects>decisionIndication/dataSync/} !== 0}"/>
 							<FlexBox height="3.125rem" width="3.125rem">
-								<micro:RadialMicroChart id="RmsDs2" total="100" percentage="{path: 'savedProjects>decisionPercentage/dataSync/1'}" visible="{= ${savedProjects>decisionIndication/dataSync/} !== 0}"/>
+								<micro:RadialMicroChart id="RmsDs2" total="100" percentage="{path: 'savedProjects>decisionPercentage/dataSync/1'}"
+									visible="{= ${savedProjects>decisionIndication/dataSync/} !== 0}"/>
 							</FlexBox>
-							<Title width="7rem" textAlign="Center" text="{path: 'savedProjects>iconTabs/dataSync/2', formatter: '.formatter.translate'} : " level="H1" visible="{= ${savedProjects>decisionIndication/dataSync/} !== 0}"/>
+							<Title width="7rem" textAlign="Center" text="{path: 'savedProjects>iconTabs/dataSync/2', formatter: '.formatter.translate'} : " level="H1"
+								visible="{= ${savedProjects>decisionIndication/dataSync/} !== 0}"/>
 							<FlexBox height="3.125rem" width="3.125rem">
-								<micro:RadialMicroChart id="RmsDs3" total="100" percentage="{path: 'savedProjects>decisionPercentage/dataSync/2'}" visible="{= ${savedProjects>decisionIndication/dataSync/} !== 0}"/>
+								<micro:RadialMicroChart id="RmsDs3" total="100" percentage="{path: 'savedProjects>decisionPercentage/dataSync/2'}"
+									visible="{= ${savedProjects>decisionIndication/dataSync/} !== 0}"/>
 							</FlexBox>
 						</FlexBox>
 						<FlexBox visible="{= ${savedProjects>selectedIconTab} ==='operationsCenter'}" alignItems="Center">
-							<Title width="7rem" textAlign="Center" text="{path: 'savedProjects>iconTabs/operationsCenter/0', formatter: '.formatter.translate'} : " level="H1" visible="{= ${savedProjects>decisionIndication/operationsCenter/} !== 0}"/>
+							<Title width="7rem" textAlign="Center" text="{path: 'savedProjects>iconTabs/operationsCenter/0', formatter: '.formatter.translate'} : "
+								level="H1" visible="{= ${savedProjects>decisionIndication/operationsCenter/} !== 0}"/>
 							<FlexBox height="3.125rem" width="3.125rem">
-								<micro:RadialMicroChart total="100" percentage="{path: 'savedProjects>decisionPercentage/operationsCenter/0'}" visible="{= ${savedProjects>decisionIndication/operationsCenter/} !== 0}"/>
+								<micro:RadialMicroChart total="100" percentage="{path: 'savedProjects>decisionPercentage/operationsCenter/0'}"
+									visible="{= ${savedProjects>decisionIndication/operationsCenter/} !== 0}"/>
 							</FlexBox>
-							<Title width="7rem" textAlign="Center" text="{path: 'savedProjects>iconTabs/operationsCenter/2', formatter: '.formatter.translate'} : " level="H1" visible="{= ${savedProjects>decisionIndication/operationsCenter/} !== 0}"/>
+							<Title width="7rem" textAlign="Center" text="{path: 'savedProjects>iconTabs/operationsCenter/2', formatter: '.formatter.translate'} : "
+								level="H1" visible="{= ${savedProjects>decisionIndication/operationsCenter/} !== 0}"/>
 							<FlexBox height="3.125rem" width="3.125rem">
-								<micro:RadialMicroChart total="100" percentage="{path: 'savedProjects>decisionPercentage/operationsCenter/2'}" visible="{= ${savedProjects>decisionIndication/operationsCenter/} !== 0}"/>
+								<micro:RadialMicroChart total="100" percentage="{path: 'savedProjects>decisionPercentage/operationsCenter/2'}"
+									visible="{= ${savedProjects>decisionIndication/operationsCenter/} !== 0}"/>
 							</FlexBox>
-							<Title width="7rem" textAlign="Center" text="{path: 'savedProjects>iconTabs/operationsCenter/1', formatter: '.formatter.translate'} : " level="H1" visible="{= ${savedProjects>decisionIndication/operationsCenter/} !== 0}"/>
+							<Title width="7rem" textAlign="Center" text="{path: 'savedProjects>iconTabs/operationsCenter/1', formatter: '.formatter.translate'} : "
+								level="H1" visible="{= ${savedProjects>decisionIndication/operationsCenter/} !== 0}"/>
 							<FlexBox height="3.125rem" width="3.125rem">
-								<micro:RadialMicroChart total="100" percentage="{path: 'savedProjects>decisionPercentage/operationsCenter/1'}" visible="{= ${savedProjects>decisionIndication/operationsCenter/} !== 0}"/>
+								<micro:RadialMicroChart total="100" percentage="{path: 'savedProjects>decisionPercentage/operationsCenter/1'}"
+									visible="{= ${savedProjects>decisionIndication/operationsCenter/} !== 0}"/>
 							</FlexBox>
 						</FlexBox>
 						<ToolbarSpacer/>

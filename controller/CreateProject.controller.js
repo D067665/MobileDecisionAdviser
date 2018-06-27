@@ -23,6 +23,10 @@ sap.ui.define([
 			var oTableTechnologyFactors = this.getView().byId("tableClientTechnologyFactors");
 			var oTableDataSync = this.getView().byId("tableClientDataSynchronization");
 			var oTableOperationsCenter = this.getView().byId("tableClientOperationsCenter");
+		   // var oContent = document.getElementById("createProjectContent").innerHTML;
+		/*	oContent.addEventDelegate({
+				"onAfterRendering": this.$().removeClass('sapMPageEnableScrolling')
+			});*/
 			oTableTechnologyFactors.addEventDelegate({
 				"onAfterRendering": this._onchangeBackgroundTechnologyFactors.bind(this)
 

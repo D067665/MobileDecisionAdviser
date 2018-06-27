@@ -14,6 +14,7 @@ sap.ui.define([
 	"use strict";
 	return BaseController.extend("M3A.controller.PrintProject", {
 		formatter: formatter,
+		globalVariableIndex:0,
 		onInit: function() {
 			var oRouter = this.getRouter();
 		
@@ -27,6 +28,7 @@ sap.ui.define([
 				path: "/" + oArgs.index,
 				model: "savedProjects"
 			});
+			this.globalVariableIndex = oArgs.index;
 
 		},
 
@@ -63,10 +65,6 @@ sap.ui.define([
 			}.bind(this), 300);
 			that._navBackToOverview();
 			
-			
-		
-		
-			
 
 		},
 		clicked: function(oEvent) {
@@ -76,14 +74,15 @@ sap.ui.define([
 		 	
         	//var projectIndex = this.getView().getBindingContext("savedProjects").getPath().slice(1);
         
-        	//this._loadSavedValues();
         	var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
         	//this.getRouter().navTo("loadProject");
         	oRouter.navTo("loadProject");
         	
-        /*	oRouter.navTo("createProject",{ 
-        		index: path
+        /*	oRouter.navTo("createProject", {
+        		projectIndex: this.globalVariableIndex
         	});*/
+        	
+       
 		 }
         	
 

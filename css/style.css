@@ -13,3 +13,6 @@
 .addSpaceBetweenButtons {
 	margin-right: 10px;
 }
+.tableHeaderUnvisible.sapMListTblHeaderCell {
+	padding: 0rem;
+}

@@ -8,6 +8,7 @@
 				<content>
 					<HBox id="printTitle">
 						<Title text="{i18n>applicationName}: {savedProjects>applicationName}" titleStyle="H2" class="sapUiSmallMargin"/>
+						
 					</HBox>
 					<HBox width="auto" alignItems="Center" justifyContent="SpaceBetween">
 						<!--Überschrift Client Technology-->
