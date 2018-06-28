@@ -17,7 +17,6 @@ sap.ui.define([
 		globalVariableIndex:0,
 		onInit: function() {
 			var oRouter = this.getRouter();
-			debugger;
 		
 			oRouter.getRoute("printProject").attachMatched(this.onRouteMatched, this);
 			/*this.getView("printProjectPage").addEventDelegate({
@@ -32,15 +31,27 @@ sap.ui.define([
 
 		},
 		onRouteMatched: function(oEvent) {
-			debugger;
+		//getProject Index
 			var oArgs = oEvent.getParameter("arguments");
+			
 
 			this.getView().bindElement({
 				path: "/" + oArgs.index,
 				model: "savedProjects"
 			});
 			this.globalVariableIndex = oArgs.index;
+			
 			setTimeout(function() {
+			// instantiate dialog
+			if (!this._dialog) {
+				this._dialog = sap.ui.xmlfragment("M3A.fragment.BusyWhilePrintDialog", this);
+				this.getView().addDependent(this._dialog);
+			}
+
+			 //open dialog
+			jQuery.sap.syncStyleClass("sapUiSizeCompact", this.getView(), this._dialog);
+			this._dialog.open();
+			//printPDF
 
 				var element = this.getView().byId("printProjectPage").getDomRef().innerHTML;
 				
@@ -61,12 +72,19 @@ sap.ui.define([
 				};
 
 				html2pdf().from(element).set(opt).save();
+				//closeDialog
+			
+				this._dialog.close();
 				this._navBackToOverview();
 				
+				
 
-			}.bind(this), 500);
+			}.bind(this), 100);
 			
 
+		},
+		_onDialogClosed: function(){
+			this._navBackToOverview();
 		},
 
 		/*onAfterRendering: function() {

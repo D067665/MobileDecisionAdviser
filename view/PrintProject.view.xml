@@ -4,7 +4,7 @@
 	<App>
 		<pages>
 			<Page title="{i18n>appTitle}" id="printProjectPage" showHeader="true" showFooter="true" showNavButton="false" width="auto"
-				class="sapUiResponsiveContentPadding" busy="true" busyIndicatorDelay="1">
+				class="sapUiResponsiveContentPadding" >
 				<content>
 					<VBox id="printTitle" class="sapUiSmallMargin">
 						<Title text="{i18n>applicationName}: {savedProjects>applicationName}" titleStyle="H2"/>

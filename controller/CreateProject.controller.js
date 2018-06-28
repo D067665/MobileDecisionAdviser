@@ -102,9 +102,12 @@ sap.ui.define([
 
 			//this._loadSavedValues();
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+			var iconTabBar = this._getIconTabBar();
+			var selectedTab = iconTabBar.getSelectedKey();
 
 			oRouter.navTo("printProject", {
-				index: path
+				index: path,
+				selectedTab: selectedTab
 			});
 			/*var printFragment = sap.ui.xmlfragment("M3A.fragment.PrintPDF", this);
 			printFragment.addEventDelegate({
