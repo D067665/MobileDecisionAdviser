@@ -136,9 +136,9 @@
 													</Select>
 													<SegmentedButton id="segmentedButtonClientTechnology" selectedKey="{factorCatalog>currentWeight}" select="_onSelectionChange" width="8rem">
 														<items>
-															<SegmentedButtonItem text="" icon="sap-icon://trend-down" key="{factorCatalog>importance>key}" tooltip="{i18n>low}"/>
-															<SegmentedButtonItem text="" icon="sap-icon://arrow-right" key="{factorCatalog>importnace>key}" tooltip="{i18n>medium}"/>
-															<SegmentedButtonItem text="" icon="sap-icon://trend-up" key="{factorCatalog>importance>key}" tooltip="{i18n>high}"/>
+															<SegmentedButtonItem text="" icon="sap-icon://trend-down" key="low" tooltip="{i18n>low}"/>
+															<SegmentedButtonItem text="" icon="sap-icon://arrow-right" key="medium" tooltip="{i18n>medium}"/>
+															<SegmentedButtonItem text="" icon="sap-icon://trend-up" key="high" tooltip="{i18n>high}"/>
 														</items>
 													</SegmentedButton>
 												</cells>
@@ -199,9 +199,9 @@
 													</Select>
 													<SegmentedButton id="segmentedButtonDataSync" selectedKey="{factorCatalog>currentWeight}" select="_onSelectionChange" width="8rem">
 														<items>
-															<SegmentedButtonItem text="" icon="sap-icon://trend-down" key="{factorCatalog>importance>key}" tooltip="{i18n>low}"/>
-															<SegmentedButtonItem text="" icon="sap-icon://arrow-right" key="{factorCatalog>importance>key}" tooltip="{i18n>medium}"/>
-															<SegmentedButtonItem text="" icon="sap-icon://trend-up" key="{factorCatalog>importance>key}" tooltip="{i18n>high}"/>
+															<SegmentedButtonItem text="" icon="sap-icon://trend-down" key="low" tooltip="{i18n>low}"/>
+															<SegmentedButtonItem text="" icon="sap-icon://arrow-right" key="medium" tooltip="{i18n>medium}"/>
+															<SegmentedButtonItem text="" icon="sap-icon://trend-up" key="high" tooltip="{i18n>high}"/>
 														</items>
 													</SegmentedButton>
 												</cells>
@@ -263,9 +263,9 @@
 													</Select>
 													<SegmentedButton id="segmentedButtonOperationsCenter" selectedKey="{factorCatalog>currentWeight}" select="_onSelectionChange" width="8rem">
 														<items>
-															<SegmentedButtonItem text="" icon="sap-icon://trend-down" key="{factorCatalog>importance>key}" tooltip="{i18n>low}"/>
-															<SegmentedButtonItem text="" icon="sap-icon://arrow-right" key="{factorCatalog>importance>key}" tooltip="{i18n>medium}"/>
-															<SegmentedButtonItem text="" icon="sap-icon://trend-up" key="{factorCatalog>importance>key}" tooltip="{i18n>high}"/>
+															<SegmentedButtonItem text="" icon="sap-icon://trend-down" key="low" tooltip="{i18n>low}"/>
+															<SegmentedButtonItem text="" icon="sap-icon://arrow-right" key="medium" tooltip="{i18n>medium}"/>
+															<SegmentedButtonItem text="" icon="sap-icon://trend-up" key="high" tooltip="{i18n>high}"/>
 														</items>
 													</SegmentedButton>
 												</cells>

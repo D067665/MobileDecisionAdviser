@@ -58,7 +58,7 @@ sap.ui.define([
 				
 				var opt = {
 					margin: 0.5,
-					filename: 'MobileTechnologyDecisionAdvisorDienstag.pdf',
+					filename: 'MobileTechnologyDecisionAdvisor.pdf',
 					
 					html2canvas: {
 						scale: 2
