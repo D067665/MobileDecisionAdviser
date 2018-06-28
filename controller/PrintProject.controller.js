@@ -17,11 +17,22 @@ sap.ui.define([
 		globalVariableIndex:0,
 		onInit: function() {
 			var oRouter = this.getRouter();
+			debugger;
 		
 			oRouter.getRoute("printProject").attachMatched(this.onRouteMatched, this);
+			/*this.getView("printProjectPage").addEventDelegate({
+				"onAfterRendering": function(){
+						var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+						oRoter.navTo("loadProject");
+					/*	oRouter.navTo("createProject", {
+        		projectIndex: this.globalVariableIndex
+                	});
+				}
+			},this);*/
 
 		},
 		onRouteMatched: function(oEvent) {
+			debugger;
 			var oArgs = oEvent.getParameter("arguments");
 
 			this.getView().bindElement({
@@ -29,13 +40,36 @@ sap.ui.define([
 				model: "savedProjects"
 			});
 			this.globalVariableIndex = oArgs.index;
+			setTimeout(function() {
+
+				var element = this.getView().byId("printProjectPage").getDomRef().innerHTML;
+				
+				
+				var opt = {
+					margin: 0.5,
+					filename: 'MobileTechnologyDecisionAdvisorDienstag.pdf',
+					
+					html2canvas: {
+						scale: 2
+					},
+					jsPDF: {
+						unit: 'in',
+						format: 'letter',
+						orientation: 'landscape'
+						
+					}
+				};
+
+				html2pdf().from(element).set(opt).save();
+				this._navBackToOverview();
+				
+
+			}.bind(this), 500);
+			
 
 		},
 
-		onAfterRendering: function() {
-		
-		var that = this;
-		
+		/*onAfterRendering: function() {
 			setTimeout(function() {
 
 				var element = this.getView().byId("printProjectPage").getDomRef().innerHTML;
@@ -58,29 +92,26 @@ sap.ui.define([
 
 				html2pdf().from(element).set(opt).save();
 				
-				
-				
-			
 
 			}.bind(this), 300);
-			that._navBackToOverview();
+			this._navBackToOverview();
 			
 
-		},
-		clicked: function(oEvent) {
+		},*/
+	/*clicked: function(oEvent) {
   				this.getView().invalidate();
-		},
+		},*/
 		 _navBackToOverview: function(oEvent){
 		 	
         	//var projectIndex = this.getView().getBindingContext("savedProjects").getPath().slice(1);
         
         	var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
         	//this.getRouter().navTo("loadProject");
-        	oRouter.navTo("loadProject");
+        	//oRouter.navTo("loadProject");
         	
-        /*	oRouter.navTo("createProject", {
+        	oRouter.navTo("createProject", {
         		projectIndex: this.globalVariableIndex
-        	});*/
+        	});
         	
        
 		 }

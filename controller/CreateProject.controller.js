@@ -23,10 +23,10 @@ sap.ui.define([
 			var oTableTechnologyFactors = this.getView().byId("tableClientTechnologyFactors");
 			var oTableDataSync = this.getView().byId("tableClientDataSynchronization");
 			var oTableOperationsCenter = this.getView().byId("tableClientOperationsCenter");
-		   // var oContent = document.getElementById("createProjectContent").innerHTML;
-		/*	oContent.addEventDelegate({
-				"onAfterRendering": this.$().removeClass('sapMPageEnableScrolling')
-			});*/
+			// var oContent = document.getElementById("createProjectContent").innerHTML;
+			/*	oContent.addEventDelegate({
+					"onAfterRendering": this.$().removeClass('sapMPageEnableScrolling')
+				});*/
 			oTableTechnologyFactors.addEventDelegate({
 				"onAfterRendering": this._onchangeBackgroundTechnologyFactors.bind(this)
 
@@ -40,7 +40,11 @@ sap.ui.define([
 
 			oRouter.getRoute("createProject").attachMatched(this._onRouteMatched, this);
 		},
-		onAfterRendering: function() {},
+		onAfterRendering: function() {
+
+			var oContent = this.getView().byId("createProjectPage");
+			oContent.removeStyleClass("sapMPageEnableScrolling");
+		},
 		_onNavBackPress: function(oEvent) {
 			this._onPageNavButtonPress();
 		},
@@ -93,6 +97,7 @@ sap.ui.define([
 			iconTabBar.setSelectedKey(items[items.indexOf(currentItem) + 2].getKey());
 		},
 		_onPressNavPrint: function(oEvent) {
+
 			var path = this.getView().getBindingContext("savedProjects").getPath().slice(1);
 
 			//this._loadSavedValues();
@@ -101,7 +106,32 @@ sap.ui.define([
 			oRouter.navTo("printProject", {
 				index: path
 			});
+			/*var printFragment = sap.ui.xmlfragment("M3A.fragment.PrintPDF", this);
+			printFragment.addEventDelegate({
+				"onAfterRendering": function(oEvent) {
+					debugger;
+					var element = this.getView().byId("printProjectPage").getDomRef().innerHTML;
+					
+					var opt = {
+						margin: 0.5,
+						filename: 'MobileTechnologyDecisionAdvisorDienstag.pdf',
 
+						html2canvas: {
+							scale: 2
+						},
+						jsPDF: {
+							unit: 'in',
+							format: 'letter',
+							orientation: 'landscape'
+
+						}
+					};
+
+					html2pdf().from(element).set(opt).save();
+				}
+			}, this);
+
+			debugger;*/
 		},
 		/* _onPressOpenPrintDialog: function(oEvent){
 		 	 var oView = this.getView();
@@ -312,92 +342,506 @@ sap.ui.define([
 
 		_onFooterResetButtonPress: function(oEvent) {
 			//define empty objects for savedProjects model
-		var sApplicationNameSavedProject = "";
-		var aAdditionalInformationSavedProject = {
-					"useCase": "",
-		"owner": "",
-		"users": "",
-		"userGeography": {
-			"selectionOptions": ["regional", "local", "global"]
-		},
-		"language": {
-			"selectionOptions": [""]
-		},
-		"devicePlatform": {
-			"selectionOptions": ["iOS", "Android", "Windows", "Blackberry", "Unknown"]
-		},
-		"deviceFormFactor": {
-			"selectionOptions": ["Smartphone", "Tablet", "Laptop"]
-		},
-		"plannedGoLive": "",
-		"plannedEndOfLife": ""
+			var sApplicationNameSavedProject = "";
+			var aAdditionalInformationSavedProject = {
+				"useCase": "",
+				"owner": "",
+				"users": "",
+				"userGeography": {
+					"selectionOptions": ["regional", "local", "global"]
+				},
+				"language": {
+					"selectionOptions": [""]
+				},
+				"devicePlatform": {
+					"selectionOptions": ["iOS", "Android", "Windows", "Blackberry", "Unknown"]
+				},
+				"deviceFormFactor": {
+					"selectionOptions": ["Smartphone", "Tablet", "Laptop"]
+				},
+				"plannedGoLive": "",
+				"plannedEndOfLife": ""
 			};
-				var aClientTechnologySavedProject = {
-	"appChangeFrequency": {"importance":{"key":"medium","weight":"2"},"selectionOptions":{"key":"notSelected","resultInfluence":["0","0","0"]}},
-	"applicationLifetime":{"importance":{"key":"medium","weight":"2"},"selectionOptions":{"key":"notSelected","resultInfluence":["0","0","0"]}},
-	"devicePlatform":{"importance":{"key":"medium","weight":"2"},"selectionOptions":{"key":"notSelected","resultInfluence":["0","0","0"]}},
-	"extendCost":{"importance":{"key":"medium","weight":"2"},"selectionOptions":{"key":"notSelected","resultInfluence":["0","0","0"]}},
-	"longTermBudget":{"importance":{"key":"medium","weight":"2"},"selectionOptions":{"key":"notSelected","resultInfluence":["0","0","0"]}},
-	"lookAndFeelExpectation":{"importance":{"key":"medium","weight":"2"},"selectionOptions":{"key":"notSelected","resultInfluence":["0","0","0"]}},
-	"maintenanceCost":{"importance":{"key":"medium","weight":"2"},"selectionOptions":{"key":"notSelected","resultInfluence":["0","0","0"]}},
-	"mobileUsage":{"importance":{"key":"medium","weight":"2"},"selectionOptions":{"key":"notSelected","resultInfluence":["0","0","0"]}},
-	"numberOfUsers":{"importance":{"key":"medium","weight":"2"},"selectionOptions":{"key":"notSelected","resultInfluence":["0","0","0"]}},
-	"operationsCost":{"importance":{"key":"medium","weight":"2"},"selectionOptions":{"key":"notSelected","resultInfluence":["0","0","0"]}},
-	"performanceExpectation":{"importance":{"key":"medium","weight":"2"},"selectionOptions":{"key":"notSelected","resultInfluence":["0","0","0"]}},
-	"processComplexity":{"importance":{"key":"medium","weight":"2"},"selectionOptions":{"key":"notSelected","resultInfluence":["0","0","0"]}},
-	"projectBudget":{"importance":{"key":"medium","weight":"2"},"selectionOptions":{"key":"notSelected","resultInfluence":["0","0","0"]}},
-	"projectCost":{"importance":{"key":"medium","weight":"2"},"selectionOptions":{"key":"notSelected","resultInfluence":["0","0","0"]}},
-	"security":{"importance":{"key":"medium","weight":"2"},"selectionOptions":{"key":"notSelected","resultInfluence":["0","0","0"]}},
-	"technicalCapabilities":{"importance":{"key":"medium","weight":"2"},"selectionOptions":{"key":"notSelected","resultInfluence":["0","0","0"]}},
-	"timeToMarket":{"importance":{"key":"medium","weight":"2"},"selectionOptions":{"key":"notSelected","resultInfluence":["0","0","0"]}},
-	"useCaseImportance":{"importance":{"key":"medium","weight":"2"},"selectionOptions":{"key":"notSelected","resultInfluence":["0","0","0"]}},
-	"userProcesses":{"importance":{"key":"medium","weight":"2"},"selectionOptions":{"key":"notSelected","resultInfluence":["0","0","0"]}}
-					
-				};
-				var aDataSyncSavedProject = {
-	"dataLifetime": {"importance":{"key":"medium","weight":"2"},"selectionOptions":{"key":"notSelected","resultInfluence":["0","0","0"]}},
-	"dataOperations":{"importance":{"key":"medium","weight":"2"},"selectionOptions":{"key":"notSelected","resultInfluence":["0","0","0"]}},
-	"dataStructure": {"importance":{"key":"medium","weight":"2"},"selectionOptions":{"key":"notSelected","resultInfluence":["0","0","0"]}},
-	"dataTraffic": {"importance":{"key":"medium","weight":"2"},"selectionOptions":{"key":"notSelected","resultInfluence":["0","0","0"]}},
-	"extendCost": {"importance":{"key":"medium","weight":"2"},"selectionOptions":{"key":"notSelected","resultInfluence":["0","0","0"]}},
-	"localDataSearch":{"importance":{"key":"medium","weight":"2"},"selectionOptions":{"key":"notSelected","resultInfluence":["0","0","0"]}},
-	"maintenanceCost": {"importance":{"key":"medium","weight":"2"},"selectionOptions":{"key":"notSelected","resultInfluence":["0","0","0"]}},
-	"mobileUsage": {"importance":{"key":"medium","weight":"2"},"selectionOptions":{"key":"notSelected","resultInfluence":["0","0","0"]}},
-	"numberOfUsers": {"importance":{"key":"medium","weight":"2"},"selectionOptions":{"key":"notSelected","resultInfluence":["0","0","0"]}},
-	"offlineDataVolume": {"importance":{"key":"medium","weight":"2"},"selectionOptions":{"key":"notSelected","resultInfluence":["0","0","0"]}},
-	"operationsCost": {"importance":{"key":"medium","weight":"2"},"selectionOptions":{"key":"notSelected","resultInfluence":["0","0","0"]}},
-	"projectCost": {"importance":{"key":"medium","weight":"2"},"selectionOptions":{"key":"notSelected","resultInfluence":["0","0","0"]}},
-	"security": {"importance":{"key":"medium","weight":"2"},"selectionOptions":{"key":"notSelected","resultInfluence":["0","0","0"]}},
-	"useCaseImportance": {"importance":{"key":"medium","weight":"2"},"selectionOptions":{"key":"notSelected","resultInfluence":["0","0","0"]}},
-	"userType": {"importance":{"key":"medium","weight":"2"},"selectionOptions":{"key":"notSelected","resultInfluence":["0","0","0"]}}
-				};
-	var aOperationsCenterSavedProject = {
-	"appChangeFrequency": {"importance":{"key":"medium","weight":"2"},"selectionOptions":{"key":"notSelected","resultInfluence":["0","0","0"]}},
-	"applicationLifetime":{"importance":{"key":"medium","weight":"2"},"selectionOptions":{"key":"notSelected","resultInfluence":["0","0","0"]}},
-	"existingBackendSystems": {"importance":{"key":"medium","weight":"2"},"selectionOptions":{"key":"notSelected","resultInfluence":["0","0","0"]}},
-	"existingMobileMiddleware": {"importance":{"key":"medium","weight":"2"},"selectionOptions":{"key":"notSelected","resultInfluence":["0","0","0"]}},
-	"extendCost": {"importance":{"key":"medium","weight":"2"},"selectionOptions":{"key":"notSelected","resultInfluence":["0","0","0"]}},
-	"maintenanceCost": {"importance":{"key":"medium","weight":"2"},"selectionOptions":{"key":"notSelected","resultInfluence":["0","0","0"]}},
+			var aClientTechnologySavedProject = {
+				"appChangeFrequency": {
+					"importance": {
+						"key": "medium",
+						"weight": "2"
+					},
+					"selectionOptions": {
+						"key": "notSelected",
+						"resultInfluence": ["0", "0", "0"]
+					}
+				},
+				"applicationLifetime": {
+					"importance": {
+						"key": "medium",
+						"weight": "2"
+					},
+					"selectionOptions": {
+						"key": "notSelected",
+						"resultInfluence": ["0", "0", "0"]
+					}
+				},
+				"devicePlatform": {
+					"importance": {
+						"key": "medium",
+						"weight": "2"
+					},
+					"selectionOptions": {
+						"key": "notSelected",
+						"resultInfluence": ["0", "0", "0"]
+					}
+				},
+				"extendCost": {
+					"importance": {
+						"key": "medium",
+						"weight": "2"
+					},
+					"selectionOptions": {
+						"key": "notSelected",
+						"resultInfluence": ["0", "0", "0"]
+					}
+				},
+				"longTermBudget": {
+					"importance": {
+						"key": "medium",
+						"weight": "2"
+					},
+					"selectionOptions": {
+						"key": "notSelected",
+						"resultInfluence": ["0", "0", "0"]
+					}
+				},
+				"lookAndFeelExpectation": {
+					"importance": {
+						"key": "medium",
+						"weight": "2"
+					},
+					"selectionOptions": {
+						"key": "notSelected",
+						"resultInfluence": ["0", "0", "0"]
+					}
+				},
+				"maintenanceCost": {
+					"importance": {
+						"key": "medium",
+						"weight": "2"
+					},
+					"selectionOptions": {
+						"key": "notSelected",
+						"resultInfluence": ["0", "0", "0"]
+					}
+				},
+				"mobileUsage": {
+					"importance": {
+						"key": "medium",
+						"weight": "2"
+					},
+					"selectionOptions": {
+						"key": "notSelected",
+						"resultInfluence": ["0", "0", "0"]
+					}
+				},
+				"numberOfUsers": {
+					"importance": {
+						"key": "medium",
+						"weight": "2"
+					},
+					"selectionOptions": {
+						"key": "notSelected",
+						"resultInfluence": ["0", "0", "0"]
+					}
+				},
+				"operationsCost": {
+					"importance": {
+						"key": "medium",
+						"weight": "2"
+					},
+					"selectionOptions": {
+						"key": "notSelected",
+						"resultInfluence": ["0", "0", "0"]
+					}
+				},
+				"performanceExpectation": {
+					"importance": {
+						"key": "medium",
+						"weight": "2"
+					},
+					"selectionOptions": {
+						"key": "notSelected",
+						"resultInfluence": ["0", "0", "0"]
+					}
+				},
+				"processComplexity": {
+					"importance": {
+						"key": "medium",
+						"weight": "2"
+					},
+					"selectionOptions": {
+						"key": "notSelected",
+						"resultInfluence": ["0", "0", "0"]
+					}
+				},
+				"projectBudget": {
+					"importance": {
+						"key": "medium",
+						"weight": "2"
+					},
+					"selectionOptions": {
+						"key": "notSelected",
+						"resultInfluence": ["0", "0", "0"]
+					}
+				},
+				"projectCost": {
+					"importance": {
+						"key": "medium",
+						"weight": "2"
+					},
+					"selectionOptions": {
+						"key": "notSelected",
+						"resultInfluence": ["0", "0", "0"]
+					}
+				},
+				"security": {
+					"importance": {
+						"key": "medium",
+						"weight": "2"
+					},
+					"selectionOptions": {
+						"key": "notSelected",
+						"resultInfluence": ["0", "0", "0"]
+					}
+				},
+				"technicalCapabilities": {
+					"importance": {
+						"key": "medium",
+						"weight": "2"
+					},
+					"selectionOptions": {
+						"key": "notSelected",
+						"resultInfluence": ["0", "0", "0"]
+					}
+				},
+				"timeToMarket": {
+					"importance": {
+						"key": "medium",
+						"weight": "2"
+					},
+					"selectionOptions": {
+						"key": "notSelected",
+						"resultInfluence": ["0", "0", "0"]
+					}
+				},
+				"useCaseImportance": {
+					"importance": {
+						"key": "medium",
+						"weight": "2"
+					},
+					"selectionOptions": {
+						"key": "notSelected",
+						"resultInfluence": ["0", "0", "0"]
+					}
+				},
+				"userProcesses": {
+					"importance": {
+						"key": "medium",
+						"weight": "2"
+					},
+					"selectionOptions": {
+						"key": "notSelected",
+						"resultInfluence": ["0", "0", "0"]
+					}
+				}
 
-	"operationsCost": {"importance":{"key":"medium","weight":"2"},"selectionOptions":{"key":"notSelected","resultInfluence":["0","0","0"]}},
-	"operationsTeam":{"importance":{"key":"medium","weight":"2"},"selectionOptions":{"key":"internal","resultInfluence":["0","0","0"]}},
-		"possibleExpenditure": {"importance":{"key":"medium","weight":"2"},"selectionOptions":{"key":"notSelected","resultInfluence":["0","0","0"]}},
-	"projectCost": {"importance":{"key":"medium","weight":"2"},"selectionOptions":{"key":"notSelected","resultInfluence":["0","0","0"]}},
-	"systemAvailability": {"importance":{"key":"medium","weight":"2"},"selectionOptions":{"key":"notSelected","resultInfluence":["0","0","0"]}},
-	
-	"thirdPartyIntegration": {"importance":{"key":"medium","weight":"2"},"selectionOptions":{"key":"notSelected","resultInfluence":["0","0","0"]}}
+			};
+			var aDataSyncSavedProject = {
+				"dataLifetime": {
+					"importance": {
+						"key": "medium",
+						"weight": "2"
+					},
+					"selectionOptions": {
+						"key": "notSelected",
+						"resultInfluence": ["0", "0", "0"]
+					}
+				},
+				"dataOperations": {
+					"importance": {
+						"key": "medium",
+						"weight": "2"
+					},
+					"selectionOptions": {
+						"key": "notSelected",
+						"resultInfluence": ["0", "0", "0"]
+					}
+				},
+				"dataStructure": {
+					"importance": {
+						"key": "medium",
+						"weight": "2"
+					},
+					"selectionOptions": {
+						"key": "notSelected",
+						"resultInfluence": ["0", "0", "0"]
+					}
+				},
+				"dataTraffic": {
+					"importance": {
+						"key": "medium",
+						"weight": "2"
+					},
+					"selectionOptions": {
+						"key": "notSelected",
+						"resultInfluence": ["0", "0", "0"]
+					}
+				},
+				"extendCost": {
+					"importance": {
+						"key": "medium",
+						"weight": "2"
+					},
+					"selectionOptions": {
+						"key": "notSelected",
+						"resultInfluence": ["0", "0", "0"]
+					}
+				},
+				"localDataSearch": {
+					"importance": {
+						"key": "medium",
+						"weight": "2"
+					},
+					"selectionOptions": {
+						"key": "notSelected",
+						"resultInfluence": ["0", "0", "0"]
+					}
+				},
+				"maintenanceCost": {
+					"importance": {
+						"key": "medium",
+						"weight": "2"
+					},
+					"selectionOptions": {
+						"key": "notSelected",
+						"resultInfluence": ["0", "0", "0"]
+					}
+				},
+				"mobileUsage": {
+					"importance": {
+						"key": "medium",
+						"weight": "2"
+					},
+					"selectionOptions": {
+						"key": "notSelected",
+						"resultInfluence": ["0", "0", "0"]
+					}
+				},
+				"numberOfUsers": {
+					"importance": {
+						"key": "medium",
+						"weight": "2"
+					},
+					"selectionOptions": {
+						"key": "notSelected",
+						"resultInfluence": ["0", "0", "0"]
+					}
+				},
+				"offlineDataVolume": {
+					"importance": {
+						"key": "medium",
+						"weight": "2"
+					},
+					"selectionOptions": {
+						"key": "notSelected",
+						"resultInfluence": ["0", "0", "0"]
+					}
+				},
+				"operationsCost": {
+					"importance": {
+						"key": "medium",
+						"weight": "2"
+					},
+					"selectionOptions": {
+						"key": "notSelected",
+						"resultInfluence": ["0", "0", "0"]
+					}
+				},
+				"projectCost": {
+					"importance": {
+						"key": "medium",
+						"weight": "2"
+					},
+					"selectionOptions": {
+						"key": "notSelected",
+						"resultInfluence": ["0", "0", "0"]
+					}
+				},
+				"security": {
+					"importance": {
+						"key": "medium",
+						"weight": "2"
+					},
+					"selectionOptions": {
+						"key": "notSelected",
+						"resultInfluence": ["0", "0", "0"]
+					}
+				},
+				"useCaseImportance": {
+					"importance": {
+						"key": "medium",
+						"weight": "2"
+					},
+					"selectionOptions": {
+						"key": "notSelected",
+						"resultInfluence": ["0", "0", "0"]
+					}
+				},
+				"userType": {
+					"importance": {
+						"key": "medium",
+						"weight": "2"
+					},
+					"selectionOptions": {
+						"key": "notSelected",
+						"resultInfluence": ["0", "0", "0"]
+					}
+				}
+			};
+			var aOperationsCenterSavedProject = {
+				"appChangeFrequency": {
+					"importance": {
+						"key": "medium",
+						"weight": "2"
+					},
+					"selectionOptions": {
+						"key": "notSelected",
+						"resultInfluence": ["0", "0", "0"]
+					}
+				},
+				"applicationLifetime": {
+					"importance": {
+						"key": "medium",
+						"weight": "2"
+					},
+					"selectionOptions": {
+						"key": "notSelected",
+						"resultInfluence": ["0", "0", "0"]
+					}
+				},
+				"existingBackendSystems": {
+					"importance": {
+						"key": "medium",
+						"weight": "2"
+					},
+					"selectionOptions": {
+						"key": "notSelected",
+						"resultInfluence": ["0", "0", "0"]
+					}
+				},
+				"existingMobileMiddleware": {
+					"importance": {
+						"key": "medium",
+						"weight": "2"
+					},
+					"selectionOptions": {
+						"key": "notSelected",
+						"resultInfluence": ["0", "0", "0"]
+					}
+				},
+				"extendCost": {
+					"importance": {
+						"key": "medium",
+						"weight": "2"
+					},
+					"selectionOptions": {
+						"key": "notSelected",
+						"resultInfluence": ["0", "0", "0"]
+					}
+				},
+				"maintenanceCost": {
+					"importance": {
+						"key": "medium",
+						"weight": "2"
+					},
+					"selectionOptions": {
+						"key": "notSelected",
+						"resultInfluence": ["0", "0", "0"]
+					}
+				},
 
-				};
-			
+				"operationsCost": {
+					"importance": {
+						"key": "medium",
+						"weight": "2"
+					},
+					"selectionOptions": {
+						"key": "notSelected",
+						"resultInfluence": ["0", "0", "0"]
+					}
+				},
+				"operationsTeam": {
+					"importance": {
+						"key": "medium",
+						"weight": "2"
+					},
+					"selectionOptions": {
+						"key": "internal",
+						"resultInfluence": ["0", "0", "0"]
+					}
+				},
+				"possibleExpenditure": {
+					"importance": {
+						"key": "medium",
+						"weight": "2"
+					},
+					"selectionOptions": {
+						"key": "notSelected",
+						"resultInfluence": ["0", "0", "0"]
+					}
+				},
+				"projectCost": {
+					"importance": {
+						"key": "medium",
+						"weight": "2"
+					},
+					"selectionOptions": {
+						"key": "notSelected",
+						"resultInfluence": ["0", "0", "0"]
+					}
+				},
+				"systemAvailability": {
+					"importance": {
+						"key": "medium",
+						"weight": "2"
+					},
+					"selectionOptions": {
+						"key": "notSelected",
+						"resultInfluence": ["0", "0", "0"]
+					}
+				},
+
+				"thirdPartyIntegration": {
+					"importance": {
+						"key": "medium",
+						"weight": "2"
+					},
+					"selectionOptions": {
+						"key": "notSelected",
+						"resultInfluence": ["0", "0", "0"]
+					}
+				}
+
+			};
+
 			/*
 			 *dialog fenster um sicherzugehen, dass reset gewünscht
 			 *
 			 */
-		
+
 			var sKey = this.getView().byId("idIconTabBar").getSelectedKey();
 			var savedProjectsModel = this._getSavedProjectsModel();
 			var viewBindingPath = this.getView().getBindingContext("savedProjects").getPath(); //index
-			
+
 			var oDialog = new sap.m.Dialog("dialog", {
 				title: this.getView().getModel("i18n").getResourceBundle().getText("warningDialogTitle"),
 				type: 'Message',
@@ -411,9 +855,10 @@ sap.ui.define([
 					press: function() {
 
 						if (sKey === "information") {
-							var updateSavedprojects = savedProjectsModel.setProperty(viewBindingPath + "/additionalInformation", aAdditionalInformationSavedProject);
+							var updateSavedprojects = savedProjectsModel.setProperty(viewBindingPath + "/additionalInformation",
+								aAdditionalInformationSavedProject);
 							savedProjectsModel.setProperty(viewBindingPath + "/applicationName", sApplicationNameSavedProject);
-							
+
 							/*var sUrl = jQuery.sap.getModulePath("M3A.model", "/newProject.json");
 							$.ajax({
 								type: "GET",
@@ -435,14 +880,13 @@ sap.ui.define([
 							});*/
 
 						} else if (sKey === "clientTechnology") {
-						
+
 							//update savedProjectsModel
 							savedProjectsModel.setProperty(viewBindingPath + "/clientTechnology", aClientTechnologySavedProject);
-						
+
 							//Update Percentage(update recommendation not working)
-							
-                            this._reloadSelection(viewBindingPath, sKey);
-                            
+
+							this._reloadSelection(viewBindingPath, sKey);
 
 							this.getView().byId("tableClientTechnologyFactors").getItems().forEach(function(item) {
 								item.getCells().forEach(function(cell) {
@@ -453,9 +897,9 @@ sap.ui.define([
 							});
 
 						} else if (sKey === "dataSync") {
-						
+
 							savedProjectsModel.setProperty(viewBindingPath + "/dataSync", aDataSyncSavedProject);
-						
+
 							this._reloadSelection(viewBindingPath, sKey);
 
 							this.getView().byId("tableClientDataSynchronization").getItems().forEach(function(item) {
@@ -465,12 +909,11 @@ sap.ui.define([
 									}
 								});
 							});
-							
+
 						} else if (sKey === "operationsCenter") {
-							
+
 							savedProjectsModel.setProperty(viewBindingPath + "/operationsCenter", aOperationsCenterSavedProject);
-						
-							
+
 							this._reloadSelection(viewBindingPath, sKey);
 							this.getView().byId("tableClientOperationsCenter").getItems().forEach(function(item) {
 								item.getCells().forEach(function(cell) {

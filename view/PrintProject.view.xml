@@ -4,9 +4,9 @@
 	<App>
 		<pages>
 			<Page title="{i18n>appTitle}" id="printProjectPage" showHeader="true" showFooter="true" showNavButton="false" width="auto"
-				class="sapUiResponsiveContentPadding">
+				class="sapUiResponsiveContentPadding" busy="true" busyIndicatorDelay="1">
 				<content>
-					<VBox id="printTitle" class="sapUiMediumMargin">
+					<VBox id="printTitle" class="sapUiSmallMargin">
 						<Title text="{i18n>applicationName}: {savedProjects>applicationName}" titleStyle="H2"/>
 						<Label text="{i18n>useCase}: {savedProjects>additionalInformation/useCase} "/>
 						<Label text="{i18n>owner}: {savedProjects>additionalInformation/owner}"/>
