@@ -6,10 +6,22 @@
 			<Page title="{i18n>appTitle}" id="printProjectPage" showHeader="true" showFooter="true" showNavButton="false" width="auto"
 				class="sapUiResponsiveContentPadding">
 				<content>
-					<HBox id="printTitle">
-						<Title text="{i18n>applicationName}: {savedProjects>applicationName}" titleStyle="H2" class="sapUiSmallMargin"/>
-						
-					</HBox>
+					<VBox id="printTitle" class="sapUiMediumMargin">
+						<Title text="{i18n>applicationName}: {savedProjects>applicationName}" titleStyle="H2"/>
+						<Label text="{i18n>useCase}: {savedProjects>additionalInformation/useCase} "/>
+						<Label text="{i18n>owner}: {savedProjects>additionalInformation/owner}"/>
+						<Label text="{i18n>audienceGroup}: {savedProjects>audienceGroup} "/>
+						<Label text="{i18n>users}:{savedProjects>additionalInformation/users} "/>
+						<Label
+							text="{i18n>userGeography}: {i18n>regional}: {savedProjects>additionalInformation/userGeography/0}, {i18n>local}: {savedProjects>additionalInformation/userGeography/1}, {i18n>global}: {savedProjects>additionalInformation/userGeography/2}"/>
+						<Label text="{i18n>language}: {savedProjects>additionalInformation/language} "/>
+						<Label
+							text="{i18n>devicePlatform}: {i18n>iOS}: {savedProjects>additionalInformation/devicePlatform/0}, {i18n>android}: {savedProjects>additionalInformation/devicePlatform/1}, {i18n>windows}: {savedProjects>additionalInformation/devicePlatform/2}, {i18n>blackberry}: {savedProjects>additionalInformation/devicePlatform/3}, {i18n>unknown}: {savedProjects>additionalInformation/devicePlatform/4} "/>
+						<Label
+							text="{i18n>deviceFormFactor}:{i18n>smartphone}: {savedProjects>additionalInformation/deviceFormFactor/0}, {i18n>tablet}: {savedProjects>additionalInformation/deviceFormFactor/1}, {i18n>laptop}: {savedProjects>additionalInformation/deviceFormFactor/2}"/>
+						<Label text="{i18n>plannedGoLive}: {savedProjects>additionalInformation/plannedGoLive} "/>
+						<Label text="{i18n>plannedEndOfLife}: {savedProjects>additionalInformation/plannedEndOfLife}"/>
+					</VBox>
 					<HBox width="auto" alignItems="Center" justifyContent="SpaceBetween">
 						<!--Überschrift Client Technology-->
 						<Title id="titleClientTechnology" text="{i18n>clientTechnologyLong}" titleStyle="H1" class="sapUiSmallMargin"/>
@@ -107,7 +119,7 @@
 									</HBox>
 								</cells>
 							</ColumnListItem>
-							<ColumnListItem>
+								<ColumnListItem>
 								<cells>
 									<HBox width="auto" justifyContent="SpaceBetween">
 										<ObjectIdentifier title="{path: 'factorCatalog>/clientTechnology/5/factor', formatter: '.formatter.translate'}"/>
@@ -134,7 +146,7 @@
 								</cells>
 							</ColumnListItem>
 							<ColumnListItem>
-									<cells>
+								<cells>
 									<HBox width="auto" justifyContent="SpaceBetween">
 										<ObjectIdentifier title="{path: 'factorCatalog>/clientTechnology/7/factor', formatter: '.formatter.translate'}"/>
 									</HBox>
@@ -147,7 +159,7 @@
 								</cells>
 							</ColumnListItem>
 							<ColumnListItem>
-									<cells>
+								<cells>
 									<HBox width="auto" justifyContent="SpaceBetween">
 										<ObjectIdentifier title="{path: 'factorCatalog>/clientTechnology/8/factor', formatter: '.formatter.translate'}"/>
 									</HBox>
@@ -160,7 +172,7 @@
 								</cells>
 							</ColumnListItem>
 							<ColumnListItem>
-									<cells>
+								<cells>
 									<HBox width="auto" justifyContent="SpaceBetween">
 										<ObjectIdentifier title="{path: 'factorCatalog>/clientTechnology/9/factor', formatter: '.formatter.translate'}"/>
 									</HBox>
@@ -172,33 +184,8 @@
 									</HBox>
 								</cells>
 							</ColumnListItem>
-						</items>
-					</Table>
-					<!--PDF Seite2-->
-					<Table id="tableClientTechnologyFactorsPage2" width="auto" class="sapUiSmallMargin">
-						<columns>
-							<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
-								<header>
-									<Text text="{i18n>factor}" width="auto" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
-								</header>
-								<footer/>
-							</Column>
-							<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
-								<header>
-									<Text text="{i18n>selection}" width="auto" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
-								</header>
-								<footer/>
-							</Column>
-							<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
-								<header>
-									<Text text="{i18n>importance}" width="auto" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
-								</header>
-								<footer/>
-							</Column>
-						</columns>
-						<items>
-								<ColumnListItem>
-									<cells>
+							<ColumnListItem>
+								<cells>
 									<HBox width="auto" justifyContent="SpaceBetween">
 										<ObjectIdentifier title="{path: 'factorCatalog>/clientTechnology/10/factor', formatter: '.formatter.translate'}"/>
 									</HBox>
@@ -211,7 +198,7 @@
 								</cells>
 							</ColumnListItem>
 							<ColumnListItem>
-									<cells>
+								<cells>
 									<HBox width="auto" justifyContent="SpaceBetween">
 										<ObjectIdentifier title="{path: 'factorCatalog>/clientTechnology/11/factor', formatter: '.formatter.translate'}"/>
 									</HBox>
@@ -224,7 +211,7 @@
 								</cells>
 							</ColumnListItem>
 							<ColumnListItem>
-									<cells>
+								<cells>
 									<HBox width="auto" justifyContent="SpaceBetween">
 										<ObjectIdentifier title="{path: 'factorCatalog>/clientTechnology/12/factor', formatter: '.formatter.translate'}"/>
 									</HBox>
@@ -237,7 +224,7 @@
 								</cells>
 							</ColumnListItem>
 							<ColumnListItem>
-									<cells>
+								<cells>
 									<HBox width="auto" justifyContent="SpaceBetween">
 										<ObjectIdentifier title="{path: 'factorCatalog>/clientTechnology/13/factor', formatter: '.formatter.translate'}"/>
 									</HBox>
@@ -250,7 +237,7 @@
 								</cells>
 							</ColumnListItem>
 							<ColumnListItem>
-									<cells>
+								<cells>
 									<HBox width="auto" justifyContent="SpaceBetween">
 										<ObjectIdentifier title="{path: 'factorCatalog>/clientTechnology/14/factor', formatter: '.formatter.translate'}"/>
 									</HBox>
@@ -263,7 +250,7 @@
 								</cells>
 							</ColumnListItem>
 							<ColumnListItem>
-									<cells>
+								<cells>
 									<HBox width="auto" justifyContent="SpaceBetween">
 										<ObjectIdentifier title="{path: 'factorCatalog>/clientTechnology/15/factor', formatter: '.formatter.translate'}"/>
 									</HBox>
@@ -276,7 +263,7 @@
 								</cells>
 							</ColumnListItem>
 							<ColumnListItem>
-									<cells>
+								<cells>
 									<HBox width="auto" justifyContent="SpaceBetween">
 										<ObjectIdentifier title="{path: 'factorCatalog>/clientTechnology/16/factor', formatter: '.formatter.translate'}"/>
 									</HBox>
@@ -289,7 +276,7 @@
 								</cells>
 							</ColumnListItem>
 							<ColumnListItem>
-									<cells>
+								<cells>
 									<HBox width="auto" justifyContent="SpaceBetween">
 										<ObjectIdentifier title="{path: 'factorCatalog>/clientTechnology/17/factor', formatter: '.formatter.translate'}"/>
 									</HBox>
@@ -302,7 +289,7 @@
 								</cells>
 							</ColumnListItem>
 							<ColumnListItem>
-									<cells>
+								<cells>
 									<HBox width="auto" justifyContent="SpaceBetween">
 										<ObjectIdentifier title="{path: 'factorCatalog>/clientTechnology/18/factor', formatter: '.formatter.translate'}"/>
 									</HBox>
@@ -314,14 +301,18 @@
 									</HBox>
 								</cells>
 							</ColumnListItem>
+							
 						</items>
 					</Table>
+					<!--PDF Seite2-->
+				
 					<!--Notes-->
+					<Text class="html2pdf__page-break"></Text>
 					<StandardListItem title="Notes" icon="sap-icon://notes" class="sapUISmallMargin"></StandardListItem>
 					<TextArea value="" rows="8" height="120px" width="1200px"/>
-					<Text class="html2pdf__page-break"></Text>
+				
 					<!--PDF Seite 3-->
-						<!-- Einführung für Data Sync-->
+					<!-- Einführung für Data Sync-->
 					<HBox width="100%" alignItems="Center" justifyContent="SpaceBetween">
 						<Title id="titleDataSynchronization" text="{i18n>dataSyncLong}" titleStyle="H1" class="sapUiSmallMargin"/>
 						<HBox alignItems="Center">
@@ -353,7 +344,7 @@
 						</columns>
 						<items>
 							<ColumnListItem>
-									<cells>
+								<cells>
 									<HBox width="auto" justifyContent="SpaceBetween">
 										<ObjectIdentifier title="{path: 'factorCatalog>/dataSync/0/factor', formatter: '.formatter.translate'}"/>
 									</HBox>
@@ -366,7 +357,7 @@
 								</cells>
 							</ColumnListItem>
 							<ColumnListItem>
-									<cells>
+								<cells>
 									<HBox width="auto" justifyContent="SpaceBetween">
 										<ObjectIdentifier title="{path: 'factorCatalog>/dataSync/1/factor', formatter: '.formatter.translate'}"/>
 									</HBox>
@@ -377,8 +368,8 @@
 										<Label text="{path: 'factorCatalog>/dataSync/1/currentWeight', formatter: '.formatter.translate'}"/>
 									</HBox>
 								</cells>
-								</ColumnListItem>
-								<ColumnListItem>
+							</ColumnListItem>
+							<ColumnListItem>
 								<cells>
 									<HBox width="auto" justifyContent="SpaceBetween">
 										<ObjectIdentifier title="{path: 'factorCatalog>/dataSync/2/factor', formatter: '.formatter.translate'}"/>
@@ -495,7 +486,7 @@
 									</HBox>
 								</cells>
 							</ColumnListItem>
-								<ColumnListItem>
+							<ColumnListItem>
 								<cells>
 									<HBox width="auto" justifyContent="SpaceBetween">
 										<ObjectIdentifier title="{path: 'factorCatalog>/dataSync/11/factor', formatter: '.formatter.translate'}"/>
@@ -509,7 +500,7 @@
 								</cells>
 							</ColumnListItem>
 							<!--Seite 4-->
-								<ColumnListItem>
+							<ColumnListItem>
 								<cells>
 									<HBox width="auto" justifyContent="SpaceBetween">
 										<ObjectIdentifier title="{path: 'factorCatalog>/dataSync/12/factor', formatter: '.formatter.translate'}"/>
@@ -522,7 +513,7 @@
 									</HBox>
 								</cells>
 							</ColumnListItem>
-								<ColumnListItem>
+							<ColumnListItem>
 								<cells>
 									<HBox width="auto" justifyContent="SpaceBetween">
 										<ObjectIdentifier title="{path: 'factorCatalog>/dataSync/13/factor', formatter: '.formatter.translate'}"/>
@@ -535,7 +526,7 @@
 									</HBox>
 								</cells>
 							</ColumnListItem>
-								<ColumnListItem>
+							<ColumnListItem>
 								<cells>
 									<HBox width="auto" justifyContent="SpaceBetween">
 										<ObjectIdentifier title="{path: 'factorCatalog>/dataSync/14/factor', formatter: '.formatter.translate'}"/>
@@ -548,17 +539,12 @@
 									</HBox>
 								</cells>
 							</ColumnListItem>
-							
-							</items>
+						</items>
 					</Table>
 					<StandardListItem title="Notes" icon="sap-icon://notes" class="sapUISmallMargin"></StandardListItem>
 					<TextArea value="" rows="8" height="200px" width="1200px"/>
-				
-					
 					<!--PDF seite5 -->
-				
 					<Label class="html2pdf__page-break"></Label>
-				
 					<!--Einführung für Backend -->
 					<HBox width="100%" alignItems="Center" justifyContent="SpaceBetween">
 						<Title id="titleOperationsCenter" text="{i18n>operationsCenterLong}" titleStyle="H1" class="sapUiSmallMargin"/>
@@ -569,8 +555,7 @@
 						</HBox>
 					</HBox>
 					<!-- tabelle für backend -->
-					
-						<Table id="tableClientOperationsCenter" width="auto" class="sapUiSmallMargin">
+					<Table id="tableClientOperationsCenter" width="auto" class="sapUiSmallMargin">
 						<columns>
 							<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
 								<header>
@@ -593,7 +578,7 @@
 						</columns>
 						<items>
 							<ColumnListItem>
-									<cells>
+								<cells>
 									<HBox width="auto" justifyContent="SpaceBetween">
 										<ObjectIdentifier title="{path: 'factorCatalog>/operationsCenter/0/factor', formatter: '.formatter.translate'}"/>
 									</HBox>
@@ -606,7 +591,7 @@
 								</cells>
 							</ColumnListItem>
 							<ColumnListItem>
-									<cells>
+								<cells>
 									<HBox width="auto" justifyContent="SpaceBetween">
 										<ObjectIdentifier title="{path: 'factorCatalog>/operationsCenter/1/factor', formatter: '.formatter.translate'}"/>
 									</HBox>
@@ -619,7 +604,7 @@
 								</cells>
 							</ColumnListItem>
 							<ColumnListItem>
-									<cells>
+								<cells>
 									<HBox width="auto" justifyContent="SpaceBetween">
 										<ObjectIdentifier title="{path: 'factorCatalog>/operationsCenter/2/factor', formatter: '.formatter.translate'}"/>
 									</HBox>
@@ -632,7 +617,7 @@
 								</cells>
 							</ColumnListItem>
 							<ColumnListItem>
-									<cells>
+								<cells>
 									<HBox width="auto" justifyContent="SpaceBetween">
 										<ObjectIdentifier title="{path: 'factorCatalog>/operationsCenter/3/factor', formatter: '.formatter.translate'}"/>
 									</HBox>
@@ -645,7 +630,7 @@
 								</cells>
 							</ColumnListItem>
 							<ColumnListItem>
-									<cells>
+								<cells>
 									<HBox width="auto" justifyContent="SpaceBetween">
 										<ObjectIdentifier title="{path: 'factorCatalog>/operationsCenter/4/factor', formatter: '.formatter.translate'}"/>
 									</HBox>
@@ -658,7 +643,7 @@
 								</cells>
 							</ColumnListItem>
 							<ColumnListItem>
-									<cells>
+								<cells>
 									<HBox width="auto" justifyContent="SpaceBetween">
 										<ObjectIdentifier title="{path: 'factorCatalog>/operationsCenter/5/factor', formatter: '.formatter.translate'}"/>
 									</HBox>
@@ -671,7 +656,7 @@
 								</cells>
 							</ColumnListItem>
 							<ColumnListItem>
-									<cells>
+								<cells>
 									<HBox width="auto" justifyContent="SpaceBetween">
 										<ObjectIdentifier title="{path: 'factorCatalog>/operationsCenter/6/factor', formatter: '.formatter.translate'}"/>
 									</HBox>
@@ -684,7 +669,7 @@
 								</cells>
 							</ColumnListItem>
 							<ColumnListItem>
-									<cells>
+								<cells>
 									<HBox width="auto" justifyContent="SpaceBetween">
 										<ObjectIdentifier title="{path: 'factorCatalog>/operationsCenter/7/factor', formatter: '.formatter.translate'}"/>
 									</HBox>
@@ -697,7 +682,7 @@
 								</cells>
 							</ColumnListItem>
 							<ColumnListItem>
-									<cells>
+								<cells>
 									<HBox width="auto" justifyContent="SpaceBetween">
 										<ObjectIdentifier title="{path: 'factorCatalog>/operationsCenter/8/factor', formatter: '.formatter.translate'}"/>
 									</HBox>
@@ -710,7 +695,7 @@
 								</cells>
 							</ColumnListItem>
 							<ColumnListItem>
-									<cells>
+								<cells>
 									<HBox width="auto" justifyContent="SpaceBetween">
 										<ObjectIdentifier title="{path: 'factorCatalog>/operationsCenter/9/factor', formatter: '.formatter.translate'}"/>
 									</HBox>
@@ -723,7 +708,7 @@
 								</cells>
 							</ColumnListItem>
 							<ColumnListItem>
-									<cells>
+								<cells>
 									<HBox width="auto" justifyContent="SpaceBetween">
 										<ObjectIdentifier title="{path: 'factorCatalog>/operationsCenter/10/factor', formatter: '.formatter.translate'}"/>
 									</HBox>
@@ -736,7 +721,7 @@
 								</cells>
 							</ColumnListItem>
 							<ColumnListItem>
-									<cells>
+								<cells>
 									<HBox width="auto" justifyContent="SpaceBetween">
 										<ObjectIdentifier title="{path: 'factorCatalog>/operationsCenter/11/factor', formatter: '.formatter.translate'}"/>
 									</HBox>
@@ -748,72 +733,52 @@
 									</HBox>
 								</cells>
 							</ColumnListItem>
-							</items>
-							</Table>
-					
+						</items>
+					</Table>
 					<!--Results-->
-					
 					<layout:Grid defaultSpan="L3 M4 S6" class="sapUiSmallMarginTop">
-		<layout:content>
-			<StandardListItem
-				title="{i18n>clientTechnology} ({savedProjects>selectionProgress/clientTechnology/selectedFactors}/{savedProjects&gt;selectionProgress/clientTechnology/totalFactors}) {path: 'savedProjects>selectionProgress/clientTechnology/wholeRecommendation', formatter: '.formatter.translate'} "
-				
-				infoState="Success"
-				icon="sap-icon://technical-object">
-				<layoutData>
-					<layout:GridData span="L12 M12 S12" />
-				</layoutData>
-			</StandardListItem>
-			<StandardListItem
-				title="{path: 'savedProjects>decisionPercentage/clientTechnology/0'}%"
-				description="{path: 'savedProjects>iconTabs/clientTechnology/0', formatter: '.formatter.translate'}" />
-			<StandardListItem
-				title="{path: 'savedProjects>decisionPercentage/clientTechnology/1'}%"
-				description="{path: 'savedProjects>iconTabs/clientTechnology/1', formatter: '.formatter.translate'}" />
-			<StandardListItem
-				title="{path: 'savedProjects>decisionPercentage/clientTechnology/2'}%"
-				description="{path: 'savedProjects>iconTabs/clientTechnology/2', formatter: '.formatter.translate'}" />
-			<StandardListItem
-				title="{i18n>dataSync} ({savedProjects>selectionProgress/dataSync/selectedFactors}/{savedProjects&gt;selectionProgress/dataSync/totalFactors}) {path: 'savedProjects>selectionProgress/dataSync/wholeRecommendation', formatter: '.formatter.translate'}"
-			
-				infoState="None"
-				icon="sap-icon://synchronize">
-				<layoutData>
-					<layout:GridData span="L12 M12 S12" linebreakL="true" linebreakM="true" linebreakS="true" />
-				</layoutData>
-			</StandardListItem>
-			<StandardListItem
-				title="{path: 'savedProjects>decisionPercentage/dataSync/0'}%"
-				description="{path: 'savedProjects>iconTabs/dataSync/0', formatter: '.formatter.translate'}" />
-			<StandardListItem
-				title="{path: 'savedProjects>decisionPercentage/dataSync/1'}%"
-				description="{path: 'savedProjects>iconTabs/dataSync/1', formatter: '.formatter.translate'}" />
-			<StandardListItem
-				title="{path: 'savedProjects>decisionPercentage/dataSync/2'}%"
-				description="{path: 'savedProjects>iconTabs/dataSync/2', formatter: '.formatter.translate'}" />
-		
-		
-			<StandardListItem
-				title="{i18n>operationsCenter} ({savedProjects>selectionProgress/operationsCenter/selectedFactors}/{savedProjects&gt;selectionProgress/operationsCenter/totalFactors}) {path: 'savedProjects>selectionProgress/operationsCenter/wholeRecommendation', formatter: '.formatter.translate'}"
-				
-				icon="sap-icon://cloud">
-				<layoutData>
-					<layout:GridData span="L12 M12 S12" linebreakL="true" linebreakM="true" linebreakS="true" />
-				</layoutData>
-			</StandardListItem>
-			<StandardListItem
-				title="{path: 'savedProjects>decisionPercentage/operationsCenter/0'}%"
-				description="{path: 'savedProjects>iconTabs/operationsCenter/0', formatter: '.formatter.translate'}" />
-				<StandardListItem
-				title="{path: 'savedProjects>decisionPercentage/operationsCenter/1'}%"
-				description="{path: 'savedProjects>iconTabs/operationsCenter/1', formatter: '.formatter.translate'}" />
-				<StandardListItem
-				title="{path: 'savedProjects>decisionPercentage/operationsCenter/2'}%"
-				description="{path: 'savedProjects>iconTabs/operationsCenter/2', formatter: '.formatter.translate'}" />
-		</layout:content>
-	</layout:Grid>
-					
-					
+						<layout:content>
+							<StandardListItem
+								title="{i18n>clientTechnology} ({savedProjects>selectionProgress/clientTechnology/selectedFactors}/{savedProjects&gt;selectionProgress/clientTechnology/totalFactors}) {path: 'savedProjects>selectionProgress/clientTechnology/wholeRecommendation', formatter: '.formatter.translate'} "
+								infoState="Success" icon="sap-icon://technical-object">
+								<layoutData>
+									<layout:GridData span="L12 M12 S12"/>
+								</layoutData>
+							</StandardListItem>
+							<StandardListItem title="{path: 'savedProjects>decisionPercentage/clientTechnology/0'}%"
+								description="{path: 'savedProjects>iconTabs/clientTechnology/0', formatter: '.formatter.translate'}"/>
+							<StandardListItem title="{path: 'savedProjects>decisionPercentage/clientTechnology/1'}%"
+								description="{path: 'savedProjects>iconTabs/clientTechnology/1', formatter: '.formatter.translate'}"/>
+							<StandardListItem title="{path: 'savedProjects>decisionPercentage/clientTechnology/2'}%"
+								description="{path: 'savedProjects>iconTabs/clientTechnology/2', formatter: '.formatter.translate'}"/>
+							<StandardListItem
+								title="{i18n>dataSync} ({savedProjects>selectionProgress/dataSync/selectedFactors}/{savedProjects&gt;selectionProgress/dataSync/totalFactors}) {path: 'savedProjects>selectionProgress/dataSync/wholeRecommendation', formatter: '.formatter.translate'}"
+								infoState="None" icon="sap-icon://synchronize">
+								<layoutData>
+									<layout:GridData span="L12 M12 S12" linebreakL="true" linebreakM="true" linebreakS="true"/>
+								</layoutData>
+							</StandardListItem>
+							<StandardListItem title="{path: 'savedProjects>decisionPercentage/dataSync/0'}%"
+								description="{path: 'savedProjects>iconTabs/dataSync/0', formatter: '.formatter.translate'}"/>
+							<StandardListItem title="{path: 'savedProjects>decisionPercentage/dataSync/1'}%"
+								description="{path: 'savedProjects>iconTabs/dataSync/1', formatter: '.formatter.translate'}"/>
+							<StandardListItem title="{path: 'savedProjects>decisionPercentage/dataSync/2'}%"
+								description="{path: 'savedProjects>iconTabs/dataSync/2', formatter: '.formatter.translate'}"/>
+							<StandardListItem
+								title="{i18n>operationsCenter} ({savedProjects>selectionProgress/operationsCenter/selectedFactors}/{savedProjects&gt;selectionProgress/operationsCenter/totalFactors}) {path: 'savedProjects>selectionProgress/operationsCenter/wholeRecommendation', formatter: '.formatter.translate'}"
+								icon="sap-icon://cloud">
+								<layoutData>
+									<layout:GridData span="L12 M12 S12" linebreakL="true" linebreakM="true" linebreakS="true"/>
+								</layoutData>
+							</StandardListItem>
+							<StandardListItem title="{path: 'savedProjects>decisionPercentage/operationsCenter/0'}%"
+								description="{path: 'savedProjects>iconTabs/operationsCenter/0', formatter: '.formatter.translate'}"/>
+							<StandardListItem title="{path: 'savedProjects>decisionPercentage/operationsCenter/1'}%"
+								description="{path: 'savedProjects>iconTabs/operationsCenter/1', formatter: '.formatter.translate'}"/>
+							<StandardListItem title="{path: 'savedProjects>decisionPercentage/operationsCenter/2'}%"
+								description="{path: 'savedProjects>iconTabs/operationsCenter/2', formatter: '.formatter.translate'}"/>
+						</layout:content>
+					</layout:Grid>
 					<!--<layout:VerticalLayout width="50%" alignItems="Center">
 						<layout:content>
 							<Panel>

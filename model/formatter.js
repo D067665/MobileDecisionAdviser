@@ -88,6 +88,16 @@ sap.ui.define([], function() {
 			} else {
 				return "#d1e2ff";
 			}
+		},
+		visibleiOS: function(sDevicePlattform) {
+			
+			if (sDevicePlattform === "true"){
+				return "iOS";
+			}else {
+				return "";
+			}
 		}
+    
+
 	};
 });
