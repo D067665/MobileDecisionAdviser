@@ -16,3 +16,10 @@
 .tableHeaderUnvisible.sapMListTblHeaderCell {
 	padding: 0rem;
 }
+.sapMPage>section.sapMPageEnableScrolling{
+	enableScrolling: false;
+}
+
+/*.sapMSegBBtn.sapMSegBBtnSel {
+	background-color:#eff4f9 !important ;
+}*/

@@ -4,7 +4,7 @@
 	<App>
 		<pages>
 			<Page title="{i18n>appTitle}" id="createProjectPage" showHeader="true" showFooter="true" showNavButton="true"
-				navButtonPress="_onNavBackPress" width="auto">
+				navButtonPress="_onNavBackPress" width="auto" enableScrolling="false">
 				<content id="createProjectContent">
 					<IconTabBar expanded="true" id="idIconTabBar" selectedKey="{savedProjects>selectedIconTab}" select="handleIconTabBarSelect"
 						stretchContentHeight="true" class="sapUiResponsiveContentPadding" expandable="false" width="auto">
@@ -150,7 +150,7 @@
 							<IconTabSeparator icon="sap-icon://open-command-field"/>
 							<IconTabFilter icon="sap-icon://synchronize" iconColor="Default" design="Horizontal" text="{i18n>dataSync}" key="dataSync">
 								<content>
-									<ScrollContainer height="100%" width="100%" horizontal="false" vertical="true">
+									
 										<HBox width="100%" alignItems="Center" justifyContent="SpaceBetween">
 											<Title id="titleDataSynchronization" text="{i18n>dataSyncLong}" titleStyle="H1" class="sapUiSmallMargin"/>
 											<HBox alignItems="Center">
@@ -165,7 +165,7 @@
 												<!--progress indicator-->
 											</HBox>
 										</HBox>
-										<Table id="tableClientDataSynchronization" items="{factorCatalog>/dataSync}">
+										<Table id="tableDataSyncHeader" showNoData='false' width="auto">
 											<columns>
 												<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
 													<header>
@@ -183,6 +183,23 @@
 													<header>
 														<Text text="{i18n>importance}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
 													</header>
+													<footer/>
+												</Column>
+											</columns>
+										</Table>
+										<ScrollContainer height='50rem' vertical='true'>
+										<Table id="tableClientDataSynchronization" items="{factorCatalog>/dataSync}">
+											<columns>
+												<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+													<header></header>
+													<footer/>
+												</Column>
+												<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+													<header></header>
+													<footer/>
+												</Column>
+												<Column width="auto" hAlign="Center" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+													<header></header>
 													<footer/>
 												</Column>
 											</columns>
@@ -214,7 +231,7 @@
 							<IconTabFilter icon="sap-icon://cloud" iconColor="Default" design="Horizontal" key="operationsCenter" text="{i18n>operationsCenter}"
 								class="sapUiSmallMargin">
 								<content>
-									<ScrollContainer height="100%" width="100%" horizontal="false" vertical="true">
+									
 										<HBox width="100%" alignItems="Center" justifyContent="SpaceBetween">
 											<Title id="titleOperationsCenter" text="{i18n>operationsCenterLong}" titleStyle="H1" class="sapUiSmallMargin"/>
 											<HBox alignItems="Center">
@@ -230,7 +247,7 @@
 												</Button>
 											</HBox>
 										</HBox>
-										<Table id="tableClientOperationsCenter" items="{factorCatalog>/operationsCenter}">
+										<Table id="tableOperationsCenterHeader" showNoData='false' width="auto">
 											<columns>
 												<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
 													<header>
@@ -248,6 +265,23 @@
 													<header>
 														<Text text="{i18n>importance}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
 													</header>
+													<footer/>
+												</Column>
+											</columns>
+										</Table>
+										<ScrollContainer height='50rem' vertical='true'>
+										<Table id="tableClientOperationsCenter" items="{factorCatalog>/operationsCenter}">
+											<columns>
+												<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+													<header></header>
+													<footer/>
+												</Column>
+												<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+													<header></header>
+													<footer/>
+												</Column>
+												<Column width="auto" hAlign="Center" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+													<header></header>
 													<footer/>
 												</Column>
 											</columns>

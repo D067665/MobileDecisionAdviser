@@ -6,72 +6,228 @@
 			<Page title="{i18n>appTitle}" id="createProjectPage" showHeader="true" showFooter="true" showNavButton="true"
 				navButtonPress="_onNavBackPress" width="auto">
 				<content>
-					<HBox width="auto" alignItems="Center" justifyContent="SpaceBetween">
-						<Title id="titleClientTechnology" text="{i18n>clientTechnologyLong}" titleStyle="H1" class="sapUiSmallMargin"/>
-						<HBox alignItems="Center">
-							<Label
-								text="({savedProjects>selectionProgress/clientTechnology/selectedFactors}/{savedProjects&gt;selectionProgress/clientTechnology/totalFactors})"
-								class="sapUiSmallMargin" design="Bold" textAlign="Right"/>
-							<Button id="changeModeButtonCT" icon="sap-icon://display" press="_onPressChangeMode"
-								ariaDescribedBy="defaultButtonDescription genericButtonDescription">
-								<layoutData>
-									<FlexItemData growFactor="1"/>
-								</layoutData>
-							</Button>
-							<!--progress indicator-->
-						</HBox>
-					</HBox>
-					<Table id="tableClientTechnologyFactorsHeader" showNoData='false' width="auto">
-						<columns>
-							<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
-								<header>
-									<Text text="{i18n>factor}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
-								</header>
-								<footer/>
-							</Column>
-							<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
-								<header>
-									<Text text="{i18n>selection}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
-								</header>
-								<footer/>
-							</Column>
-							<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
-								<header>
-									<Text text="{i18n>importance}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
-								</header>
-								<footer/>
-							</Column>
-						</columns>
-					</Table>
-					<ScrollContainer height='20rem' vertical='true'>
-						<Table  id="tableClientTechnologyFactors" class='tableHeaderUnvisible' items="{factorCatalog>/clientTechnology}" width="auto">
-							<columns>
-								<!-- Dont need columns header, as upper table has already defined them. -->
-								<Column ></Column>
-								<Column ></Column>
-								<Column ></Column>
-								
-							</columns>
-							<ColumnListItem>
-								<cells>
-									<HBox width="auto" justifyContent="SpaceBetween">
-										<ObjectIdentifier title="{path: 'factorCatalog>factor', formatter: '.formatter.translate'}"/>
-										<Button text="" icon="sap-icon://hint" press="_onDialogButtonPress"/>
+					<IconTabBar expanded="true" id="idIconTabBar" selectedKey="{savedProjects>selectedIconTab}" select="handleIconTabBarSelect"
+						stretchContentHeight="true" class="sapUiResponsiveContentPadding" expandable="false" width="auto">
+						<items>
+					<IconTabFilter icon="sap-icon://technical-object" iconColor="Default" design="Horizontal" key="clientTechnology"
+								text="{i18n>clientTechnology}">
+								<content>
+									<HBox width="auto" alignItems="Center" justifyContent="SpaceBetween">
+										<Title id="titleClientTechnology" text="{i18n>clientTechnologyLong}" titleStyle="H1" class="sapUiSmallMargin"/>
+										<HBox alignItems="Center">
+											<Label
+												text="({savedProjects>selectionProgress/clientTechnology/selectedFactors}/{savedProjects&gt;selectionProgress/clientTechnology/totalFactors})"
+												class="sapUiSmallMargin" design="Bold" textAlign="Right"/>
+											<Button id="changeModeButtonCT" icon="sap-icon://display" press="_onPressChangeMode"
+												ariaDescribedBy="defaultButtonDescription genericButtonDescription">
+												<layoutData>
+													<FlexItemData growFactor="1"/>
+												</layoutData>
+											</Button>
+											<!--progress indicator-->
+										</HBox>
 									</HBox>
-									<Select id="selectClientTechnology" change="_onSelectionChange" items="{path: 'factorCatalog>selectionOptions', templateShareable: 'true'}"
-										enabled="{= ${factorCatalog>enabled} === 'True'}" selectedKey="{factorCatalog>currentSelection}" width="15rem">
-										<core:Item text="{path: 'factorCatalog>key', formatter: '.formatter.translate'}" key="{factorCatalog>key}" class="selectClientTechnology"/>
-									</Select>
-									<SegmentedButton id="segmentedButtonClientTechnology" selectedKey="{factorCatalog>currentWeight}" select="_onSelectionChange"
-										items="{path: 'factorCatalog>importance', templateShareable: 'true'}" width="17rem">
-										<items>
-											<SegmentedButtonItem text="{path: 'factorCatalog>key', formatter: '.formatter.translate'}" key="{factorCatalog>key}"/>
-										</items>
-									</SegmentedButton>
-								</cells>
-							</ColumnListItem>
-						</Table>
-					</ScrollContainer>
+									<Table id="tableClientTechnologyFactorsHeader" showNoData='false' width="auto">
+										<columns>
+											<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+												<header>
+													<Text text="{i18n>factor}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												</header>
+												<footer/>
+											</Column>
+											<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+												<header>
+													<Text text="{i18n>selection}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												</header>
+												<footer/>
+											</Column>
+											<Column width="auto" hAlign="Center" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+												<header>
+													<Text text="{i18n>importance}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												</header>
+												<footer/>
+											</Column>
+										</columns>
+									</Table>
+									<ScrollContainer height='50rem' vertical='true'>
+										<Table id="tableClientTechnologyFactors" class='tableHeaderUnvisible' items="{factorCatalog>/clientTechnology}" width="auto">
+											<columns>
+												<!-- Dont need columns header, as upper table has already defined them. -->
+												<Column ></Column>
+												<Column ></Column>
+												<Column hAlign="Center"></Column>
+											</columns>
+											<ColumnListItem>
+												<cells>
+													<HBox width="auto" justifyContent="SpaceBetween">
+														<ObjectIdentifier title="{path: 'factorCatalog>factor', formatter: '.formatter.translate'}"/>
+														<Button text="" icon="sap-icon://hint" press="_onDialogButtonPress"/>
+													</HBox>
+													<Select id="selectClientTechnology" change="_onSelectionChange" items="{path: 'factorCatalog>selectionOptions', templateShareable: 'true'}"
+														enabled="{= ${factorCatalog>enabled} === 'True'}" selectedKey="{factorCatalog>currentSelection}" width="17rem">
+														<core:Item text="{path: 'factorCatalog>key', formatter: '.formatter.translate'}" key="{factorCatalog>key}" class="selectClientTechnology"/>
+													</Select>
+													<SegmentedButton id="segmentedButtonClientTechnology" selectedKey="{factorCatalog>currentWeight}" select="_onSelectionChange" width="8rem">
+														<items>
+															<SegmentedButtonItem text="" icon="sap-icon://trend-down" key="low" tooltip="{i18n>low}"/>
+															<SegmentedButtonItem text="" icon="sap-icon://arrow-right" key="medium" tooltip="{i18n>medium}"/>
+															<SegmentedButtonItem text="" icon="sap-icon://trend-up" key="high" tooltip="{i18n>high}"/>
+														</items>
+													</SegmentedButton>
+												</cells>
+											</ColumnListItem>
+										</Table>
+									</ScrollContainer>
+								</content>
+							</IconTabFilter>
+							<IconTabSeparator icon="sap-icon://open-command-field"/>
+							<IconTabFilter icon="sap-icon://synchronize" iconColor="Default" design="Horizontal" key="dataSync"
+								text="{i18n>dataSync}">
+								<content>
+									<HBox width="auto" alignItems="Center" justifyContent="SpaceBetween">
+										<Title id="titleDataSync" text="{i18n>dataSyncLong}" titleStyle="H1" class="sapUiSmallMargin"/>
+										<HBox alignItems="Center">
+											<Label
+												text="({savedProjects>selectionProgress/dataSync/selectedFactors}/{savedProjects&gt;selectionProgress/dataSync/totalFactors})"
+												class="sapUiSmallMargin" design="Bold" textAlign="Right"/>
+											<Button id="changeModeButtonDS" icon="sap-icon://display" press="_onPressChangeMode"
+												ariaDescribedBy="defaultButtonDescription genericButtonDescription">
+												<layoutData>
+													<FlexItemData growFactor="1"/>
+												</layoutData>
+											</Button>
+											<!--progress indicator-->
+										</HBox>
+									</HBox>
+									<Table id="tableDataSyncHeader" showNoData='false' width="auto">
+										<columns>
+											<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+												<header>
+													<Text text="{i18n>factor}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												</header>
+												<footer/>
+											</Column>
+											<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+												<header>
+													<Text text="{i18n>selection}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												</header>
+												<footer/>
+											</Column>
+											<Column width="auto" hAlign="Center" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+												<header>
+													<Text text="{i18n>importance}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												</header>
+												<footer/>
+											</Column>
+										</columns>
+									</Table>
+									<ScrollContainer height='50rem' vertical='true'>
+										<Table id="tableClientDataSync" class='tableHeaderUnvisible' items="{factorCatalog>/dataSync}" width="auto">
+											<columns>
+												<!-- Dont need columns header, as upper table has already defined them. -->
+												<Column ></Column>
+												<Column ></Column>
+												<Column hAlign="Center"></Column>
+											</columns>
+											<ColumnListItem>
+												<cells>
+													<HBox width="auto" justifyContent="SpaceBetween">
+														<ObjectIdentifier title="{path: 'factorCatalog>factor', formatter: '.formatter.translate'}"/>
+														<Button text="" icon="sap-icon://hint" press="_onDialogButtonPress"/>
+													</HBox>
+													<Select id="selectDataSync" change="_onSelectionChange" items="{path: 'factorCatalog>selectionOptions', templateShareable: 'true'}"
+														enabled="{= ${factorCatalog>enabled} === 'True'}" selectedKey="{factorCatalog>currentSelection}" width="17rem">
+														<core:Item text="{path: 'factorCatalog>key', formatter: '.formatter.translate'}" key="{factorCatalog>key}" class="selectClientTechnology"/>
+													</Select>
+													<SegmentedButton id="segmentedButtonDataSync" selectedKey="{factorCatalog>currentWeight}" select="_onSelectionChange" width="8rem">
+														<items>
+															<SegmentedButtonItem text="" icon="sap-icon://trend-down" key="low" tooltip="{i18n>low}"/>
+															<SegmentedButtonItem text="" icon="sap-icon://arrow-right" key="medium" tooltip="{i18n>medium}"/>
+															<SegmentedButtonItem text="" icon="sap-icon://trend-up" key="high" tooltip="{i18n>high}"/>
+														</items>
+													</SegmentedButton>
+												</cells>
+											</ColumnListItem>
+										</Table>
+									</ScrollContainer>
+									
+								</content>
+							</IconTabFilter>
+							<IconTabFilter icon="sap-icon://cloud" iconColor="Default" design="Horizontal" key="operationsCenter"
+								text="{i18n>operatiionsCenter}">
+								<content>
+									<HBox width="auto" alignItems="Center" justifyContent="SpaceBetween">
+										<Title id="titleOperationsCenter" text="{i18n>operationsCenterLong}" titleStyle="H1" class="sapUiSmallMargin"/>
+										<HBox alignItems="Center">
+											<Label
+												text="({savedProjects>selectionProgress/operationsCenter/selectedFactors}/{savedProjects&gt;selectionProgress/operationsCenter/totalFactors})"
+												class="sapUiSmallMargin" design="Bold" textAlign="Right"/>
+											<Button id="changeModeButtonOC" icon="sap-icon://display" press="_onPressChangeMode"
+												ariaDescribedBy="defaultButtonDescription genericButtonDescription">
+												<layoutData>
+													<FlexItemData growFactor="1"/>
+												</layoutData>
+											</Button>
+											<!--progress indicator-->
+										</HBox>
+									</HBox>
+									<Table id="tableOperationsCenterHeader" showNoData='false' width="auto">
+										<columns>
+											<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+												<header>
+													<Text text="{i18n>factor}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												</header>
+												<footer/>
+											</Column>
+											<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+												<header>
+													<Text text="{i18n>selection}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												</header>
+												<footer/>
+											</Column>
+											<Column width="auto" hAlign="Center" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+												<header>
+													<Text text="{i18n>importance}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												</header>
+												<footer/>
+											</Column>
+										</columns>
+									</Table>
+									<ScrollContainer height='50rem' vertical='true'>
+										<Table id="tableClientOPerationsCenter" class='tableHeaderUnvisible' items="{factorCatalog>/operationsCenter}" width="auto">
+											<columns>
+												<!-- Dont need columns header, as upper table has already defined them. -->
+												<Column ></Column>
+												<Column ></Column>
+												<Column hAlign="Center"></Column>
+											</columns>
+											<ColumnListItem>
+												<cells>
+													<HBox width="auto" justifyContent="SpaceBetween">
+														<ObjectIdentifier title="{path: 'factorCatalog>factor', formatter: '.formatter.translate'}"/>
+														<Button text="" icon="sap-icon://hint" press="_onDialogButtonPress"/>
+													</HBox>
+													<Select id="selectOperationsCenter" change="_onSelectionChange" items="{path: 'factorCatalog>selectionOptions', templateShareable: 'true'}"
+														enabled="{= ${factorCatalog>enabled} === 'True'}" selectedKey="{factorCatalog>currentSelection}" width="17rem">
+														<core:Item text="{path: 'factorCatalog>key', formatter: '.formatter.translate'}" key="{factorCatalog>key}" class="selectOperationsCenter"/>
+													</Select>
+													<SegmentedButton id="segmentedButtonOPerationsCentery" selectedKey="{factorCatalog>currentWeight}" select="_onSelectionChange" width="8rem">
+														<items>
+															<SegmentedButtonItem text="" icon="sap-icon://trend-down" key="low" tooltip="{i18n>low}"/>
+															<SegmentedButtonItem text="" icon="sap-icon://arrow-right" key="medium" tooltip="{i18n>medium}"/>
+															<SegmentedButtonItem text="" icon="sap-icon://trend-up" key="high" tooltip="{i18n>high}"/>
+														</items>
+													</SegmentedButton>
+												</cells>
+											</ColumnListItem>
+										</Table>
+									</ScrollContainer>
+								</content>
+							</IconTabFilter>
+							</items>
+							</IconTabBar>
+							
+				
 				</content>
 			</Page>
 		</pages>
