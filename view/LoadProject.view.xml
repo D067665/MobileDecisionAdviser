@@ -48,7 +48,7 @@
 								</header>
 								<footer/>
 							</Column>
-							<Column id="columnCopyButton"  width="auto" hAlign="Center" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+							<Column id="columnCopyButton"  width="4rem" hAlign="Center" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
 								mergeDuplicates="false">
 									<header>
 									<Text id="textColumnTitleCopyButton"  width="auto" maxLines="1" wrapping="false" textAlign="Center" textDirection="Inherit"/>
