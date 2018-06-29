@@ -109,7 +109,7 @@ sap.ui.define([
 				index: path,
 				selectedTab: selectedTab
 			});
-			/*var printFragment = sap.ui.xmlfragment("M3A.fragment.PrintPDF", this);
+		/*var printFragment = sap.ui.xmlfragment("M3A.fragment.PrintPDF", this);
 			printFragment.addEventDelegate({
 				"onAfterRendering": function(oEvent) {
 					debugger;
@@ -132,43 +132,36 @@ sap.ui.define([
 
 					html2pdf().from(element).set(opt).save();
 				}
-			}, this);
-
-			debugger;*/
+			}, this);*/
 		},
-		/* _onPressOpenPrintDialog: function(oEvent){
-		 	 var oView = this.getView();
-         var oDialog = oView.byId("printProjectPag");
-         // create dialog lazily
-         if (!oDialog) {
-            // create dialog via fragment factory
-            oDialog = sap.ui.xmlfragment(oView.getId(), "M3A.fragment.PrintPDF");
-            oView.addDependent(oDialog);
-         }
-
-
-         oDialog.open();
-         var element = this.getView().byId("printProjectPage").getDomRef().innerHTML;
-				
-				
-				var opt = {
-					margin: 0.5,
-					filename: 'MobileTechnologyDecisionAdvisor.pdf',
+			
+		 /*_onPressOpenPrintFragment: function(oEvent){
+		 	var printFragment = sap.ui.xmlfragment("M3A.fragment.PrintPDF", this);
+			printFragment.addEventDelegate({
+				"onAfterRendering": function(oEvent) {
+					setTimeout(function() {
+					debugger;
+					var element = this.getView().byId("printProjectPage").getDomRef().innerHTML;
 					
-					html2canvas: {
-						scale: 2
-					},
-					jsPDF: {
-						unit: 'in',
-						format: 'letter',
-						orientation: 'landscape'
-						
-					}
-				};
+					var opt = {
+						margin: 0.5,
+						filename: 'MobileTechnologyDecisionAdvisorDienstag.pdf',
 
-				html2pdf().from(element).set(opt).save();
-      
-		 	
+						html2canvas: {
+							scale: 2
+						},
+						jsPDF: {
+							unit: 'in',
+							format: 'letter',
+							orientation: 'landscape'
+
+						}
+					};
+
+					html2pdf().from(element).set(opt).save();
+					}.bind(this), 300);
+				}
+			}, this);
 		 },*/
 		_onchangeBackgroundTechnologyFactors: function() {
 			//to change background color of select, even for the dependencies(not selected by user)

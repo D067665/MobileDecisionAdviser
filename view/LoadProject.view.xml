@@ -48,6 +48,13 @@
 								</header>
 								<footer/>
 							</Column>
+							<Column id="columnCopyButton"  width="auto" hAlign="Center" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+								mergeDuplicates="false">
+									<header>
+									<Text id="textColumnTitleCopyButton"  width="auto" maxLines="1" wrapping="false" textAlign="Center" textDirection="Inherit"/>
+								</header>
+								<footer/>
+							</Column>
 						</columns>
 						<items>
 						<ColumnListItem type="Navigation">
@@ -55,6 +62,7 @@
 								<ObjectIdentifier title="{savedProjects>applicationName}" text="{path:'savedProjects>recommendation'}" titleActive="false" visible="true"/>
 								<Text text="{path:'savedProjects>status', formatter: '.formatter.translate'}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
 								<Text text="{path:'savedProjects>lastChangedDate', type: 'sap.ui.model.type.DateTime', formatOptions: { style: 'medium' } }"/>
+								<Button tooltip="Copy Project" icon="sap-icon://copy" press="_handleCopy" /> 
 							</cells>
 						</ColumnListItem>
 						</items>

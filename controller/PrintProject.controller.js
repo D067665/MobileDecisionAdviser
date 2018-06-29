@@ -72,14 +72,15 @@ sap.ui.define([
 				};
 
 				html2pdf().from(element).set(opt).save();
-				//closeDialog
-			
-				this._dialog.close();
-				this._navBackToOverview();
 				
+			
+				//this._dialog.close();
+			this._navBackToOverview();
+			this._dialog.close();
 				
 
 			}.bind(this), 100);
+		
 			
 
 		},

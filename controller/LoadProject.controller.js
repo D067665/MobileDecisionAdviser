@@ -128,6 +128,42 @@ sap.ui.define([
 
 			// save new Model to storage
 			storage.save("savedProjects", savedProjectsModel.getJSON());
+		},
+		_handleCopy: function(oEvent){
+			//get the whole item
+			var oItem = oEvent.getSource().getParent();
+			// get the Index of Item
+			var itemIndex = oItem.getTable().getItems().indexOf(oItem); //0
+			
+		    var sPath = oItem.getBindingContext("savedProjects").getPath(); //"0"
+		    //get the savedProjectsModel
+			var savedProjectsModel = this.getView().getModel("savedProjects");
+			
+			//get Object of savedProjects Model which should be duplicated
+			var oModelItemToClone = savedProjectsModel.getProperty(sPath);
+			var soldProjectName = oModelItemToClone.applicationName;
+			//var oModelItemCloned = oModelItemToClone;
+			//var oModelItemCloned = JSON.parse(JSON.stringify(oModelItemToClone)); 
+			var oModelItemCloned = jQuery.extend(true, {}, oModelItemToClone);
+			oModelItemCloned.applicationName = soldProjectName + " - Copy";
+			
+			
+			//change the application name so you see it's a copy
+		    
+			
+			//get the next index for the new Project
+			var savedProjects = savedProjectsModel.getData();
+			
+			var newProjectIndex = savedProjects.push(oModelItemCloned) - 1;
+			
+			
+		//	savedProjectsModel.setProperty(viewBindingPath + "/" + category + "/" + "operationsCost" + "/" + type, selectedValue);
+			//save the duplicate in the savedProjectsModel
+			//savedProjectsModel.setProperty("/" + newProjectIndex, oModelItemCloned);
+			savedProjectsModel.setData(savedProjects);
+			
+			
+			
 		}
 	});
 });

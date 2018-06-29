@@ -553,7 +553,7 @@
 						</HBox>
 					</HBox>
 					<!-- tabelle für backend -->
-					<Table id="tableClientOperationsCenter" width="auto" class="sapUiSmallMargin">
+					<Table id="tableClientOperationsCenterPrint" width="auto" class="sapUiSmallMargin">
 						<columns>
 							<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
 								<header>
