@@ -48,9 +48,10 @@ sap.ui.define([
 		_onNavBackPress: function(oEvent) {
 			this._onPageNavButtonPress();
 		},
-		_onCloseDialog: function() {
-			this._getDialog().close();
+		_onCloseInformationDialog: function() {
+			this._getInformationDialog().close();
 		},
+
 		_revertChanges: function() {
 			//load the Values that have been saved last
 			this._getSavedProjectsModel().setData(models.createSavedProjectsModel());
@@ -109,33 +110,33 @@ sap.ui.define([
 				index: path,
 				selectedTab: selectedTab
 			});
-		/*var printFragment = sap.ui.xmlfragment("M3A.fragment.PrintPDF", this);
-			printFragment.addEventDelegate({
-				"onAfterRendering": function(oEvent) {
-					debugger;
-					var element = this.getView().byId("printProjectPage").getDomRef().innerHTML;
-					
-					var opt = {
-						margin: 0.5,
-						filename: 'MobileTechnologyDecisionAdvisorDienstag.pdf',
+			/*var printFragment = sap.ui.xmlfragment("M3A.fragment.PrintPDF", this);
+				printFragment.addEventDelegate({
+					"onAfterRendering": function(oEvent) {
+						debugger;
+						var element = this.getView().byId("printProjectPage").getDomRef().innerHTML;
+						
+						var opt = {
+							margin: 0.5,
+							filename: 'MobileTechnologyDecisionAdvisorDienstag.pdf',
 
-						html2canvas: {
-							scale: 2
-						},
-						jsPDF: {
-							unit: 'in',
-							format: 'letter',
-							orientation: 'landscape'
+							html2canvas: {
+								scale: 2
+							},
+							jsPDF: {
+								unit: 'in',
+								format: 'letter',
+								orientation: 'landscape'
 
-						}
-					};
+							}
+						};
 
-					html2pdf().from(element).set(opt).save();
-				}
-			}, this);*/
+						html2pdf().from(element).set(opt).save();
+					}
+				}, this);*/
 		},
-			
-		 /*_onPressOpenPrintFragment: function(oEvent){
+
+		/*_onPressOpenPrintFragment: function(oEvent){
 		 	var printFragment = sap.ui.xmlfragment("M3A.fragment.PrintPDF", this);
 			printFragment.addEventDelegate({
 				"onAfterRendering": function(oEvent) {
@@ -781,7 +782,7 @@ sap.ui.define([
 						"weight": "2"
 					},
 					"selectionOptions": {
-						"key": "internal",
+						"key": "notSelected",
 						"resultInfluence": ["0", "0", "0"]
 					}
 				},
@@ -954,16 +955,17 @@ sap.ui.define([
 				newText = factorName + "_info";
 			}
 			newText = i18nModel.getProperty(newText);
-			this._getDialog().open();
+			this._getInformationDialog().open();
 			sap.ui.getCore().byId('inputText').setText(newText);
 		},
-		_getDialog: function() {
+		_getInformationDialog: function() {
 			// create a fragment with dialog, and pass the selected data
 			if (!this.dialog) {
 				this.dialog = sap.ui.xmlfragment("M3A.fragment.Information", this);
 			}
 			return this.dialog;
 		},
+
 		_loadSavedValues: function(viewBindingPath) {
 			var savedProjectsModel = this._getSavedProjectsModel();
 			var factorCatalogModel = this._getFactorCatalogModel();
@@ -1015,7 +1017,10 @@ sap.ui.define([
 				for (var i = 0; i < categoryFactors.length; i++) {
 					var factorName = categoryFactors[i].factor;
 					var selectedOption = projectValues[category][factorName].selectionOptions.key;
+					var selectedWeight = projectValues[category][factorName].importance.key;
 					factorCatalogModel.setProperty("/" + category + "/" + i + "/currentSelection", selectedOption);
+					factorCatalogModel.setProperty("/" + category + "/" + i + "/currentWeight", selectedWeight);
+					
 				}
 			}
 			//initialize Model

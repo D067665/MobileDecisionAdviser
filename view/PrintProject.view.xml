@@ -4,7 +4,7 @@
 	<App>
 		<pages>
 			<Page title="{i18n>appTitle}" id="printProjectPage" showHeader="true" showFooter="true" showNavButton="false" width="auto"
-				class="sapUiResponsiveContentPadding" >
+				class="sapUiResponsiveContentPadding">
 				<content>
 					<VBox id="printTitle" class="sapUiSmallMargin">
 						<Title text="{i18n>applicationName}: {savedProjects>applicationName}" titleStyle="H2"/>
@@ -12,6 +12,7 @@
 						<Label text="{i18n>owner}: {savedProjects>additionalInformation/owner}"/>
 						<Label text="{i18n>audienceGroup}: {savedProjects>audienceGroup} "/>
 						<Label text="{i18n>users}:{savedProjects>additionalInformation/users} "/>
+						<Label text="{i18n>userGeography}:"/>
 						<Label
 							text="{i18n>userGeography}: {i18n>regional}: {savedProjects>additionalInformation/userGeography/0}, {i18n>local}: {savedProjects>additionalInformation/userGeography/1}, {i18n>global}: {savedProjects>additionalInformation/userGeography/2}"/>
 						<Label text="{i18n>language}: {savedProjects>additionalInformation/language} "/>
@@ -119,7 +120,7 @@
 									</HBox>
 								</cells>
 							</ColumnListItem>
-								<ColumnListItem>
+							<ColumnListItem>
 								<cells>
 									<HBox width="auto" justifyContent="SpaceBetween">
 										<ObjectIdentifier title="{path: 'factorCatalog>/clientTechnology/5/factor', formatter: '.formatter.translate'}"/>
@@ -301,16 +302,13 @@
 									</HBox>
 								</cells>
 							</ColumnListItem>
-							
 						</items>
 					</Table>
 					<!--PDF Seite2-->
-				
 					<!--Notes-->
 					<Text class="html2pdf__page-break"></Text>
 					<StandardListItem title="Notes" icon="sap-icon://notes" class="sapUISmallMargin"></StandardListItem>
 					<TextArea value="" rows="8" height="120px" width="1200px"/>
-				
 					<!--PDF Seite 3-->
 					<!-- Einführung für Data Sync-->
 					<HBox width="100%" alignItems="Center" justifyContent="SpaceBetween">

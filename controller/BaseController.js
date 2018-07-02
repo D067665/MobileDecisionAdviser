@@ -17,6 +17,21 @@ sap.ui.define([
 			} else {
 	*/			this.getRouter().navTo("landing", {}, true /*no history*/ );
 	/*		}
-	*/	}
+	*/	},
+		_onCloseIncludedEnhancementsDialog: function(){
+			this._getIncludedEnhancementsDialog().close();
+		},
+		_getIncludedEnhancementsDialog: function(){
+				if (!this.dialog) {
+				this.dialog = sap.ui.xmlfragment("M3A.fragment.IncludedEnhancements", this);
+			}
+			return this.dialog;
+		},
+		_onFooterVersionButtonPress: function(){
+			
+				var oDialog = this._getIncludedEnhancementsDialog();
+				oDialog.open();
+			
+		}
 	});
 });

@@ -407,7 +407,7 @@
 				</content>
 				<footer>
 					<Toolbar>
-						<Label text="{i18n>version}"/>
+						<Button text="{i18n>version}" press="_onFooterVersionButtonPress"/>
 						<Button text="{i18n>reset}" visible="{= ${savedProjects>selectedIconTab} !=='overview'}" press="_onFooterResetButtonPress"/>
 						<Button id="exportPDFButton3" icon="sap-icon://download" press="_onPressNavPrint" ariaDescribedBy="defaultButtonDescription genericButtonDescription" class="addSpaceBetweenButtons"/>
 						<ToolbarSpacer/>

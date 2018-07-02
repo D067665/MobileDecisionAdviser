@@ -13,7 +13,7 @@
     </l:content>
     </l:Grid>
     <buttons>
-    <Button text = "CLOSE" press = "_onCloseDialog" type = "Reject"/>
+    <Button text = "CLOSE" press = "_onCloseInformationDialog" type = "Reject"/>
     </buttons>
     </Dialog>
 </core:FragmentDefinition>

@@ -70,7 +70,7 @@
 				</content>
 				<footer>
 					<Toolbar>
-						<Label text="{i18n>version}"></Label>
+							<Button text="{i18n>version}" press="_onFooterVersionButtonPress"/>
 						<ToolbarSpacer/>
 						<Button id="buttonNavToCreateProject" text="{i18n>createNewProject}" press="_onNavToCreateProject"></Button>
 					</Toolbar>

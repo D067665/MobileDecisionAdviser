@@ -41,6 +41,7 @@ sap.ui.define([
 			});
 			this.globalVariableIndex = oArgs.index;
 			
+			
 			setTimeout(function() {
 			// instantiate dialog
 			if (!this._dialog) {

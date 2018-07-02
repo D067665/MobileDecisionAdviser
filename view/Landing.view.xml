@@ -19,7 +19,7 @@
 				</content>
 				<footer>
 					<Toolbar>
-						<Label text="{i18n>version}"></Label>
+						<Button text="{i18n>version}" press="_onFooterVersionButtonPress"/>
 						<Button text="" icon="sap-icon://hint" press="_onDialogInstructionPress"/>
 						<ToolbarSpacer/>
 						<Button id="buttonNavToLoadProject" text="{i18n>goToLoadProject}" press="_onNavToLoadProject"></Button>

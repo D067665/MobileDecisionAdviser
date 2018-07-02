@@ -1,0 +1,29 @@
+<core:FragmentDefinition
+	xmlns:core="sap.ui.core" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+	controllerName="M3A.controller.CreateProject"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Dialog title = "Included Enhancements">
+    <l:Grid defaultSpan="L12 M12 S12" width="auto">
+    <l:content>
+    	<Title text= "Included Enhancements" titleStyle ="H2"/>
+    	<Text  text="GER01: Individual Reset Function for each Icon Tab" wrapping="true" editable="false"/>
+    	<Text  text="GER02: Change Background of selected Factor into light blue" wrapping="true" editable="false"/>
+    	<Text  text="GER03: Change from Edit Mode to Read-Only and vice versa" wrapping="true" editable="false"/>
+    	<Text  text="GER04: Download PDF to see content of all Icon Tabs" wrapping="true" editable="false"/>
+    	<Text  text="GER05: Change ScrollContainer - Just the content of Table is scrollable" wrapping="true" editable="false"/>
+    	<Text  text="GER06: Change SegmentedButton of Importance to a smaller Version" wrapping="true" editable="false"/>
+    	<Text  text="GER07: Copy an existing Project" wrapping="true" editable="false"/>
+    	<Title text="Included Bug Fixed" titleStyle ="H2"/>
+    	<Text text="GER01.01: Open savedProjectsModel instead of factorCatalog - also updates Recommendation"/>
+    	<Text text="GER01.02: Reload SegmentedButton - changes on medium directly"/>
+    </l:content>
+    </l:Grid>
+    <buttons>
+    <Button text = "CLOSE" press = "_onCloseIncludedEnhancementsDialog" type = "Reject"/>
+    </buttons>
+    </Dialog>
+</core:FragmentDefinition>
