@@ -2,7 +2,7 @@
     "_version": "1.1.0",
     "sap.app": {
         "_version": "1.1.0",
-        "id": "M3A",
+        "id": "M4A",
         "type": "application",
         "i18n": "i18n/i18n.properties",
         "applicationVersion": {
@@ -39,7 +39,7 @@
     "sap.ui5": {
         "_version": "1.1.0",
         "rootView": {
-            "viewName": "M3A.view.App",
+            "viewName": "M4A.view.App",
             "type": "XML"
         },
         "dependencies": {
@@ -58,33 +58,35 @@
             "i18n": {
                 "type": "sap.ui.model.resource.ResourceModel",
                 "settings": {
-                    "bundleName": "M3A.i18n.i18n"
+                    "bundleName": "M4A.i18n.i18n"
                 }
             }
         },
         "resources": {
-            "css": [{
-            	"uri": "css/style.css"
-			}],
-			"js": [{
-				"uri": "js/jspdf.min.js"
-			},
-			{
-				"uri": "js/jspdf.plugin.autotable.min.js"
-				
-			},{
-			"uri": "js/html2canvas.min.js"},
-			{
-				"uri": "js/html2pdf.js"
-			}
-			 ]
-		
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ],
+            "js": [
+                {
+                    "uri": "js/jspdf.min.js"
+                },
+                {
+                    "uri": "js/jspdf.plugin.autotable.min.js"
+                },
+                {
+                    "uri": "js/html2canvas.min.js"
+                },
+                {
+                    "uri": "js/html2pdf.js"
+                }
+            ]
         },
-        
         "routing": {
             "config": {
                 "routerClass": "sap.m.routing.Router",
-                "viewPath": "M3A.view",
+                "viewPath": "M4A.view",
                 "controlId": "app",
                 "controlAggregation": "pages"
             },
@@ -109,12 +111,13 @@
                     "target": [
                         "createProject"
                     ]
-                },{
-                	"name": "printProject",
-                	"pattern": "printProject/{index}",
-                	"target" : [
-                		"printProject"
-                	]
+                },
+                {
+                    "name": "printProject",
+                    "pattern": "printProject/{index}",
+                    "target": [
+                        "printProject"
+                    ]
                 }
             ],
             "targets": {
@@ -146,14 +149,13 @@
                     "controlId": "app"
                 },
                 "printProject": {
-                	"viewType": "XML",
+                    "viewType": "XML",
                     "transition": "slide",
                     "clearAggregation": true,
                     "viewName": "PrintProject",
                     "viewLevel": 1,
                     "controlAggregation": "pages",
                     "controlId": "app"
-                	
                 }
             }
         }

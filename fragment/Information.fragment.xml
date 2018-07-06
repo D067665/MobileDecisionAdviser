@@ -4,7 +4,7 @@
 	xmlns="sap.m"
 	xmlns:l="sap.ui.layout"
     xmlns:f="sap.ui.layout.form"
-	controllerName="M3A.controller.CreateProject"
+	controllerName="M4A.controller.CreateProject"
 	xmlns:html="http://www.w3.org/1999/xhtml">
 	<Dialog title = "Information">
     <l:Grid defaultSpan="L12 M12 S12" width="auto">

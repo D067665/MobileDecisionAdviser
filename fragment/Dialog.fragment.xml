@@ -2,7 +2,7 @@
 	xmlns:core="sap.ui.core" 
 	xmlns:mvc="sap.ui.core.mvc" 
 	xmlns="sap.m" 
-	controllerName="M3A.controller.LoadProject"
+	controllerName="M4A.controller.LoadProject"
 	xmlns:html="http://www.w3.org/1999/xhtml">
 	<ViewSettingsDialog
 		confirm="_handleConfirm">

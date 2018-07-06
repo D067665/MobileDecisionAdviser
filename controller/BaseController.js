@@ -23,7 +23,7 @@ sap.ui.define([
 		},
 		_getIncludedEnhancementsDialog: function(){
 				if (!this.dialog) {
-				this.dialog = sap.ui.xmlfragment("M3A.fragment.IncludedEnhancements", this);
+				this.dialog = sap.ui.xmlfragment("M4A.fragment.IncludedEnhancements", this);
 			}
 			return this.dialog;
 		},

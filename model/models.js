@@ -1,7 +1,7 @@
 sap.ui.define([
 	"sap/ui/model/json/JSONModel",
 	"sap/ui/Device",
-	"M3A/util/storage"
+	"M4A/util/storage"
 ], function(JSONModel, Device, storage) {
 	"use strict";
 

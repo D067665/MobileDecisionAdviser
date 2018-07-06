@@ -4,15 +4,15 @@ sap.ui.define([
 	'sap/m/MessageToast',
 	'sap/m/Button',
 	'sap/m/Text',
-	"M3A/controller/BaseController",
-	"M3A/model/formatter",
-	"M3A/util/storage",
-	"M3A/model/models",
+	"M4A/controller/BaseController",
+	"M4A/model/formatter",
+	"M4A/util/storage",
+	"M4A/model/models",
 	"sap/ui/core/Fragment"
 
 ], function(MessageBox, MessageToast, Dialog, Button, Text, BaseController, formatter, storage, models) {
 	"use strict";
-	return BaseController.extend("M3A.controller.PrintProject", {
+	return BaseController.extend("M4A.controller.PrintProject", {
 		formatter: formatter,
 		globalVariableIndex:0,
 		onInit: function() {
@@ -45,7 +45,7 @@ sap.ui.define([
 			setTimeout(function() {
 			// instantiate dialog
 			if (!this._dialog) {
-				this._dialog = sap.ui.xmlfragment("M3A.fragment.BusyWhilePrintDialog", this);
+				this._dialog = sap.ui.xmlfragment("M4A.fragment.BusyWhilePrintDialog", this);
 				this.getView().addDependent(this._dialog);
 			}
 

@@ -1,12 +1,12 @@
 sap.ui.define([
 	"sap/ui/core/UIComponent",
 	"sap/ui/Device",
-	"M3A/model/models",
+	"M4A/model/models",
 	"sap/ui/model/resource/ResourceModel"
 ], function(UIComponent, Device, models, ResourceModel) {
 	"use strict";
 
-	return UIComponent.extend("M3A.Component", {
+	return UIComponent.extend("M4A.Component", {
 
 		metadata: {
 			manifest: "json"
@@ -20,7 +20,7 @@ sap.ui.define([
 		init: function() {
 			// set i18n model
         	var i18nModel = new ResourceModel({
-            bundleName : "M3A.i18n.i18n"
+            bundleName : "M4A.i18n.i18n"
         	});
         	this.setModel(i18nModel, "i18n");
 			// set the device model

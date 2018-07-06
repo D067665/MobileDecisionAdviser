@@ -1,6 +1,6 @@
 sap.ui.define([
-	"M3A/controller/BaseController",
-	"M3A/util/storage",
+	"M4A/controller/BaseController",
+	"M4A/util/storage",
 	"jquery.sap.global",
 	"sap/ui/core/Fragment",
 	"sap/ui/model/Filter",
@@ -8,7 +8,7 @@ sap.ui.define([
 ], function(BaseController, storage, jQuery, Fragment, Filter, Sorter) {
 	"use strict";
 
-	return BaseController.extend("M3A.controller.LoadProject", {
+	return BaseController.extend("M4A.controller.LoadProject", {
 		
 		onInit: function(){
 			// set explored app's demo model on this sample
@@ -31,7 +31,7 @@ sap.ui.define([
 		},
 		_handleViewSettingsDialogButtonPressed: function (oEvent) {
 			if (!this._oDialog) {
-				this._oDialog = sap.ui.xmlfragment("M3A.fragment.Dialog", this);
+				this._oDialog = sap.ui.xmlfragment("M4A.fragment.Dialog", this);
 			}
 			// toggle compact style
 			jQuery.sap.syncStyleClass("sapUiSizeCompact", this.getView(), this._oDialog);
@@ -83,7 +83,7 @@ sap.ui.define([
 		},
 		_onNavToCreateProject: function(oEvent) {
 			var that = this;
-			var sUrl = jQuery.sap.getModulePath("M3A.model", "/newProject.json");
+			var sUrl = jQuery.sap.getModulePath("M4A.model", "/newProject.json");
 			$.ajax({
 				type: "GET",
 				url: sUrl,

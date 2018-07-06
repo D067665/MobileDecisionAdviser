@@ -1,12 +1,12 @@
 sap.ui.define([
-	"M3A/controller/BaseController"
+	"M4A/controller/BaseController"
 ], function(BaseController) {
 	"use strict";
 
-	return BaseController.extend("M3A.controller.Landing", {
+	return BaseController.extend("M4A.controller.Landing", {
 		_onNavToCreateProject: function(oEvent) {
 			var that = this;
-			var sUrl = jQuery.sap.getModulePath("M3A.model", "/newProject.json");
+			var sUrl = jQuery.sap.getModulePath("M4A.model", "/newProject.json");
 			$.ajax({
 				type: "GET",
 				url: sUrl,
@@ -45,7 +45,7 @@ sap.ui.define([
 		_getInstructionDialog : function() {
             // create a fragment with dialog, and pass the selected data
             if (!this.dialog) {
-                this.dialog = sap.ui.xmlfragment("M3A.fragment.Instruction", this);
+                this.dialog = sap.ui.xmlfragment("M4A.fragment.Instruction", this);
             }
             return this.dialog;
         },

@@ -4,15 +4,15 @@ sap.ui.define([
 	'sap/m/MessageToast',
 	'sap/m/Button',
 	'sap/m/Text',
-	"M3A/controller/BaseController",
-	"M3A/model/formatter",
-	"M3A/util/storage",
-	"M3A/model/models",
+	"M4A/controller/BaseController",
+	"M4A/model/formatter",
+	"M4A/util/storage",
+	"M4A/model/models",
 	"sap/ui/core/Fragment"
 
 ], function(MessageBox, MessageToast, Dialog, Button, Text, BaseController, formatter, storage, models) {
 	"use strict";
-	return BaseController.extend("M3A.controller.CreateProject", {
+	return BaseController.extend("M4A.controller.CreateProject", {
 		formatter: formatter,
 		_oFactorCatalogModel: null,
 		_oSavedProjectsModel: null,
@@ -110,7 +110,7 @@ sap.ui.define([
 				index: path,
 				selectedTab: selectedTab
 			});
-			/*var printFragment = sap.ui.xmlfragment("M3A.fragment.PrintPDF", this);
+			/*var printFragment = sap.ui.xmlfragment("M4A.fragment.PrintPDF", this);
 				printFragment.addEventDelegate({
 					"onAfterRendering": function(oEvent) {
 						debugger;
@@ -137,7 +137,7 @@ sap.ui.define([
 		},
 
 		/*_onPressOpenPrintFragment: function(oEvent){
-		 	var printFragment = sap.ui.xmlfragment("M3A.fragment.PrintPDF", this);
+		 	var printFragment = sap.ui.xmlfragment("M4A.fragment.PrintPDF", this);
 			printFragment.addEventDelegate({
 				"onAfterRendering": function(oEvent) {
 					setTimeout(function() {
@@ -856,7 +856,7 @@ sap.ui.define([
 								aAdditionalInformationSavedProject);
 							savedProjectsModel.setProperty(viewBindingPath + "/applicationName", sApplicationNameSavedProject);
 
-							/*var sUrl = jQuery.sap.getModulePath("M3A.model", "/newProject.json");
+							/*var sUrl = jQuery.sap.getModulePath("M4A.model", "/newProject.json");
 							$.ajax({
 								type: "GET",
 								url: sUrl,
@@ -961,7 +961,7 @@ sap.ui.define([
 		_getInformationDialog: function() {
 			// create a fragment with dialog, and pass the selected data
 			if (!this.dialog) {
-				this.dialog = sap.ui.xmlfragment("M3A.fragment.Information", this);
+				this.dialog = sap.ui.xmlfragment("M4A.fragment.Information", this);
 			}
 			return this.dialog;
 		},
