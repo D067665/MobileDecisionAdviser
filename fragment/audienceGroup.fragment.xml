@@ -1,0 +1,12 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SegmentedButton id="audienceGroupMobile" selectedKey="{savedProjects>audienceGroup}" width="80%" select="_onSelectionChange">
+		<items>
+			<SegmentedButtonItem id="businessToCustomer" text="B2C" key="businessToCustomer"
+				selectedKey="{savedProjects>audienceGroup/businessToCustomer}"/>
+			<SegmentedButtonItem id="businessToEmployee" text="B2E" key="businessToEmployee"
+				selectedKey="{savedProjects>audienceGroup/businessToEmployee}"/>
+			<SegmentedButtonItem id="businessToBusiness" text="B2B" key="businessToBusiness"
+				selectedKey="{savedProjects>audienceGroup/businessToBusiness}"/>
+		</items>
+	</SegmentedButton>
+</core:FragmentDefinition>

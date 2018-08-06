@@ -19,6 +19,12 @@
 .sapMPage>section.sapMPageEnableScrolling{
 	enableScrolling: false;
 }
+.img {
+
+    max-width: 30rem;
+    height:15rem
+
+}
 
 /*.sapMSegBBtn.sapMSegBBtnSel {
 	background-color:#eff4f9 !important ;

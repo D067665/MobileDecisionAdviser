@@ -19,19 +19,9 @@ sap.ui.define([
 	/*		}
 	*/	},
 		_onCloseIncludedEnhancementsDialog: function(){
-			this._getIncludedEnhancementsDialog().close();
-		},
-		_getIncludedEnhancementsDialog: function(){
-				if (!this.dialog) {
-				this.dialog = sap.ui.xmlfragment("M4A.fragment.IncludedEnhancements", this);
-			}
-			return this.dialog;
-		},
-		_onFooterVersionButtonPress: function(){
-			
-				var oDialog = this._getIncludedEnhancementsDialog();
-				oDialog.open();
-			
+			this.dialog.close();
 		}
+	
+	
 	});
 });

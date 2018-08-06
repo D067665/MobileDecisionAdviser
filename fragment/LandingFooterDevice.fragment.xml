@@ -1,0 +1,14 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:html="http://www.w3.org/1999/xhtml" >
+		
+					<OverflowToolbar >
+						<Button id="buttonNavToLoadProject" text="{i18n>goToLoadProject}" press="_onNavToLoadProject"/>
+						<Button id="buttonNavToCreateProject" text="{i18n>createNewProject}" press="_onNavToCreateProject"/>
+						
+						<Button text="{i18n>version}" press="_onDialogIncludedEnhancementsPress"/>
+						<Button text="" icon="sap-icon://hint" press="_onDialogInstructionPress"/>
+					</OverflowToolbar>
+			
+</core:FragmentDefinition>

@@ -43,12 +43,12 @@
 							<Column id="columnLastChangedDate" width="auto" hAlign="Center" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
 								mergeDuplicates="false">
 								<header>
-									<Text id="textColumnTitleLastChangedDate" text="{i18n>lastChanged}" width="auto" maxLines="1" wrapping="false" textAlign="Center"
+									<Text id="textColumnTitleLastChangedDate" text="{i18n>lastChanged}" width="auto" maxLines="1" wrapping="false" textAlign="Begin"
 										textDirection="Inherit"/>
 								</header>
 								<footer/>
 							</Column>
-							<Column id="columnCopyButton"  width="4rem" hAlign="Center" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline"
+							<Column id="columnCopyButton"  width="4rem" hAlign="Center" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="WithoutHeader"
 								mergeDuplicates="false">
 									<header>
 									<Text id="textColumnTitleCopyButton"  width="auto" maxLines="1" wrapping="false" textAlign="Center" textDirection="Inherit"/>
@@ -70,7 +70,7 @@
 				</content>
 				<footer>
 					<Toolbar>
-							<Button text="{i18n>version}" press="_onFooterVersionButtonPress"/>
+							<Button text="{i18n>version}" press="_onDialogIncludedEnhancementsPress"/>
 						<ToolbarSpacer/>
 						<Button id="buttonNavToCreateProject" text="{i18n>createNewProject}" press="_onNavToCreateProject"></Button>
 					</Toolbar>

@@ -150,7 +150,7 @@
                 },
                 "printProject": {
                     "viewType": "XML",
-                    "transition": "slide",
+                    "transition": "flip",
                     "clearAggregation": true,
                     "viewName": "PrintProject",
                     "viewLevel": 1,

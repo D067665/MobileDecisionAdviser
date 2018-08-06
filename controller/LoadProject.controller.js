@@ -4,14 +4,16 @@ sap.ui.define([
 	"jquery.sap.global",
 	"sap/ui/core/Fragment",
 	"sap/ui/model/Filter",
-	"sap/ui/model/Sorter"
-], function(BaseController, storage, jQuery, Fragment, Filter, Sorter) {
+	"sap/ui/model/Sorter",
+	"M4A/model/models"
+], function(BaseController, storage, jQuery, Fragment, Filter, Sorter,models) {
 	"use strict";
 
 	return BaseController.extend("M4A.controller.LoadProject", {
 		
 		onInit: function(){
 			// set explored app's demo model on this sample
+			
 			var oModel = this.getView().getModel("savedProjects");
 			this.getView().setModel(oModel);
 			this.mGroupFunctions = {
@@ -27,6 +29,27 @@ sap.ui.define([
 		onExit : function () {
 			if (this._oDialog) {
 				this._oDialog.destroy();
+			}
+		},
+			onAfterRendering: function() {
+
+			var oDeviceModel = this.getOwnerComponent().getModel("device");
+			var bDevice = oDeviceModel.getProperty("/system/phone");
+			var oHeader = new sap.m.Text({
+				id: "textColumnTitleCopyButtonText",
+				text: "Copy Project",
+				width: "auto",
+				maxLines: 1,
+				wrapping: false,
+				textAlign: "Center",
+				textDirection: "Inherit"
+
+			});
+
+			if (bDevice === true) {
+
+				this.byId("columnCopyButton").setHeader(oHeader);
+
 			}
 		},
 		_handleViewSettingsDialogButtonPressed: function (oEvent) {
@@ -164,6 +187,21 @@ sap.ui.define([
 			
 			
 			
+		},
+			_onDialogIncludedEnhancementsPress: function(oEvent) {
+			
+			this._getIncludedEnhancementsDialog().open();
+
+		},
+		_getIncludedEnhancementsDialog: function() {
+			
+			
+
+			this.dialog = sap.ui.xmlfragment("M4A.fragment.IncludedEnhancements", this);
+			var i18nModel = this.getView().getModel("i18n");
+			this.dialog.setModel(i18nModel, "i18n"); 
+
+			return this.dialog;
 		}
 	});
 });

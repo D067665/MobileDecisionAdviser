@@ -1,31 +1,34 @@
-<mvc:View controllerName="M4A.controller.Landing" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-	xmlns="sap.m">
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="M4A.controller.Landing" displayBlock="true">
 	<App>
 		<pages>
-			<Page title="{i18n>appTitle}" showHeader="true">
+			<Page title="{i18n>appTitle}" id="landingPage" showHeader="true">
 				<content>
+					
+					
 					<FlexBox alignItems="Center" justifyContent="Center">
-						<Title text="{i18n>welcomeText}" titleStyle="H1" class="sapUiLargeMarginTop"></Title>
+						<Title text="{i18n>welcomeText}" titleStyle="H1" class="sapUiLargeMarginTop sapUiVisibleOnlyOnDesktop" width="auto"/>
 					</FlexBox>
 					<FlexBox alignItems="Center" justifyContent="Center">
-						<Title text="{i18n>welcomeHeader}" titleStyle="H2" class="sapUiSmallMargin"></Title>
+						<Title text="{i18n>welcomeHeader}" titleStyle="H2" class="sapUiSmallMargin" width="auto"/>
 					</FlexBox>
 					<FlexBox alignItems="Center" justifyContent="Center">
-						<Text text="{i18n>landingTask}" textAlign="Left"></Text>
+						<Text text="{i18n>landingTask}" textAlign="Left" width="auto"/>
 					</FlexBox>
 					<FlexBox alignItems="Center" justifyContent="Center" class="sapUiSmallMargin">
-						<Image src="img/landingimg.jpg" width="60rem" height="35rem" class="sapUiSmallMargin"/>
+						<Image src="img/landingimg.jpg" id="landingImage" width="60rem" height="35rem" class="sapUiSmallMargin "/>
 					</FlexBox>
-				</content>
-				<footer>
-					<Toolbar>
-						<Button text="{i18n>version}" press="_onFooterVersionButtonPress"/>
+					</content>
+				
+				<footer  >
+					<Toolbar id="landingToolbar" >
+						<Button text="{i18n>version}" press="_onDialogIncludedEnhancementsPress"/>
 						<Button text="" icon="sap-icon://hint" press="_onDialogInstructionPress"/>
 						<ToolbarSpacer/>
-						<Button id="buttonNavToLoadProject" text="{i18n>goToLoadProject}" press="_onNavToLoadProject"></Button>
-						<Button id="buttonNavToCreateProject" text="{i18n>createNewProject}" press="_onNavToCreateProject"></Button>
+						<Button id="buttonNavToLoadProject" text="{i18n>goToLoadProject}" press="_onNavToLoadProject"/>
+						<Button id="buttonNavToCreateProject" text="{i18n>createNewProject}" press="_onNavToCreateProject"/>
 					</Toolbar>
 				</footer>
+				
 			</Page>
 		</pages>
 	</App>
